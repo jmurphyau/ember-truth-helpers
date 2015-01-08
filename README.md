@@ -40,6 +40,10 @@ Helpers for HTMLBars `{{#if}}` & `{{#unless}}`:
     (returns myJumper if itsCold is truthy, otherwise returns itsCold ('false'))
     
 
+## Install
+
+* `ember install:addon ember-truth-helpers`
+
 ## Development
 
 * `git clone https://github.com/jmurphyau/ember-truth-helpers.git`
