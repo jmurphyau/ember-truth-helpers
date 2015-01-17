@@ -3,42 +3,48 @@
 Helpers for HTMLBars `{{#if}}` & `{{#unless}}`: 
 
 **`eq`**
-
-    {{#if (eq 1 2)}} 1 == 2 {{/if}}
-    {{#unless (eq 1 2)}} 1 != 2 {{/unless}}
+```hbs
+{{#if (eq 1 2)}} 1 == 2 {{/if}}
+{{#unless (eq 1 2)}} 1 != 2 {{/unless}}
+```
 
 **`not`**
-
-    {{#if (not hasCrayons)}} I don't have crayons {{/if}}
-    {{#if (not hasCrayons hasPaper)}} I don't have crayons or paper {{/if}}
+```hbs
+{{#if (not hasCrayons)}} I don't have crayons {{/if}}
+{{#if (not hasCrayons hasPaper)}} I don't have crayons or paper {{/if}}
+```
 
 **`and`**
-
-    {{#if (and hasCrayons hasPaper)}} I have crayons and paper {{/if}}
+```hbs
+{{#if (and hasCrayons hasPaper)}} I have crayons and paper {{/if}}
+```
 
 **`or`**
-
-    {{#if (or hasCrayons hasPaper)}} I have something {{/if}}
+```hbs
+{{#if (or hasCrayons hasPaper)}} I have something {{/if}}
+```
 
 **`is-array`**
+```hbs
+{{#if (is-array siblings)}} 
+    {{#each siblings as |sibling|}} 
+        My sibling: {{sibling}} 
+    {{/each}} 
+{{/if}}
+```
 
-    {{#if (is-array siblings)}} 
-        {{#each siblings as |sibling|}} 
-            My sibling: {{sibling}} 
-        {{/each}} 
-    {{/if}}
-    
 **`in combination`**
+```hbs
+{{#if (and (not model.isLoading) model.isError)}}
+    There was an error loading the model
+{{/if}}
+```
 
-    {{#if (and (not model.isLoading) model.isError)}}
-    		There was an error loading the model
-    {{/if}}
-    
 **`stand alone`**
-
-    {{and itsCold myJumper}} 
-    (returns myJumper if itsCold is truthy, otherwise returns itsCold ('false'))
-    
+```hbs
+{{and itsCold myJumper}} 
+<!--returns `myJumper` if `itsCold` is truthy, otherwise returns `itsCold`-->
+```
 
 ## Install
 
