@@ -1,4 +1,3 @@
-import Ember from 'ember';
 import truthConvert from '../utils/truth-convert';
 
 export function notHelper(params) {
