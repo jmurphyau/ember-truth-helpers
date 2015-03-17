@@ -1,5 +1,5 @@
-
 import Ember from 'ember';
+import { module, test } from 'qunit';
 import {
 	registerHelper
 } from 'ember-truth-helpers/utils/register-helper';

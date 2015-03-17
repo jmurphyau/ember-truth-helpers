@@ -1,3 +1,4 @@
+import { module, test } from 'qunit';
 import truthConvert from 'ember-truth-helpers/utils/truth-convert';
 
 module('truthConvert');
