@@ -1,6 +1,6 @@
-# Ember Truth Helpers for HTMLBars
+# Ember Truth Helpers for HTMLBars [![Build Status](https://travis-ci.org/jmurphyau/ember-truth-helpers.svg?branch=master)](https://travis-ci.org/jmurphyau/ember-truth-helpers)
 
-Helpers for HTMLBars `{{#if}}` & `{{#unless}}`: 
+Helpers for HTMLBars `{{#if}}` & `{{#unless}}`:
 
 **`eq`**
 ```hbs
@@ -26,10 +26,10 @@ Helpers for HTMLBars `{{#if}}` & `{{#unless}}`:
 
 **`is-array`**
 ```hbs
-{{#if (is-array siblings)}} 
-    {{#each siblings as |sibling|}} 
-        My sibling: {{sibling}} 
-    {{/each}} 
+{{#if (is-array siblings)}}
+    {{#each siblings as |sibling|}}
+        My sibling: {{sibling}}
+    {{/each}}
 {{/if}}
 ```
 
@@ -42,7 +42,7 @@ Helpers for HTMLBars `{{#if}}` & `{{#unless}}`:
 
 **`stand alone`**
 ```hbs
-{{and itsCold myJumper}} 
+{{and itsCold myJumper}}
 <!--returns `myJumper` if `itsCold` is truthy, otherwise returns `itsCold`-->
 ```
 
