@@ -25,6 +25,6 @@ test('it works', function() {
 */
 
 module('TruthHelpersInitializer');
-test('it works', function() {
-  ok(true);
+test('it works', function(assert) {
+  assert.ok(true);
 });

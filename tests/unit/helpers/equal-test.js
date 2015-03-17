@@ -4,23 +4,23 @@ import {
   equalHelper
 } from 'ember-truth-helpers/helpers/equal';
 
-module('EqualHelper');
+module('EqualHelper', {
+  beforeEach: function() {
+    registerHelper('eq',equalHelper);
+  }
+});
 
-test('simple test 1', function() {
-  registerHelper('eq',equalHelper);
-  
+test('simple test 1', function(assert) {
   var view = Ember.View.create({
     template: Ember.HTMLBars.compile("[{{eq true true}}] [{{eq true false}}] [{{eq false true}}] [{{eq false false}}]"),
   });
-  
+
   Ember.run(view, 'appendTo', '#ember-testing');
-  
-  equal(view.$().text(), '[true] [false] [false] [true]', 'value should be "[true] [false] [false] [true]"');
+
+  assert.equal(view.$().text(), '[true] [false] [false] [true]', 'value should be "[true] [false] [false] [true]"');
 });
 
-test('simple test 2', function() {
-  registerHelper('eq',equalHelper);
-  
+test('simple test 2', function(assert) {
   var fakeContextObject = Ember.Object.create({
     valueA: null,
     valueB: null
@@ -35,16 +35,16 @@ test('simple test 2', function() {
 
   Ember.run(view, 'appendTo', '#ember-testing');
 
-  equal(view.$().text(), '[true] [true]', 'value should be "[true] [true]"');
-  
+  assert.equal(view.$().text(), '[true] [true]', 'value should be "[true] [true]"');
+
   Ember.run(fakeContextObject, 'set', 'valueA', undefined);
-  equal(view.$().text(), '[false] [false]', 'value should be "[false] [false]"');
-  
+  assert.equal(view.$().text(), '[false] [false]', 'value should be "[false] [false]"');
+
   Ember.run(fakeContextObject, 'set', 'valueB', undefined);
-  equal(view.$().text(), '[true] [true]', 'value should be "[true] [true]"');
-  
+  assert.equal(view.$().text(), '[true] [true]', 'value should be "[true] [true]"');
+
   Ember.run(fakeContextObject, 'set', 'valueA', 'yellow');
   Ember.run(fakeContextObject, 'set', 'valueB', 'yellow');
-  equal(view.$().text(), '[true] [true]', 'value should be "[true] [true]"');
-  
+  assert.equal(view.$().text(), '[true] [true]', 'value should be "[true] [true]"');
+
 });

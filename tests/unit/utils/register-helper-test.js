@@ -6,7 +6,7 @@ import {
 
 module('RegisterHelper');
 
-test('simple test 1', function() {
+test('simple test 1', function(assert) {
 	registerHelper('display-value', function(params) { return params[0]; });
 
 	var fakeContextObject = Ember.Object.create({
@@ -23,19 +23,19 @@ test('simple test 1', function() {
 
 	Ember.run(view, 'appendTo', '#ember-testing');
 
-	equal(view.$().text(), '[] [false] [] []', 'value should be "[] [false] [] []"');
+	assert.equal(view.$().text(), '[] [false] [] []', 'value should be "[] [false] [] []"');
 
 	Ember.run(fakeContextObject, 'set', 'valueA', undefined);
-	equal(view.$().text(), '[] [false] [] []', 'value should be "[] [false] [] []"');
+	assert.equal(view.$().text(), '[] [false] [] []', 'value should be "[] [false] [] []"');
 
 	Ember.run(fakeContextObject, 'set', 'valueB', undefined);
-	equal(view.$().text(), '[] [false] [] []', 'value should be "[] [false] [] []"');
+	assert.equal(view.$().text(), '[] [false] [] []', 'value should be "[] [false] [] []"');
 
 	Ember.run(fakeContextObject, 'set', 'valueA', 'yellow');
-	equal(view.$().text(), '[] [false] [yellow] []', 'value should be "[] [false] [yellow] []"');
-	
+	assert.equal(view.$().text(), '[] [false] [yellow] []', 'value should be "[] [false] [yellow] []"');
+
 	Ember.run(fakeContextObject, 'set', 'valueA', 'blue');
 	Ember.run(fakeContextObject, 'set', 'valueB', 'green');
-	equal(view.$().text(), '[] [false] [blue] [green]', 'value should be "[] [false] [blue] [green]"');
+	assert.equal(view.$().text(), '[] [false] [blue] [green]', 'value should be "[] [false] [blue] [green]"');
 
 });
