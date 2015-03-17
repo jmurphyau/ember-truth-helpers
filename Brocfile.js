@@ -18,4 +18,5 @@ var app = new EmberAddon();
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
 
+if (app.env === 'test' || app.env === 'development') { app.import('bower_components/ember/ember-template-compiler.js', { type: 'vendor' }); }
 module.exports = app.toTree();
