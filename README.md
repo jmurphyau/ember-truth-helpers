@@ -1,6 +1,8 @@
 # Ember Truth Helpers for HTMLBars [![Build Status](https://travis-ci.org/jmurphyau/ember-truth-helpers.svg?branch=master)](https://travis-ci.org/jmurphyau/ember-truth-helpers)
 
-Helpers for HTMLBars `{{#if}}` & `{{#unless}}`:
+Helpers for HTMLBars `{{#if}}` & `{{#unless}}`.
+
+`eq`, `not`, `and`, `or` and `is-array`.
 
 **`eq`**
 ```hbs
@@ -49,6 +51,10 @@ Helpers for HTMLBars `{{#if}}` & `{{#unless}}`:
 ## Install
 
 * `ember install:addon ember-truth-helpers`
+
+## Other Helpers
+
+* [ember-get-helper](https://github.com/jmurphyau/ember-get-helper)
 
 ## Development
 
