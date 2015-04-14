@@ -1,5 +1,7 @@
 ---
 language: node_js
+node_js:
+  - "0.12"
 
 sudo: false
 
@@ -18,4 +20,3 @@ install:
 
 script:
   - npm test
-  
