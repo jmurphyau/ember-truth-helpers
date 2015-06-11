@@ -5,43 +5,43 @@ module.exports = {
       dependencies: { }
     },
     {
-      name: 'Ember 1.10.0',
+      name: 'ember-1.10.0',
       dependencies: { 'ember': '1.10.0' }
     },
     {
-      name: 'Ember 1.10.1',
+      name: 'ember-1.10.1',
       dependencies: { 'ember': '1.10.1' }
     },
     {
-      name: 'Ember 1.11.0',
+      name: 'ember-1.11.0',
       dependencies: { 'ember': '1.11.0' }
     },
     {
-      name: 'Ember 1.11.1',
+      name: 'ember-1.11.1',
       dependencies: { 'ember': '1.11.1' }
     },
     {
-      name: 'Ember 1.11.2',
+      name: 'ember-1.11.2',
       dependencies: { 'ember': '1.11.2' }
     },
     {
-      name: 'Ember 1.11.3',
+      name: 'ember-1.11.3',
       dependencies: { 'ember': '1.11.2' }
     },
     {
-      name: 'Ember 1.12.0',
+      name: 'ember-1.12.0',
       dependencies: { 'ember': '1.12.0' }
     },
     {
-      name: 'Ember 1.12.1',
+      name: 'ember-1.12.1',
       dependencies: { 'ember': '1.12.1' }
     },
     {
-      name: 'Ember 1.13.0 Beta 1',
+      name: 'ember-1.13.0 Beta 1',
       dependencies: { 'ember': '1.13.0-beta.1' }
     },
     {
-      name: 'Ember 1.13.0 Beta 2',
+      name: 'ember-1.13.0 Beta 2',
       dependencies: { 'ember': '1.13.0-beta.2' }
     },
     {
