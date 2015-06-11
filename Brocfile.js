@@ -3,20 +3,16 @@
 
 var EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 
+/*
+  This Brocfile specifes the options for the dummy test app of this
+  addon, located in `/tests/dummy`
+
+  This Brocfile does *not* influence how the addon or the app using it
+  behave. You most likely want to be modifying `./index.js` or app's Brocfile
+*/
+
 var app = new EmberAddon();
 
-// Use `app.import` to add additional libraries to the generated
-// output files.
-//
-// If you need to use different assets in different
-// environments, specify an object as the first parameter. That
-// object's keys should be the environment name and the values
-// should be the asset to use in that environment.
-//
-// If the library that you are including contains AMD or ES6
-// modules that you would like to import into your application
-// please specify an object with the list of modules as keys
-// along with the exports of each module as its value.
+if (app.env !== 'production') { app.import('bower_components/ember/ember-template-compiler.js', { type: 'vendor' }); }
 
-if (app.env === 'test' || app.env === 'development') { app.import('bower_components/ember/ember-template-compiler.js', { type: 'vendor' }); }
 module.exports = app.toTree();
