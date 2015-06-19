@@ -37,12 +37,18 @@ module.exports = {
       dependencies: { 'ember': '1.12.1' }
     },
     {
-      name: 'ember-1.13.0 Beta 1',
-      dependencies: { 'ember': '1.13.0-beta.1' }
+      name: 'ember-1.13.0',
+      dependencies: { 'ember': '1.13.0' }
     },
+    ,
     {
-      name: 'ember-1.13.0 Beta 2',
-      dependencies: { 'ember': '1.13.0-beta.2' }
+      name: 'ember-1.13.1',
+      dependencies: { 'ember': '1.13.1' }
+    },
+    ,
+    {
+      name: 'ember-1.13.2',
+      dependencies: { 'ember': '1.13.2' }
     },
     {
       name: 'ember-release',
