@@ -1,8 +1,21 @@
-# Ember Truth Helpers for HTMLBars [![Build Status](https://travis-ci.org/jmurphyau/ember-truth-helpers.svg?branch=master)](https://travis-ci.org/jmurphyau/ember-truth-helpers)
+# Ember Truth Helpers [![Build Status](https://travis-ci.org/jmurphyau/ember-truth-helpers.svg?branch=master)](https://travis-ci.org/jmurphyau/ember-truth-helpers)
 
-Helpers for HTMLBars `{{#if}}` & `{{#unless}}`.
+HTMLBars template helpers for additional truth logic in `if` and `unless` statements.
 
-`eq`, `not`, `and`, `or` and `is-array`.
+## Usage
+
+Helper   | JavaScript                           | HTMLBars
+---------|--------------------------------------|-------------------
+eq       | `if (a === b)`                       | `{{if (eq a b)}}`
+not-eq   | `if (a !== b)`                       | `{{if (not-eq a b)}}`
+not      | `if (!a)`                            | `{{if (not a)}}`
+and      | `if (a && b)`                        | `{{if (and a b)}}`
+or       | <code>if (a &#124;&#124; b)</code>   | `{{if (or a b)}}`
+gt       | `if (a > b)`                         | `{{if (gt a b)}}`
+gte      | `if (a >= b)`                        | `{{if (gte a b)}}`
+lt       | `if (a < b)`                         | `{{if (lt a b)}}`
+lte      | `if (a <= b)`                        | `{{if (lte a b)}}`
+is-array | [Info TBA]                           | [Info TBA]
 
 **`eq`**
 ```hbs

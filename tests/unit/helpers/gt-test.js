@@ -71,13 +71,3 @@ test('decimals in strings', function(assert) {
 
   assert.equal(view.$().text(), '[false] [true] [false] [false]', 'value should be "[false] [true] [false] [false]"');
 });
-
-// test('string values', function(assert) {
-//   var view = Ember.View.create({
-//     template: Ember.HTMLBars.compile('[{{and " " " "}}] [{{and " " ""}}] [{{and "" " "}}] [{{and "" ""}}]'),
-//   });
-//
-//   Ember.run(view, 'appendTo', '#ember-testing');
-//
-//   assert.equal(view.$().text(), '[ ] [] [] []', 'value should be "[ ] [] [] []"');
-// });

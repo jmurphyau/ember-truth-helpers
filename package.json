@@ -1,7 +1,7 @@
 {
   "name": "ember-truth-helpers",
   "version": "0.0.5",
-  "description": "Ember HTMLBars Helpers for {{if}} & {{unless}}: not, and, or, eq & is-array",
+  "description": "Ember Truth Helpers",
   "directories": {
     "doc": "doc",
     "test": "tests"
