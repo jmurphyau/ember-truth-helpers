@@ -15,51 +15,7 @@ gt       | `if (a > b)`                         | `{{if (gt a b)}}`
 gte      | `if (a >= b)`                        | `{{if (gte a b)}}`
 lt       | `if (a < b)`                         | `{{if (lt a b)}}`
 lte      | `if (a <= b)`                        | `{{if (lte a b)}}`
-is-array | [Info TBA]                           | [Info TBA]
-
-**`eq`**
-```hbs
-{{#if (eq 1 2)}} 1 == 2 {{/if}}
-{{#unless (eq 1 2)}} 1 != 2 {{/unless}}
-```
-
-**`not`**
-```hbs
-{{#if (not hasCrayons)}} I don't have crayons {{/if}}
-{{#if (not hasCrayons hasPaper)}} I don't have crayons or paper {{/if}}
-```
-
-**`and`**
-```hbs
-{{#if (and hasCrayons hasPaper)}} I have crayons and paper {{/if}}
-```
-
-**`or`**
-```hbs
-{{#if (or hasCrayons hasPaper)}} I have something {{/if}}
-```
-
-**`is-array`**
-```hbs
-{{#if (is-array siblings)}}
-    {{#each siblings as |sibling|}}
-        My sibling: {{sibling}}
-    {{/each}}
-{{/if}}
-```
-
-**`in combination`**
-```hbs
-{{#if (and (not model.isLoading) model.isError)}}
-    There was an error loading the model
-{{/if}}
-```
-
-**`stand alone`**
-```hbs
-{{and itsCold myJumper}}
-<!--returns `myJumper` if `itsCold` is truthy, otherwise returns `itsCold`-->
-```
+is-array | `if (Ember.isArray(a))`              | `{{if (is-array a)}}`
 
 ## Install
 
