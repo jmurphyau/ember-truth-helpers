@@ -35,6 +35,15 @@ Helpers for HTMLBars `{{#if}}` & `{{#unless}}`.
 {{/if}}
 ```
 
+**`in-array`**
+```hbs
+{{#if (in-array user company.employees)}}
+    You work for this company!
+{{else}}
+    We're hiring!
+{{/if}}
+```
+
 **`in combination`**
 ```hbs
 {{#if (and (not model.isLoading) model.isError)}}
