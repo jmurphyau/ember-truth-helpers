@@ -1,52 +1,21 @@
-# Ember Truth Helpers for HTMLBars [![Build Status](https://travis-ci.org/jmurphyau/ember-truth-helpers.svg?branch=master)](https://travis-ci.org/jmurphyau/ember-truth-helpers)
+# Ember Truth Helpers [![Build Status](https://travis-ci.org/jmurphyau/ember-truth-helpers.svg?branch=master)](https://travis-ci.org/jmurphyau/ember-truth-helpers)
 
-Helpers for HTMLBars `{{#if}}` & `{{#unless}}`.
+HTMLBars template helpers for additional truth logic in `if` and `unless` statements.
 
-`eq`, `not`, `and`, `or` and `is-array`.
+## Usage
 
-**`eq`**
-```hbs
-{{#if (eq 1 2)}} 1 == 2 {{/if}}
-{{#unless (eq 1 2)}} 1 != 2 {{/unless}}
-```
-
-**`not`**
-```hbs
-{{#if (not hasCrayons)}} I don't have crayons {{/if}}
-{{#if (not hasCrayons hasPaper)}} I don't have crayons or paper {{/if}}
-```
-
-**`and`**
-```hbs
-{{#if (and hasCrayons hasPaper)}} I have crayons and paper {{/if}}
-```
-
-**`or`**
-```hbs
-{{#if (or hasCrayons hasPaper)}} I have something {{/if}}
-```
-
-**`is-array`**
-```hbs
-{{#if (is-array siblings)}}
-    {{#each siblings as |sibling|}}
-        My sibling: {{sibling}}
-    {{/each}}
-{{/if}}
-```
-
-**`in combination`**
-```hbs
-{{#if (and (not model.isLoading) model.isError)}}
-    There was an error loading the model
-{{/if}}
-```
-
-**`stand alone`**
-```hbs
-{{and itsCold myJumper}}
-<!--returns `myJumper` if `itsCold` is truthy, otherwise returns `itsCold`-->
-```
+Helper   | JavaScript                           | HTMLBars
+---------|--------------------------------------|-------------------
+eq       | `if (a === b)`                       | `{{if (eq a b)}}`
+not-eq   | `if (a !== b)`                       | `{{if (not-eq a b)}}`
+not      | `if (!a)`                            | `{{if (not a)}}`
+and      | `if (a && b)`                        | `{{if (and a b)}}`
+or       | <code>if (a &#124;&#124; b)</code>   | `{{if (or a b)}}`
+gt       | `if (a > b)`                         | `{{if (gt a b)}}`
+gte      | `if (a >= b)`                        | `{{if (gte a b)}}`
+lt       | `if (a < b)`                         | `{{if (lt a b)}}`
+lte      | `if (a <= b)`                        | `{{if (lte a b)}}`
+is-array | `if (Ember.isArray(a))`              | `{{if (is-array a)}}`
 
 ## Install
 
