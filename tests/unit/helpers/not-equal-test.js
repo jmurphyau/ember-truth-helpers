@@ -12,8 +12,8 @@ module('NotEqualHelper', {
 });
 
 test('simple test 1', function(assert) {
-  var view = Ember.View.create({
-    template: Ember.HTMLBars.compile("[{{not-eq true true}}] [{{not-eq true false}}] [{{not-eq false true}}] [{{not-eq false false}}]"),
+  var view = Ember.Component.create({
+    layout: Ember.HTMLBars.compile("[{{not-eq true true}}] [{{not-eq true false}}] [{{not-eq false true}}] [{{not-eq false false}}]"),
   });
 
   Ember.run(view, 'appendTo', '#ember-testing');
@@ -27,11 +27,9 @@ test('simple test 2', function(assert) {
     valueB: null
   });
 
-  var view = Ember.View.create({
-    context: {
-      contextChild: fakeContextObject
-    },
-    template: Ember.HTMLBars.compile("[{{not-eq contextChild.valueA contextChild.valueB}}] [{{not-eq contextChild.valueB contextChild.valueA}}]"),
+  var view = Ember.Component.create({
+    contextChild: fakeContextObject,
+    layout: Ember.HTMLBars.compile("[{{not-eq contextChild.valueA contextChild.valueB}}] [{{not-eq contextChild.valueB contextChild.valueA}}]"),
   });
 
   Ember.run(view, 'appendTo', '#ember-testing');
