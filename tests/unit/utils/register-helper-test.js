@@ -14,11 +14,9 @@ test('simple test 1', function(assert) {
 		valueB: null
 	});
 
-	var view = Ember.View.create({
-		context: {
-			contextChild: fakeContextObject
-		},
-		template: Ember.HTMLBars.compile("[{{display-value null}}] [{{display-value false}}] [{{display-value contextChild.valueA}}] [{{display-value contextChild.valueB}}]"),
+	var view = Ember.Component.create({
+		contextChild: fakeContextObject,
+		layout: Ember.HTMLBars.compile("[{{display-value null}}] [{{display-value false}}] [{{display-value contextChild.valueA}}] [{{display-value contextChild.valueB}}]"),
 	});
 
 	Ember.run(view, 'appendTo', '#ember-testing');

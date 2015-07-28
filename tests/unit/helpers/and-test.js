@@ -13,8 +13,8 @@ module('AndHelper', {
 
 // Replace this with your real tests.
 test('boolean values', function(assert) {
-  var view = Ember.View.create({
-    template: Ember.HTMLBars.compile("[{{and true true}}] [{{and true false}}] [{{and false true}}] [{{and false false}}]"),
+  var view = Ember.Component.create({
+    layout: Ember.HTMLBars.compile("[{{and true true}}] [{{and true false}}] [{{and false true}}] [{{and false false}}]"),
   });
 
   Ember.run(view, 'appendTo', '#ember-testing');
@@ -23,8 +23,8 @@ test('boolean values', function(assert) {
 });
 
 test('integer values', function(assert) {
-  var view = Ember.View.create({
-    template: Ember.HTMLBars.compile("[{{and 1 1}}] [{{and 1 0}}] [{{and 0 1}}] [{{and 0 0}}]"),
+  var view = Ember.Component.create({
+    layout: Ember.HTMLBars.compile("[{{and 1 1}}] [{{and 1 0}}] [{{and 0 1}}] [{{and 0 0}}]"),
   });
 
   Ember.run(view, 'appendTo', '#ember-testing');
@@ -33,8 +33,8 @@ test('integer values', function(assert) {
 });
 
 test('string values', function(assert) {
-  var view = Ember.View.create({
-    template: Ember.HTMLBars.compile('[{{and " " " "}}] [{{and " " ""}}] [{{and "" " "}}] [{{and "" ""}}]'),
+  var view = Ember.Component.create({
+    layout: Ember.HTMLBars.compile('[{{and " " " "}}] [{{and " " ""}}] [{{and "" " "}}] [{{and "" ""}}]'),
   });
 
   Ember.run(view, 'appendTo', '#ember-testing');

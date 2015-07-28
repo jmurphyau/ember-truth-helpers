@@ -12,8 +12,8 @@ module('NotHelper', {
 });
 
 test('simple test 1', function(assert) {
-  var view = Ember.View.create({
-    template: Ember.HTMLBars.compile("[{{not true}}] [{{not false}}] [{{not null}}] [{{not undefined}}] [{{not ''}}] [{{not ' '}}]"),
+  var view = Ember.Component.create({
+    layout: Ember.HTMLBars.compile("[{{not true}}] [{{not false}}] [{{not null}}] [{{not undefined}}] [{{not ''}}] [{{not ' '}}]"),
   });
 
   Ember.run(view, 'appendTo', '#ember-testing');
@@ -22,8 +22,8 @@ test('simple test 1', function(assert) {
 });
 
 test('simple test 2', function(assert) {
-  var view = Ember.View.create({
-    template: Ember.HTMLBars.compile("[{{not true false}}] [{{not true false}}] [{{not null null false null}}] [{{not false null ' ' true}}]"),
+  var view = Ember.Component.create({
+    layout: Ember.HTMLBars.compile("[{{not true false}}] [{{not true false}}] [{{not null null false null}}] [{{not false null ' ' true}}]"),
   });
 
   Ember.run(view, 'appendTo', '#ember-testing');

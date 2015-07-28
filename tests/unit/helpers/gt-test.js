@@ -13,8 +13,8 @@ module('GtHelper', {
 
 // Replace this with your real tests.
 test('boolean values', function(assert) {
-  var view = Ember.View.create({
-    template: Ember.HTMLBars.compile("[{{gt true true}}] [{{gt true false}}] [{{gt false true}}] [{{gt false false}}]"),
+  var view = Ember.Component.create({
+    layout: Ember.HTMLBars.compile("[{{gt true true}}] [{{gt true false}}] [{{gt false true}}] [{{gt false false}}]"),
   });
 
   Ember.run(view, 'appendTo', '#ember-testing');
@@ -23,8 +23,8 @@ test('boolean values', function(assert) {
 });
 
 test('integer values', function(assert) {
-  var view = Ember.View.create({
-    template: Ember.HTMLBars.compile("[{{gt 1 1}}] [{{gt 1 0}}] [{{gt 0 1}}] [{{gt 0 0}}]"),
+  var view = Ember.Component.create({
+    layout: Ember.HTMLBars.compile("[{{gt 1 1}}] [{{gt 1 0}}] [{{gt 0 1}}] [{{gt 0 0}}]"),
   });
 
   Ember.run(view, 'appendTo', '#ember-testing');
@@ -33,8 +33,8 @@ test('integer values', function(assert) {
 });
 
 test('decimal values', function(assert) {
-  var view = Ember.View.create({
-    template: Ember.HTMLBars.compile("[{{gt 19.2 19.2}}] [{{gt 19.2 3.55}}] [{{gt 3.55 19.2}}] [{{gt 3.55 3.55}}]"),
+  var view = Ember.Component.create({
+    layout: Ember.HTMLBars.compile("[{{gt 19.2 19.2}}] [{{gt 19.2 3.55}}] [{{gt 3.55 19.2}}] [{{gt 3.55 3.55}}]"),
   });
 
   Ember.run(view, 'appendTo', '#ember-testing');
@@ -43,8 +43,8 @@ test('decimal values', function(assert) {
 });
 
 test('integers in strings 1', function(assert) {
-  var view = Ember.View.create({
-    template: Ember.HTMLBars.compile("[{{gt '1' '1' forceNumber=true}}] [{{gt '1' '0' forceNumber=true}}] [{{gt '0' '1' forceNumber=true}}] [{{gt '0' '0' forceNumber=true}}]"),
+  var view = Ember.Component.create({
+    layout: Ember.HTMLBars.compile("[{{gt '1' '1' forceNumber=true}}] [{{gt '1' '0' forceNumber=true}}] [{{gt '0' '1' forceNumber=true}}] [{{gt '0' '0' forceNumber=true}}]"),
   });
 
   Ember.run(view, 'appendTo', '#ember-testing');
@@ -53,8 +53,8 @@ test('integers in strings 1', function(assert) {
 });
 
 test('integers in strings 2', function(assert) {
-  var view = Ember.View.create({
-    template: Ember.HTMLBars.compile("[{{gt '102' '102' forceNumber=true}}] [{{gt '102' '98' forceNumber=true}}] [{{gt '98' '102' forceNumber=true}}] [{{gt '98' '98' forceNumber=true}}]"),
+  var view = Ember.Component.create({
+    layout: Ember.HTMLBars.compile("[{{gt '102' '102' forceNumber=true}}] [{{gt '102' '98' forceNumber=true}}] [{{gt '98' '102' forceNumber=true}}] [{{gt '98' '98' forceNumber=true}}]"),
   });
 
   Ember.run(view, 'appendTo', '#ember-testing');
@@ -63,8 +63,8 @@ test('integers in strings 2', function(assert) {
 });
 
 test('decimals in strings', function(assert) {
-  var view = Ember.View.create({
-    template: Ember.HTMLBars.compile("[{{gt '19.2' '19.2' forceNumber=true}}] [{{gt '19.2' '3.55' forceNumber=true}}] [{{gt '3.55' '19.2' forceNumber=true}}] [{{gt '3.55' '3.55' forceNumber=true}}]"),
+  var view = Ember.Component.create({
+    layout: Ember.HTMLBars.compile("[{{gt '19.2' '19.2' forceNumber=true}}] [{{gt '19.2' '3.55' forceNumber=true}}] [{{gt '3.55' '19.2' forceNumber=true}}] [{{gt '3.55' '3.55' forceNumber=true}}]"),
   });
 
   Ember.run(view, 'appendTo', '#ember-testing');

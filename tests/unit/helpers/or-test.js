@@ -12,8 +12,8 @@ module('OrHelper', {
 });
 
 test('simple test 1', function(assert) {
-  var view = Ember.View.create({
-    template: Ember.HTMLBars.compile("[{{or true 1 ' ' null undefined}}]"),
+  var view = Ember.Component.create({
+    layout: Ember.HTMLBars.compile("[{{or true 1 ' ' null undefined}}]"),
   });
 
   Ember.run(view, 'appendTo', '#ember-testing');
@@ -22,8 +22,8 @@ test('simple test 1', function(assert) {
 });
 
 test('simple test 2', function(assert) {
-  var view = Ember.View.create({
-    template: Ember.HTMLBars.compile("[{{or null undefined true 1 ' '}}]"),
+  var view = Ember.Component.create({
+    layout: Ember.HTMLBars.compile("[{{or null undefined true 1 ' '}}]"),
   });
 
   Ember.run(view, 'appendTo', '#ember-testing');
@@ -33,8 +33,8 @@ test('simple test 2', function(assert) {
 
 
 test('simple test 3', function(assert) {
-  var view = Ember.View.create({
-    template: Ember.HTMLBars.compile("[{{or false}}] [{{or true}}] [{{or 1}}] [{{or ''}}] [{{or false ''}}] [{{or true ''}}] [{{or '' true}}]"),
+  var view = Ember.Component.create({
+    layout: Ember.HTMLBars.compile("[{{or false}}] [{{or true}}] [{{or 1}}] [{{or ''}}] [{{or false ''}}] [{{or true ''}}] [{{or '' true}}]"),
   });
 
   Ember.run(view, 'appendTo', '#ember-testing');
@@ -48,11 +48,9 @@ test('simple test 4', function(assert) {
     valueB: null
   });
 
-  var view = Ember.View.create({
-    context: {
-      contextChild: fakeContextObject
-    },
-    template: Ember.HTMLBars.compile("[{{or contextChild.valueA}}] [{{or contextChild.valueB}}] [{{or contextChild.valueB contextChild.valueA}}] [{{or contextChild.valueA contextChild.valueB}}]"),
+  var view = Ember.Component.create({
+    contextChild: fakeContextObject,
+    layout: Ember.HTMLBars.compile("[{{or contextChild.valueA}}] [{{or contextChild.valueB}}] [{{or contextChild.valueB contextChild.valueA}}] [{{or contextChild.valueA contextChild.valueB}}]"),
   });
 
   Ember.run(view, 'appendTo', '#ember-testing');

@@ -12,8 +12,8 @@ module('EqualHelper', {
 });
 
 test('simple test 1', function(assert) {
-  var view = Ember.View.create({
-    template: Ember.HTMLBars.compile("[{{eq true true}}] [{{eq true false}}] [{{eq false true}}] [{{eq false false}}]"),
+  var view = Ember.Component.create({
+    layout: Ember.HTMLBars.compile("[{{eq true true}}] [{{eq true false}}] [{{eq false true}}] [{{eq false false}}]"),
   });
 
   Ember.run(view, 'appendTo', '#ember-testing');
@@ -27,11 +27,9 @@ test('simple test 2', function(assert) {
     valueB: null
   });
 
-  var view = Ember.View.create({
-    context: {
-      contextChild: fakeContextObject
-    },
-    template: Ember.HTMLBars.compile("[{{eq contextChild.valueA contextChild.valueB}}] [{{eq contextChild.valueB contextChild.valueA}}]"),
+  var view = Ember.Component.create({
+    contextChild: fakeContextObject,
+    layout: Ember.HTMLBars.compile("[{{eq contextChild.valueA contextChild.valueB}}] [{{eq contextChild.valueB contextChild.valueA}}]"),
   });
 
   Ember.run(view, 'appendTo', '#ember-testing');
