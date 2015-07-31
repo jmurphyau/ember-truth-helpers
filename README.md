@@ -19,7 +19,7 @@ is-array | `if (Ember.isArray(a))`              | `{{if (is-array a)}}`
 
 ## Install
 
-* `ember install:addon ember-truth-helpers`
+* `ember install ember-truth-helpers`
 
 ## Other Helpers
 
