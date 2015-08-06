@@ -1,43 +1,39 @@
 import Ember from 'ember';
-import { module, test } from 'qunit';
+import { moduleForComponent, test } from 'ember-qunit';
 import { registerHelper } from 'ember-truth-helpers/utils/register-helper';
 import {
   andHelper
 } from 'ember-truth-helpers/helpers/and';
 
-module('AndHelper', {
+moduleForComponent('and', 'helper:and', {
+  integration: true,
   beforeEach: function() {
-    registerHelper('and',andHelper);
+    if (!this.registry || !this.registry.has('helper:and')) {
+      registerHelper('and',andHelper);
+    }
   }
 });
 
-// Replace this with your real tests.
 test('boolean values', function(assert) {
-  var view = Ember.Component.create({
-    layout: Ember.HTMLBars.compile("[{{and true true}}] [{{and true false}}] [{{and false true}}] [{{and false false}}]"),
-  });
+  this.render(
+    Ember.HTMLBars.compile("[{{and true true}}] [{{and true false}}] [{{and false true}}] [{{and false false}}]")
+  );
 
-  Ember.run(view, 'appendTo', '#ember-testing');
-
-  assert.equal(view.$().text(), '[true] [false] [false] [false]', 'value should be "[true] [false] [false] [false]"');
+  assert.equal(this.$().text(), '[true] [false] [false] [false]', 'value should be "[true] [false] [false] [false]"');
 });
 
 test('integer values', function(assert) {
-  var view = Ember.Component.create({
-    layout: Ember.HTMLBars.compile("[{{and 1 1}}] [{{and 1 0}}] [{{and 0 1}}] [{{and 0 0}}]"),
-  });
+  this.render(
+    Ember.HTMLBars.compile("[{{and 1 1}}] [{{and 1 0}}] [{{and 0 1}}] [{{and 0 0}}]")
+  );
 
-  Ember.run(view, 'appendTo', '#ember-testing');
-
-  assert.equal(view.$().text(), '[1] [0] [0] [0]', 'value should be "[1] [0] [0] [0]"');
+  assert.equal(this.$().text(), '[1] [0] [0] [0]', 'value should be "[1] [0] [0] [0]"');
 });
 
 test('string values', function(assert) {
-  var view = Ember.Component.create({
-    layout: Ember.HTMLBars.compile('[{{and " " " "}}] [{{and " " ""}}] [{{and "" " "}}] [{{and "" ""}}]'),
-  });
+  this.render(
+    Ember.HTMLBars.compile('[{{and " " " "}}] [{{and " " ""}}] [{{and "" " "}}] [{{and "" ""}}]')
+  );
 
-  Ember.run(view, 'appendTo', '#ember-testing');
-
-  assert.equal(view.$().text(), '[ ] [] [] []', 'value should be "[ ] [] [] []"');
+  assert.equal(this.$().text(), '[ ] [] [] []', 'value should be "[ ] [] [] []"');
 });
