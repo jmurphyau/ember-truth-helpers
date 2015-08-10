@@ -8,7 +8,9 @@ import {
 moduleForComponent('lte', 'helper:lte', {
   integration: true,
   beforeEach: function() {
-    if (!this.registry || !this.registry.has('helper:lte')) {
+    // Do not register helpers from Ember 1.13 onwards, starting from 1.13 they
+    // will be auto-discovered.
+    if (!Ember.Helper) {
       registerHelper('lte', lteHelper);
     }
   }

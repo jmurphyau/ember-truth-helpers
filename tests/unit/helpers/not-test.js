@@ -8,7 +8,9 @@ import {
 moduleForComponent('not', 'helper:not', {
   integration: true,
   beforeEach: function() {
-    if (!this.registry || !this.registry.has('helper:not')) {
+    // Do not register helpers from Ember 1.13 onwards, starting from 1.13 they
+    // will be auto-discovered.
+    if (!Ember.Helper) {
       registerHelper('not',notHelper);
     }
   }

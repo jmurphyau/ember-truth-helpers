@@ -8,7 +8,9 @@ import {
 moduleForComponent('and', 'helper:and', {
   integration: true,
   beforeEach: function() {
-    if (!this.registry || !this.registry.has('helper:and')) {
+    // Do not register helpers from Ember 1.13 onwards, starting from 1.13 they
+    // will be auto-discovered.
+    if (!Ember.Helper) {
       registerHelper('and',andHelper);
     }
   }

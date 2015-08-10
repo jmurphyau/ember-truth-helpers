@@ -8,7 +8,9 @@ import {
 moduleForComponent('eq', 'helper:eq', {
   integration: true,
   beforeEach: function() {
-    if (!this.registry || !this.registry.has('helper:eq')) {
+    // Do not register helpers from Ember 1.13 onwards, starting from 1.13 they
+    // will be auto-discovered.
+    if (!Ember.Helper) {
       registerHelper('eq',equalHelper);
     }
   }

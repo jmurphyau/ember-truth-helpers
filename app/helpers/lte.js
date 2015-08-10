@@ -1,4 +1,12 @@
 import Ember from 'ember';
 import { lteHelper } from 'ember-truth-helpers/helpers/lte';
 
-export default Ember.Helper.helper(lteHelper);
+var forExport = null;
+
+if (Ember.Helper) {
+  forExport = Ember.Helper.helper(lteHelper);
+} else if (Ember.HTMLBars.makeBoundHelper) {
+  forExport = Ember.HTMLBars.makeBoundHelper(lteHelper);
+}
+
+export default forExport;
