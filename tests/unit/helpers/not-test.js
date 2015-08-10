@@ -1,32 +1,33 @@
 import Ember from 'ember';
-import { module, test } from 'qunit';
+import { moduleForComponent, test } from 'ember-qunit';
 import { registerHelper } from 'ember-truth-helpers/utils/register-helper';
 import {
   notHelper
 } from 'ember-truth-helpers/helpers/not';
 
-module('NotHelper', {
+moduleForComponent('not', 'helper:not', {
+  integration: true,
   beforeEach: function() {
-    registerHelper('not',notHelper);
+    // Do not register helpers from Ember 1.13 onwards, starting from 1.13 they
+    // will be auto-discovered.
+    if (!Ember.Helper) {
+      registerHelper('not',notHelper);
+    }
   }
 });
 
 test('simple test 1', function(assert) {
-  var view = Ember.Component.create({
-    layout: Ember.HTMLBars.compile("[{{not true}}] [{{not false}}] [{{not null}}] [{{not undefined}}] [{{not ''}}] [{{not ' '}}]"),
-  });
+  this.render(
+    Ember.HTMLBars.compile("[{{not true}}] [{{not false}}] [{{not null}}] [{{not undefined}}] [{{not ''}}] [{{not ' '}}]")
+  );
 
-  Ember.run(view, 'appendTo', '#ember-testing');
-
-  assert.equal(view.$().text(), '[false] [true] [true] [true] [true] [false]', 'value should be "[false] [true] [true] [true] [true] [false]"');
+  assert.equal(this.$().text(), '[false] [true] [true] [true] [true] [false]', 'value should be "[false] [true] [true] [true] [true] [false]"');
 });
 
 test('simple test 2', function(assert) {
-  var view = Ember.Component.create({
-    layout: Ember.HTMLBars.compile("[{{not true false}}] [{{not true false}}] [{{not null null false null}}] [{{not false null ' ' true}}]"),
-  });
+  this.render(
+    Ember.HTMLBars.compile("[{{not true false}}] [{{not true false}}] [{{not null null false null}}] [{{not false null ' ' true}}]")
+  );
 
-  Ember.run(view, 'appendTo', '#ember-testing');
-
-  assert.equal(view.$().text(), '[false] [false] [true] [false]', 'value should be "[false] [false] [true] [false]"');
+  assert.equal(this.$().text(), '[false] [false] [true] [false]', 'value should be "[false] [false] [true] [false]"');
 });

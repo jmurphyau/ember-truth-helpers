@@ -1,4 +1,12 @@
 import Ember from 'ember';
 import { gtHelper } from 'ember-truth-helpers/helpers/gt';
 
-export default Ember.Helper.helper(gtHelper);
+var forExport = null;
+
+if (Ember.Helper) {
+  forExport = Ember.Helper.helper(gtHelper);
+} else if (Ember.HTMLBars.makeBoundHelper) {
+  forExport = Ember.HTMLBars.makeBoundHelper(gtHelper);
+}
+
+export default forExport;

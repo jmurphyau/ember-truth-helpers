@@ -7,6 +7,13 @@ import {
 module('RegisterHelper');
 
 test('simple test 1', function(assert) {
+	// Do not register helpers from Ember 1.13 onwards, starting from 1.13 they
+  // will be auto-discovered.
+	if (Ember.Helper) {
+		assert.expect(0);
+		return;
+	}
+
 	registerHelper('display-value', function(params) { return params[0]; });
 
 	var fakeContextObject = Ember.Object.create({
