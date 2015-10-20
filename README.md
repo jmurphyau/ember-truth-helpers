@@ -11,6 +11,7 @@ not-eq   | `if (a !== b)`                       | `{{if (not-eq a b)}}`
 not      | `if (!a)`                            | `{{if (not a)}}`
 and      | `if (a && b)`                        | `{{if (and a b)}}`
 or       | <code>if (a &#124;&#124; b)</code>   | `{{if (or a b)}}`
+xor      | `if (a && !b || !a && b)`            | `{{if (xor a b)}}`
 gt       | `if (a > b)`                         | `{{if (gt a b)}}`
 gte      | `if (a >= b)`                        | `{{if (gte a b)}}`
 lt       | `if (a < b)`                         | `{{if (lt a b)}}`
