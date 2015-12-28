@@ -41,7 +41,7 @@ test('string values', function(assert) {
 });
 
 
-test('undefined list length and boolean', function(assert) {
+test('undefined list length and truthy', function(assert) {
   this.render(
     Ember.HTMLBars.compile('[{{and array.length 1}}]')
   );
@@ -49,7 +49,7 @@ test('undefined list length and boolean', function(assert) {
   assert.equal(this.$().text(), '[]', 'value should be "[]"');
 });
 
-test('null list length and boolean', function(assert) {
+test('null list length and truthy', function(assert) {
   this.set('array', null);
 
   this.render(
@@ -59,7 +59,7 @@ test('null list length and boolean', function(assert) {
   assert.equal(this.$().text(), '[]', 'value should be "[]"');
 });
 
-test('empty list length and boolean', function(assert) {
+test('empty list length and truthy', function(assert) {
   this.set('array', []);
 
   this.render(
@@ -69,7 +69,7 @@ test('empty list length and boolean', function(assert) {
   assert.equal(this.$().text(), '[0]', 'value should be "[0]"');
 });
 
-test('non-empty list length and boolean', function(assert) {
+test('non-empty list length and truthy', function(assert) {
   this.set('array', ['a']);
 
   this.render(
