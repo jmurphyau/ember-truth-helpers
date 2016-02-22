@@ -25,6 +25,7 @@ is-array | `if (Ember.isArray(a))`              | `{{if (is-array a)}}`
 ## Other Helpers
 
 * [ember-get-helper](https://github.com/jmurphyau/ember-get-helper)
+* [ember-composable-helpers](https://github.com/DockYard/ember-composable-helpers)
 
 ## Development
 
