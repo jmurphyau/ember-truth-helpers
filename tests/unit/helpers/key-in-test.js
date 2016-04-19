@@ -2,16 +2,16 @@ import Ember from 'ember';
 import { moduleForComponent, test } from 'ember-qunit';
 import { registerHelper } from 'ember-truth-helpers/utils/register-helper';
 import {
-  hasKey
-} from 'ember-truth-helpers/helpers/has-key';
+  keyIn
+} from 'ember-truth-helpers/helpers/key-in';
 
-moduleForComponent('has-key', 'helper:has-key', {
+moduleForComponent('key-in', 'helper:key-in', {
   integration: true,
   beforeEach: function() {
     // Do not register helpers from Ember 1.13 onwards, starting from 1.13 they
     // will be auto-discovered.
     if (!Ember.Helper) {
-      registerHelper('has-key', hasKey);
+      registerHelper('key-in', keyIn);
     }
   }
 });
@@ -22,7 +22,7 @@ test('boolean values', function(assert) {
   });
   this.set('contextChild', fakeContextObject);
   this.render(
-    Ember.HTMLBars.compile("[{{has-key contextChild 'valueA'}}] [{{has-key contextChild 'valueB'}}]")
+    Ember.HTMLBars.compile("[{{key-in 'valueA' contextChild}}] [{{key-in 'valueB' contextChild}}]")
   );
 
   assert.equal(this.$().text(), '[true] [false]', 'value should be "[true] [false]"');

@@ -11,7 +11,7 @@ import { gtHelper } from 'ember-truth-helpers/helpers/gt';
 import { gteHelper } from 'ember-truth-helpers/helpers/gte';
 import { ltHelper } from 'ember-truth-helpers/helpers/lt';
 import { lteHelper } from 'ember-truth-helpers/helpers/lte';
-import { hasKeyHelper } from 'ember-truth-helpers/helpers/has-key';
+import { keyInHelper } from 'ember-truth-helpers/helpers/key-in';
 
 export function initialize(/* container, application */) {
 
@@ -31,7 +31,7 @@ export function initialize(/* container, application */) {
   registerHelper('gte', gteHelper);
   registerHelper('lt', ltHelper);
   registerHelper('lte', lteHelper);
-  registerHelper('has-key', hasKeyHelper);
+  registerHelper('key-in', keyInHelper);
 }
 
 export default {
