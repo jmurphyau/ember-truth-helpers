@@ -5,68 +5,44 @@ module.exports = {
       dependencies: { }
     },
     {
-      name: 'ember-1.10.0',
-      dependencies: { 'ember': '1.10.0' }
-    },
-    {
-      name: 'ember-1.10.1',
+      name: 'ember-1.10.x',
       dependencies: { 'ember': '1.10.1' }
     },
     {
-      name: 'ember-1.11.0',
-      dependencies: { 'ember': '1.11.0' }
+      name: 'ember-1.11.x',
+      dependencies: { 'ember': '1.11.4' }
     },
     {
-      name: 'ember-1.11.1',
-      dependencies: { 'ember': '1.11.1' }
+      name: 'ember-1.12.x',
+      dependencies: { 'ember': '1.12.2' }
     },
     {
-      name: 'ember-1.11.2',
-      dependencies: { 'ember': '1.11.2' }
+      name: 'ember-1.13.x',
+      dependencies: { 'ember': '1.13.13' }
     },
     {
-      name: 'ember-1.11.3',
-      dependencies: { 'ember': '1.11.2' }
+      name: 'ember-2.0.x',
+      dependencies: { 'ember': '2.0.3' }
     },
     {
-      name: 'ember-1.12.0',
-      dependencies: { 'ember': '1.12.0' }
+      name: 'ember-2.1.x',
+      dependencies: { 'ember': '2.1.2' }
     },
     {
-      name: 'ember-1.12.1',
-      dependencies: { 'ember': '1.12.1' }
+      name: 'ember-2.2.x',
+      dependencies: { 'ember': '2.2.2' }
     },
     {
-      name: 'ember-1.13.0',
-      dependencies: { 'ember': '1.13.0' }
+      name: 'ember-2.3.x',
+      dependencies: { 'ember': '2.3.2' }
     },
     {
-      name: 'ember-1.13.1',
-      dependencies: { 'ember': '1.13.1' }
+      name: 'ember-2.4.x',
+      dependencies: { 'ember': '2.4.5' }
     },
     {
-      name: 'ember-1.13.2',
-      dependencies: { 'ember': '1.13.2' }
-    },
-    {
-      name: 'ember-1.13.3',
-      dependencies: { 'ember': '1.13.3' }
-    },
-    {
-      name: 'ember-1.13.4',
-      dependencies: { 'ember': '1.13.4' }
-    },
-    {
-      name: 'ember-1.13.5',
-      dependencies: { 'ember': '1.13.5' }
-    },
-    {
-      name: 'ember-1.13.6',
-      dependencies: { 'ember': '1.13.6' }
-    },
-    {
-      name: 'ember-1.13.7',
-      dependencies: { 'ember': '1.13.7' }
+      name: 'ember-2.5.x',
+      dependencies: { 'ember': '2.5.1' }
     },
     {
       name: 'ember-release',

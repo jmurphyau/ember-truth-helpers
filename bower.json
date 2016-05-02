@@ -1,17 +1,20 @@
 {
   "name": "ember-truth-helpers",
   "dependencies": {
-    "ember": "2.0.2",
+    "ember": "2.6.0-beta.2",
     "ember-cli-shims": "0.0.6",
     "ember-cli-test-loader": "0.2.1",
     "ember-load-initializers": "0.1.7",
     "ember-qunit": "0.4.11",
     "ember-qunit-notifications": "0.1.0",
-    "jquery": "^1.11.3",
+    "jquery": "^2.1.4",
     "loader.js": "3.3.0",
     "qunit": "~1.19.0"
   },
   "resolutions": {
-    "ember": "2.0.2"
+    "ember": "2.6.0-beta.2",
+    "ember-cli-shims": "0.1.1",
+    "ember-cli-test-loader": "0.2.2",
+    "ember-qunit-notifications": "0.1.0"
   }
 }

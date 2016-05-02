@@ -1,7 +1,7 @@
 ---
 language: node_js
 node_js:
-  - "0.12"
+  - "4"
 
 sudo: false
 
@@ -11,17 +11,16 @@ cache:
 
 env:
   - EMBER_TRY_SCENARIO=default
-  - EMBER_TRY_SCENARIO=ember-1.10.0
-  - EMBER_TRY_SCENARIO=ember-1.10.1
-  - EMBER_TRY_SCENARIO=ember-1.11.0
-  - EMBER_TRY_SCENARIO=ember-1.11.1
-  - EMBER_TRY_SCENARIO=ember-1.11.2
-  - EMBER_TRY_SCENARIO=ember-1.11.3
-  - EMBER_TRY_SCENARIO=ember-1.12.0
-  - EMBER_TRY_SCENARIO=ember-1.12.1
-  - EMBER_TRY_SCENARIO=ember-1.13.0
-  - EMBER_TRY_SCENARIO=ember-1.13.1
-  - EMBER_TRY_SCENARIO=ember-1.13.2
+  - EMBER_TRY_SCENARIO=ember-1.10.x
+  - EMBER_TRY_SCENARIO=ember-1.11.x
+  - EMBER_TRY_SCENARIO=ember-1.12.x
+  - EMBER_TRY_SCENARIO=ember-1.13.x
+  - EMBER_TRY_SCENARIO=ember-2.0.x
+  - EMBER_TRY_SCENARIO=ember-2.1.x
+  - EMBER_TRY_SCENARIO=ember-2.2.x
+  - EMBER_TRY_SCENARIO=ember-2.3.x
+  - EMBER_TRY_SCENARIO=ember-2.4.x
+  - EMBER_TRY_SCENARIO=ember-2.5.x
   - EMBER_TRY_SCENARIO=ember-release
   - EMBER_TRY_SCENARIO=ember-beta
   - EMBER_TRY_SCENARIO=ember-canary
@@ -32,14 +31,15 @@ matrix:
     - env: EMBER_TRY_SCENARIO=ember-canary
 
 before_install:
-  - export PATH=/usr/local/phantomjs-2.0.0/bin:$PATH
-  - "npm config set spin false"
-  - "npm install -g npm@^2"
+  - npm config set spin false
+  - npm install -g bower
+  - npm install phantomjs-prebuilt
 
 install:
-  - npm install -g bower
   - npm install
   - bower install
 
 script:
-  - ember try $EMBER_TRY_SCENARIO test
+  # Usually, it's ok to finish the test scenario without reverting
+  #  to the addon's original dependency state, skipping "cleanup".
+  - ember try $EMBER_TRY_SCENARIO test --skip-cleanup
