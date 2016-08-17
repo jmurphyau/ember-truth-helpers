@@ -6,7 +6,7 @@ HTMLBars template helpers for additional truth logic in `if` and `unless` statem
 
 Helper   | JavaScript                           | HTMLBars
 ---------|--------------------------------------|-------------------
-eq       | `if (a === b)`                       | `{{if (eq a b)}}`
+eq       | `if ((a === b) === c)`               | `{{if (eq a b c)}}`
 not-eq   | `if (a !== b)`                       | `{{if (not-eq a b)}}`
 not      | `if (!a)`                            | `{{if (not a)}}`
 and      | `if (a && b)`                        | `{{if (and a b)}}`
