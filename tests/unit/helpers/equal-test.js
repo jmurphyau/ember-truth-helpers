@@ -49,3 +49,21 @@ test('simple test 2', function(assert) {
   assert.equal(this.$().text(), '[true] [true]', 'value should be "[true] [true]"');
 
 });
+
+test('isEqual support', function(assert) {
+
+  this.set('primitive', 10);
+
+  this.set('complex', {
+    isEqual(value) {
+      return value === 10;
+    }
+  });
+
+  this.render(
+    Ember.HTMLBars.compile("[{{eq complex primitive}}] [{{eq primitive complex}}]")
+  );
+
+  assert.equal(this.$().text(), '[true] [true]', 'value should be "[true] [true]"');
+
+});
