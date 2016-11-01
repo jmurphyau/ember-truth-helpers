@@ -17,6 +17,15 @@ gte      | `if (a >= b)`                        | `{{if (gte a b)}}`
 lt       | `if (a < b)`                         | `{{if (lt a b)}}`
 lte      | `if (a <= b)`                        | `{{if (lte a b)}}`
 is-array | `if (Ember.isArray(a))`              | `{{if (is-array a)}}`
+is-equal | `if (Ember.isEqual(a, b))`           | `{{if (is-equal a b)}}`
+
+### API
+
+## is-equal
+
+`is-equal` uses [`Ember.isEqual`](http://emberjs.com/api/#method_isEqual) helper to evaluate equality of two values.
+ `eq` should be sufficient for most applications. `is-equal` is necessary when trying to compare a complex object to
+ a primitive value.
 
 ## Install
 
