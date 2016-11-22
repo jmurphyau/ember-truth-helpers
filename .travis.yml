@@ -6,14 +6,12 @@ node_js:
 sudo: false
 
 cache:
+  yarn: true
   directories:
     - node_modules
 
 env:
   - EMBER_TRY_SCENARIO=default
-  - EMBER_TRY_SCENARIO=ember-1.10.x
-  - EMBER_TRY_SCENARIO=ember-1.11.x
-  - EMBER_TRY_SCENARIO=ember-1.12.x
   - EMBER_TRY_SCENARIO=ember-1.13.x
   - EMBER_TRY_SCENARIO=ember-2.0.x
   - EMBER_TRY_SCENARIO=ember-2.1.x
@@ -21,6 +19,10 @@ env:
   - EMBER_TRY_SCENARIO=ember-2.3.x
   - EMBER_TRY_SCENARIO=ember-2.4.x
   - EMBER_TRY_SCENARIO=ember-2.5.x
+  - EMBER_TRY_SCENARIO=ember-2.6.x
+  - EMBER_TRY_SCENARIO=ember-2.7.x
+  - EMBER_TRY_SCENARIO=ember-2.8.x
+  - EMBER_TRY_SCENARIO=ember-2.9.x
   - EMBER_TRY_SCENARIO=ember-release
   - EMBER_TRY_SCENARIO=ember-beta
   - EMBER_TRY_SCENARIO=ember-canary
@@ -30,13 +32,15 @@ matrix:
   allow_failures:
     - env: EMBER_TRY_SCENARIO=ember-canary
 
+
 before_install:
-  - npm config set spin false
-  - npm install -g bower
-  - npm install phantomjs-prebuilt
+  - npm install -g bower yarn phantomjs-prebuilt
+  - yarn --version
+  - bower --version
+  - phantomjs --version
 
 install:
-  - npm install
+  - yarn install
   - bower install
 
 script:

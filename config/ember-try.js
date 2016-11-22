@@ -5,18 +5,6 @@ module.exports = {
       dependencies: { }
     },
     {
-      name: 'ember-1.10.x',
-      dependencies: { 'ember': '1.10.1' }
-    },
-    {
-      name: 'ember-1.11.x',
-      dependencies: { 'ember': '1.11.4' }
-    },
-    {
-      name: 'ember-1.12.x',
-      dependencies: { 'ember': '1.12.2' }
-    },
-    {
       name: 'ember-1.13.x',
       dependencies: { 'ember': '1.13.13' }
     },
@@ -38,11 +26,27 @@ module.exports = {
     },
     {
       name: 'ember-2.4.x',
-      dependencies: { 'ember': '2.4.5' }
+      dependencies: { 'ember': '2.4.6' }
     },
     {
       name: 'ember-2.5.x',
       dependencies: { 'ember': '2.5.1' }
+    },
+    {
+      name: 'ember-2.6.x',
+      dependencies: { 'ember': '2.6.2' }
+    },
+    {
+      name: 'ember-2.7.x',
+      dependencies: { 'ember': '2.7.3' }
+    },
+    {
+      name: 'ember-2.8.x',
+      dependencies: { 'ember': '2.8.3' }
+    },
+    {
+      name: 'ember-2.9.x',
+      dependencies: { 'ember': '2.9.1' }
     },
     {
       name: 'ember-release',
