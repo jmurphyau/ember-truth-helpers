@@ -24,4 +24,4 @@ install:
   - bower install
 
 script:
-  - ember try:testall
+  - yarn test

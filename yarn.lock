@@ -1614,7 +1614,7 @@ ember-try-config@^2.0.1:
     rsvp "^3.2.1"
     semver "^5.1.0"
 
-ember-try@^0.2.2, ember-try@^0.2.8:
+ember-try@^0.2.2:
   version "0.2.8"
   resolved "https://registry.npmjs.org/ember-try/-/ember-try-0.2.8.tgz#5f135d23d83561dc8dfb4a4d998420b69b740acd"
   dependencies:
