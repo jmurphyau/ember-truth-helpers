@@ -11,6 +11,7 @@ import { gtHelper } from 'ember-truth-helpers/helpers/gt';
 import { gteHelper } from 'ember-truth-helpers/helpers/gte';
 import { ltHelper } from 'ember-truth-helpers/helpers/lt';
 import { lteHelper } from 'ember-truth-helpers/helpers/lte';
+import { isBlankHelper } from 'ember-truth-helpers/helpers/is-blank';
 
 export function initialize(/* container, application */) {
 
@@ -30,6 +31,7 @@ export function initialize(/* container, application */) {
   registerHelper('gte', gteHelper);
   registerHelper('lt', ltHelper);
   registerHelper('lte', lteHelper);
+  registerHelper('is-blank', isBlankHelper);
 }
 
 export default {
