@@ -1,3 +1,10 @@
 export function equalHelper(params) {
-  return params[0] === params[1];
+  let first = params[0];
+  for (let i = 1; i < params.length; i++) {
+    if (params[i] !== first) {
+      return false;
+    }
+  }
+
+  return true;
 }
