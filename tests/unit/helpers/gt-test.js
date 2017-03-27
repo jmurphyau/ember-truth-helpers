@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import { moduleForComponent, test } from 'ember-qunit';
+import hbs from 'htmlbars-inline-precompile';
 import { registerHelper } from 'ember-truth-helpers/utils/register-helper';
 import {
   gtHelper
@@ -18,7 +19,7 @@ moduleForComponent('gt', 'helper:gt', {
 
 test('boolean values', function(assert) {
   this.render(
-    Ember.HTMLBars.compile(("[{{gt true true}}] [{{gt true false}}] [{{gt false true}}] [{{gt false false}}]"))
+    hbs`[{{gt true true}}] [{{gt true false}}] [{{gt false true}}] [{{gt false false}}]`
   );
 
   assert.equal(this.$().text(), '[false] [true] [false] [false]', 'value should be "[false] [true] [false] [false]"');
@@ -26,7 +27,7 @@ test('boolean values', function(assert) {
 
 test('integer values', function(assert) {
   this.render(
-    Ember.HTMLBars.compile("[{{gt 1 1}}] [{{gt 1 0}}] [{{gt 0 1}}] [{{gt 0 0}}]")
+    hbs`[{{gt 1 1}}] [{{gt 1 0}}] [{{gt 0 1}}] [{{gt 0 0}}]`
   );
 
   assert.equal(this.$().text(), '[false] [true] [false] [false]', 'value should be "[false] [true] [false] [false]"');
@@ -34,7 +35,7 @@ test('integer values', function(assert) {
 
 test('decimal values', function(assert) {
   this.render(
-    Ember.HTMLBars.compile("[{{gt 19.2 19.2}}] [{{gt 19.2 3.55}}] [{{gt 3.55 19.2}}] [{{gt 3.55 3.55}}]")
+    hbs`[{{gt 19.2 19.2}}] [{{gt 19.2 3.55}}] [{{gt 3.55 19.2}}] [{{gt 3.55 3.55}}]`
   );
 
   assert.equal(this.$().text(), '[false] [true] [false] [false]', 'value should be "[false] [true] [false] [false]"');
@@ -42,7 +43,7 @@ test('decimal values', function(assert) {
 
 test('integers in strings 1', function(assert) {
   this.render(
-    Ember.HTMLBars.compile("[{{gt '1' '1' forceNumber=true}}] [{{gt '1' '0' forceNumber=true}}] [{{gt '0' '1' forceNumber=true}}] [{{gt '0' '0' forceNumber=true}}]")
+    hbs`[{{gt '1' '1' forceNumber=true}}] [{{gt '1' '0' forceNumber=true}}] [{{gt '0' '1' forceNumber=true}}] [{{gt '0' '0' forceNumber=true}}]`
   );
 
   assert.equal(this.$().text(), '[false] [true] [false] [false]', 'value should be "[false] [true] [false] [false]"');
@@ -50,7 +51,7 @@ test('integers in strings 1', function(assert) {
 
 test('integers in strings 2', function(assert) {
   this.render(
-    Ember.HTMLBars.compile("[{{gt '102' '102' forceNumber=true}}] [{{gt '102' '98' forceNumber=true}}] [{{gt '98' '102' forceNumber=true}}] [{{gt '98' '98' forceNumber=true}}]")
+    hbs`[{{gt '102' '102' forceNumber=true}}] [{{gt '102' '98' forceNumber=true}}] [{{gt '98' '102' forceNumber=true}}] [{{gt '98' '98' forceNumber=true}}]`
   );
 
   assert.equal(this.$().text(), '[false] [true] [false] [false]', 'value should be "[false] [true] [false] [false]"');
@@ -58,7 +59,7 @@ test('integers in strings 2', function(assert) {
 
 test('decimals in strings', function(assert) {
   this.render(
-    Ember.HTMLBars.compile("[{{gt '19.2' '19.2' forceNumber=true}}] [{{gt '19.2' '3.55' forceNumber=true}}] [{{gt '3.55' '19.2' forceNumber=true}}] [{{gt '3.55' '3.55' forceNumber=true}}]")
+    hbs`[{{gt '19.2' '19.2' forceNumber=true}}] [{{gt '19.2' '3.55' forceNumber=true}}] [{{gt '3.55' '19.2' forceNumber=true}}] [{{gt '3.55' '3.55' forceNumber=true}}]`
   );
 
   assert.equal(this.$().text(), '[false] [true] [false] [false]', 'value should be "[false] [true] [false] [false]"');
