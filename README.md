@@ -4,7 +4,7 @@ HTMLBars template helpers for additional truth logic in `if` and `unless` statem
 
 ## Usage
 
-Helper   | JavaScript                           | HTMLBars                | More than two arguments allowed |
+Helper   | JavaScript                           | HTMLBars                | Variable argument count allowed |
 ---------|--------------------------------------|-------------------------|---------------------------------|
 eq       | `if (a === b)`                       | `{{if (eq a b)}}`       | No                              |
 not-eq   | `if (a !== b)`                       | `{{if (not-eq a b)}}`   | No                              |
