@@ -16,10 +16,84 @@ moduleForComponent('is-empty', 'helper:is-empty', {
   }
 });
 
-test('uses isEmpty', function(assert) {
+
+test('it works with array operations', function(assert) {
+  let someArray = Ember.A([]);
+  this.set('someArray', someArray);
+
   this.render(
-    Ember.HTMLBars.compile("[{{is-empty []}}] [{{is-empty ''}}] [{{is-empty false}}] [{{is-empty 12}}]")
+    Ember.HTMLBars.compile("{{is-empty someArray}}")
   );
 
-  assert.equal(this.$().text(), '[true] [true] [false] [false]', 'value should be "[true] [true] [false] [false]"');
+  assert.equal(this.$().text(), 'true', 'value is "true" for an empty array');
+
+  // add an object to the array
+  let someObject = Ember.Object.create({ foo: 'bar' });
+  someArray.push(someObject);
+  this.set('someArray', someArray);
+
+  this.render(
+    Ember.HTMLBars.compile("{{is-empty someArray}}")
+  );
+
+  assert.equal(this.$().text(), 'false', 'value is "false" for a non-empty array');
+
+  // remove the object from the array
+  someArray.removeObject(someObject);
+  this.set('someArray', someArray);
+
+  this.render(
+    Ember.HTMLBars.compile("{{is-empty someArray}}")
+  );
+
+  assert.equal(this.$().text(), 'true', 'value is "true" for an empty array');
+});
+
+test('it works with string operations', function(assert) {
+  let someString = '';
+  this.set('someString', someString);
+
+  this.render(
+    Ember.HTMLBars.compile("{{is-empty someString}}")
+  );
+
+  assert.equal(this.$().text(), 'true', 'value is "true" for an empty string');
+
+  someString = ' ';
+  this.set('someString', someString);
+
+  this.render(
+    Ember.HTMLBars.compile("{{is-empty someString}}")
+  );
+
+  assert.equal(this.$().text(), 'false', 'value is "false" for a string with a single space');
+});
+
+test('it works with booleans', function(assert) {
+  let someValue;
+  this.set('someValue', someValue);
+
+  this.render(
+    Ember.HTMLBars.compile("{{is-empty someValue}}")
+  );
+
+  assert.equal(this.$().text(), 'true', 'value is "true" for an uninitialized variable');
+
+  someValue = false;
+  this.set('someValue', someValue);
+
+  this.render(
+    Ember.HTMLBars.compile("{{is-empty someValue}}")
+  );
+
+  assert.equal(this.$().text(), 'false', 'value is "false" when checking if "false" is empty');
+
+  someValue = true;
+  this.set('someValue', someValue);
+
+  this.render(
+    Ember.HTMLBars.compile("{{is-empty someValue}}")
+  );
+
+  assert.equal(this.$().text(), 'false', 'value is "false" when checking if "true" is empty');
 });
