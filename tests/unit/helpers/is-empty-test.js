@@ -16,84 +16,60 @@ moduleForComponent('is-empty', 'helper:is-empty', {
   }
 });
 
-
 test('it works with array operations', function(assert) {
-  let someArray = Ember.A([]);
-  this.set('someArray', someArray);
+  let contextChild = Ember.Object.create({
+    someArray: null
+  });
+  this.set('contextChild', contextChild);
 
   this.render(
-    Ember.HTMLBars.compile("{{is-empty someArray}}")
+    Ember.HTMLBars.compile("{{is-empty contextChild.someArray}}")
   );
 
+  assert.equal(this.$().text(), 'true', 'value is "true" when the passed in value is null');
+
+  Ember.run(contextChild, 'set', 'someArray', []);
   assert.equal(this.$().text(), 'true', 'value is "true" for an empty array');
 
-  // add an object to the array
   let someObject = Ember.Object.create({ foo: 'bar' });
-  someArray.push(someObject);
-  this.set('someArray', someArray);
-
-  this.render(
-    Ember.HTMLBars.compile("{{is-empty someArray}}")
-  );
-
+  Ember.run(contextChild, 'set', 'someArray', [someObject]);
   assert.equal(this.$().text(), 'false', 'value is "false" for a non-empty array');
 
-  // remove the object from the array
-  someArray.removeObject(someObject);
-  this.set('someArray', someArray);
-
-  this.render(
-    Ember.HTMLBars.compile("{{is-empty someArray}}")
-  );
-
+  Ember.run(contextChild, 'set', 'someArray', []);
   assert.equal(this.$().text(), 'true', 'value is "true" for an empty array');
 });
 
 test('it works with string operations', function(assert) {
-  let someString = '';
-  this.set('someString', someString);
+  let contextChild = Ember.Object.create({
+    someString: ''
+  });
+  this.set('contextChild', contextChild);
 
   this.render(
-    Ember.HTMLBars.compile("{{is-empty someString}}")
+    Ember.HTMLBars.compile("{{is-empty contextChild.someString}}")
   );
 
   assert.equal(this.$().text(), 'true', 'value is "true" for an empty string');
 
-  someString = ' ';
-  this.set('someString', someString);
-
-  this.render(
-    Ember.HTMLBars.compile("{{is-empty someString}}")
-  );
-
+  Ember.run(contextChild, 'set', 'someString', ' ');
   assert.equal(this.$().text(), 'false', 'value is "false" for a string with a single space');
 });
 
 test('it works with booleans', function(assert) {
-  let someValue;
-  this.set('someValue', someValue);
+  let contextChild = Ember.Object.create({
+    /* someValue is intentionally undefined */
+  });
+  this.set('contextChild', contextChild);
 
   this.render(
-    Ember.HTMLBars.compile("{{is-empty someValue}}")
+    Ember.HTMLBars.compile("{{is-empty contextChild.someValue}}")
   );
 
   assert.equal(this.$().text(), 'true', 'value is "true" for an uninitialized variable');
 
-  someValue = false;
-  this.set('someValue', someValue);
-
-  this.render(
-    Ember.HTMLBars.compile("{{is-empty someValue}}")
-  );
-
+  Ember.run(contextChild, 'set', 'someValue', true);
   assert.equal(this.$().text(), 'false', 'value is "false" when checking if "false" is empty');
 
-  someValue = true;
-  this.set('someValue', someValue);
-
-  this.render(
-    Ember.HTMLBars.compile("{{is-empty someValue}}")
-  );
-
+  Ember.run(contextChild, 'set', 'someValue', false);
   assert.equal(this.$().text(), 'false', 'value is "false" when checking if "true" is empty');
 });
