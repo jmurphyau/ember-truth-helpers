@@ -13,7 +13,7 @@
   },
   "repository": "https://github.com/jmurphyau/ember-truth-helpers",
   "engines": {
-    "node": ">= 0.10.0"
+    "node": ">= 4"
   },
   "author": "James Murphy",
   "license": "MIT",
