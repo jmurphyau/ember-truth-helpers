@@ -23,6 +23,10 @@ env:
   - EMBER_TRY_SCENARIO=ember-2.7.x
   - EMBER_TRY_SCENARIO=ember-2.8.x
   - EMBER_TRY_SCENARIO=ember-2.9.x
+  - EMBER_TRY_SCENARIO=ember-2.10.x
+  - EMBER_TRY_SCENARIO=ember-2.11.x
+  - EMBER_TRY_SCENARIO=ember-2.12.x
+  - EMBER_TRY_SCENARIO=ember-2.13.x
   - EMBER_TRY_SCENARIO=ember-release
   - EMBER_TRY_SCENARIO=ember-beta
   - EMBER_TRY_SCENARIO=ember-canary
