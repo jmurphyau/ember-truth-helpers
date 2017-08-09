@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import { moduleForComponent, test } from 'ember-qunit';
+import hbs from 'htmlbars-inline-precompile';
 import { registerHelper } from 'ember-truth-helpers/utils/register-helper';
 import {
   isArrayHelper
@@ -24,7 +25,7 @@ test('simple test 1', function(assert) {
   this.set('contextChild', fakeContextObject);
 
   this.render(
-    Ember.HTMLBars.compile("[{{is-array contextChild.valueA}}] [{{is-array contextChild.valueB}}] [{{is-array contextChild.valueA contextChild.valueB}}]")
+    hbs`[{{is-array contextChild.valueA}}] [{{is-array contextChild.valueB}}] [{{is-array contextChild.valueA contextChild.valueB}}]`
   );
 
   assert.equal(this.$().text(), '[false] [false] [false]', 'value should be "[false] [false] [false]"');
