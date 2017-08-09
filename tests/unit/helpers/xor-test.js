@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import { moduleForComponent, test } from 'ember-qunit';
+import hbs from 'htmlbars-inline-precompile';
 import { registerHelper } from 'ember-truth-helpers/utils/register-helper';
 import {
   xorHelper
@@ -18,7 +19,7 @@ moduleForComponent('xor', 'helper:xor', {
 
 test('boolean values', function(assert) {
   this.render(
-    Ember.HTMLBars.compile("[{{xor true true}}] [{{xor true false}}] [{{xor false true}}] [{{xor false false}}]")
+    hbs`[{{xor true true}}] [{{xor true false}}] [{{xor false true}}] [{{xor false false}}]`
   );
 
   assert.equal(this.$().text(), '[false] [true] [true] [false]', 'value should be "[false] [true] [true] [false]"');
