@@ -4,6 +4,7 @@ import { registerHelper } from 'ember-truth-helpers/utils/register-helper';
 import {
   equalHelper
 } from 'ember-truth-helpers/helpers/equal';
+import hbs from 'htmlbars-inline-precompile';
 
 moduleForComponent('eq', 'helper:eq', {
   integration: true,
@@ -18,7 +19,7 @@ moduleForComponent('eq', 'helper:eq', {
 
 test('simple test 1', function(assert) {
   this.render(
-    Ember.HTMLBars.compile("[{{eq true true}}] [{{eq true false}}] [{{eq false true}}] [{{eq false false}}]")
+    hbs("[{{eq true true}}] [{{eq true false}}] [{{eq false true}}] [{{eq false false}}]")
   );
 
   assert.equal(this.$().text(), '[true] [false] [false] [true]', 'value should be "[true] [false] [false] [true]"');
@@ -33,7 +34,7 @@ test('simple test 2', function(assert) {
   this.set('contextChild', fakeContextObject);
 
   this.render(
-    Ember.HTMLBars.compile("[{{eq contextChild.valueA contextChild.valueB}}] [{{eq contextChild.valueB contextChild.valueA}}]")
+    hbs("[{{eq contextChild.valueA contextChild.valueB}}] [{{eq contextChild.valueB contextChild.valueA}}]")
   );
 
   assert.equal(this.$().text(), '[true] [true]', 'value should be "[true] [true]"');

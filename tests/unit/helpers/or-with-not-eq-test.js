@@ -7,7 +7,7 @@ import {
 import {
   notEqHelper
 } from 'ember-truth-helpers/helpers/not-equal';
-
+import hbs from 'htmlbars-inline-precompile';
 
 moduleForComponent('or', 'helper:or', {
   integration: true,
@@ -23,7 +23,7 @@ moduleForComponent('or', 'helper:or', {
 
 test('simple test 1', function(assert) {
   this.render(
-    Ember.HTMLBars.compile("[{{or (not-eq true false) (not-eq true false)}}]")
+    hbs("[{{or (not-eq true false) (not-eq true false)}}]")
   );
 
   assert.equal(this.$().text(), '[true]', 'value should be "[true]"');
@@ -31,7 +31,7 @@ test('simple test 1', function(assert) {
 
 test('simple test 2', function(assert) {
   this.render(
-    Ember.HTMLBars.compile("[{{or (not-eq true true) (not-eq false false)}}]")
+    hbs("[{{or (not-eq true true) (not-eq false false)}}]")
   );
 
   assert.equal(this.$().text(), '[false]', 'value should be "[true]"');
@@ -39,7 +39,7 @@ test('simple test 2', function(assert) {
 
 test('simple test 3', function(assert) {
   this.render(
-    Ember.HTMLBars.compile("[{{or (not-eq true true) (not-eq true false)}}]")
+    hbs("[{{or (not-eq true true) (not-eq true false)}}]")
   );
 
   assert.equal(this.$().text(), '[true]', 'value should be "[true]"');
@@ -47,7 +47,7 @@ test('simple test 3', function(assert) {
 
 test('simple test 4', function(assert) {
   this.render(
-    Ember.HTMLBars.compile("[{{or (not-eq true false) (not-eq false false)}}]")
+    hbs("[{{or (not-eq true false) (not-eq false false)}}]")
   );
 
   assert.equal(this.$().text(), '[true]', 'value should be "[true]"');
@@ -55,7 +55,7 @@ test('simple test 4', function(assert) {
 
 test('simple test 5', function(assert) {
   this.render(
-    Ember.HTMLBars.compile("[{{#if (or (not-eq true false) (not-eq false false))}}true{{else}}false{{/if}}]")
+    hbs("[{{#if (or (not-eq true false) (not-eq false false))}}true{{else}}false{{/if}}]")
   );
 
   assert.equal(this.$().text(), '[true]', 'value should be "[true]"');

@@ -4,6 +4,7 @@ import { registerHelper } from 'ember-truth-helpers/utils/register-helper';
 import {
   isEqual as isEqualHelper
 } from 'ember-truth-helpers/helpers/is-equal';
+import hbs from 'htmlbars-inline-precompile';
 
 moduleForComponent('is-equal', 'helper:is-equal', {
   integration: true,
@@ -24,7 +25,7 @@ test('uses isEqual', function(assert) {
   });
 
   this.render(
-    Ember.HTMLBars.compile("[{{is-equal complex 12}}] [{{is-equal complex 13}}] [{{is-equal 13 complex}}] [{{is-equal 12 complex}}]")
+    hbs("[{{is-equal complex 12}}] [{{is-equal complex 13}}] [{{is-equal 13 complex}}] [{{is-equal 12 complex}}]")
   );
 
   assert.equal(this.$().text(), '[true] [false] [false] [false]', 'value should be "[true] [false] [false] [false]"');
