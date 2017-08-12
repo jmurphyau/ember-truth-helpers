@@ -4,6 +4,7 @@ import { registerHelper } from 'ember-truth-helpers/utils/register-helper';
 import {
   notEqualHelper
 } from 'ember-truth-helpers/helpers/not-equal';
+import hbs from 'htmlbars-inline-precompile';
 
 moduleForComponent('not-eq', 'helper:not-eq', {
   integration: true,
@@ -18,7 +19,7 @@ moduleForComponent('not-eq', 'helper:not-eq', {
 
 test('simple test 1', function(assert) {
   this.render(
-    Ember.HTMLBars.compile("[{{not-eq true true}}] [{{not-eq true false}}] [{{not-eq false true}}] [{{not-eq false false}}]")
+    hbs("[{{not-eq true true}}] [{{not-eq true false}}] [{{not-eq false true}}] [{{not-eq false false}}]")
   );
 
   assert.equal(this.$().text(), '[false] [true] [true] [false]', 'value should be "[false] [true] [true] [false]"');
@@ -33,7 +34,7 @@ test('simple test 2', function(assert) {
   this.set('contextChild', fakeContextObject);
 
   this.render(
-    Ember.HTMLBars.compile("[{{not-eq contextChild.valueA contextChild.valueB}}] [{{not-eq contextChild.valueB contextChild.valueA}}]")
+    hbs("[{{not-eq contextChild.valueA contextChild.valueB}}] [{{not-eq contextChild.valueB contextChild.valueA}}]")
   );
 
   assert.equal(this.$().text(), '[false] [false]', 'value should be "[false] [false]"');
