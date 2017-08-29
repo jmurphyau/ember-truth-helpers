@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-export function isArrayHelper(params) {
+export function isArray(params) {
   for (var i=0, len=params.length; i<len; i++) {
     if (Ember.isArray(params[i]) === false) {
       return false;
@@ -8,3 +8,5 @@ export function isArrayHelper(params) {
   }
   return true;
 }
+
+export default Ember.Helper.helper(isArray);

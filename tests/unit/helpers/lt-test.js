@@ -1,20 +1,8 @@
-import Ember from 'ember';
 import { moduleForComponent, test } from 'ember-qunit';
-import { registerHelper } from 'ember-truth-helpers/utils/register-helper';
-import {
-  ltHelper
-} from 'ember-truth-helpers/helpers/lt';
 import hbs from 'htmlbars-inline-precompile';
 
 moduleForComponent('lt', 'helper:lt', {
-  integration: true,
-  beforeEach: function() {
-    // Do not register helpers from Ember 1.13 onwards, starting from 1.13 they
-    // will be auto-discovered.
-    if (!Ember.Helper) {
-      registerHelper('lt', ltHelper);
-    }
-  }
+  integration: true
 });
 
 // Replace this with your real tests.

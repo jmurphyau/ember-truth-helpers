@@ -1,6 +1,7 @@
+import Ember from 'ember';
 import truthConvert from '../utils/truth-convert';
 
-export function orHelper(params) {
+export function or(params) {
   for (var i=0, len=params.length; i<len; i++) {
     if (truthConvert(params[i]) === true) {
       return params[i];
@@ -8,3 +9,5 @@ export function orHelper(params) {
   }
   return params[params.length-1];
 }
+
+export default Ember.Helper.helper(or);

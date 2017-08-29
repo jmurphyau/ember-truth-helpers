@@ -1,20 +1,9 @@
 import Ember from 'ember';
 import { moduleForComponent, test } from 'ember-qunit';
-import { registerHelper } from 'ember-truth-helpers/utils/register-helper';
-import {
-  orHelper
-} from 'ember-truth-helpers/helpers/or';
 import hbs from 'htmlbars-inline-precompile';
 
 moduleForComponent('or', 'helper:or', {
-  integration: true,
-  beforeEach: function() {
-    // Do not register helpers from Ember 1.13 onwards, starting from 1.13 they
-    // will be auto-discovered.
-    if (!Ember.Helper) {
-      registerHelper('or',orHelper);
-    }
-  }
+  integration: true
 });
 
 test('simple test 1', function(assert) {

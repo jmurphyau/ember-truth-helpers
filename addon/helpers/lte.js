@@ -1,5 +1,6 @@
+import Ember from 'ember';
 
-export function lteHelper(params, hash) {
+export function lte(params, hash) {
   let left = params[0];
   let right = params[1];
   if (hash.forceNumber) {
@@ -8,3 +9,5 @@ export function lteHelper(params, hash) {
   }
   return left <= right;
 }
+
+export default Ember.Helper.helper(lte);
