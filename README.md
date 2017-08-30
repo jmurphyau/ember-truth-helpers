@@ -23,7 +23,7 @@ is-equal | `if (Ember.isEqual(a, b))`                    | `{{if (is-equal a b)}
 
 ## is-equal
 
-`is-equal` uses [`Ember.isEqual`](http://emberjs.com/api/#method_isEqual) helper to evaluate equality of two values.
+`is-equal` uses [`Ember.isEqual`](https://emberjs.com/api/#method_isEqual) helper to evaluate equality of two values.
  `eq` should be sufficient for most applications. `is-equal` is necessary when trying to compare a complex object to
  a primitive value.
 
@@ -39,14 +39,14 @@ is-equal | `if (Ember.isEqual(a, b))`                    | `{{if (is-equal a b)}
 ## Development
 
 * `git clone https://github.com/jmurphyau/ember-truth-helpers.git`
-* `npm install`
-* `bower install`
+* `cd ember-truth-helpers`
+* `yarn install`
 * `ember server`
 * Visit your app at http://localhost:4200.
 
 ## Running Tests
 
-* `npm test` (Runs `ember try:testall` to test your addon against multiple Ember versions)
+* `yarn test` (Runs `ember try:testall` to test your addon against multiple Ember versions)
 * `ember test`
 * `ember test --server`
 
@@ -54,4 +54,4 @@ is-equal | `if (Ember.isEqual(a, b))`                    | `{{if (is-equal a b)}
 
 * `ember build`
 
-For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+For more information on using ember-cli, visit [https://www.ember-cli.com/](https://www.ember-cli.com/).
