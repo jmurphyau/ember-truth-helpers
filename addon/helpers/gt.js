@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import { helper } from '@ember/component/helper';
 
 export function gt(params, hash) {
   let left = params[0];
@@ -10,4 +10,4 @@ export function gt(params, hash) {
   return left > right;
 }
 
-export default Ember.Helper.helper(gt);
+export default helper(gt);

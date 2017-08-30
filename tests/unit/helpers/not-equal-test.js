@@ -1,4 +1,5 @@
-import Ember from 'ember';
+import { run } from '@ember/runloop';
+import EmberObject from '@ember/object';
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
@@ -15,7 +16,7 @@ test('simple test 1', function(assert) {
 });
 
 test('simple test 2', function(assert) {
-  var fakeContextObject = Ember.Object.create({
+  var fakeContextObject = EmberObject.create({
     valueA: null,
     valueB: null
   });
@@ -28,14 +29,14 @@ test('simple test 2', function(assert) {
 
   assert.equal(this.$().text(), '[false] [false]', 'value should be "[false] [false]"');
 
-  Ember.run(fakeContextObject, 'set', 'valueA', undefined);
+  run(fakeContextObject, 'set', 'valueA', undefined);
   assert.equal(this.$().text(), '[true] [true]', 'value should be "[true] [true]"');
 
-  Ember.run(fakeContextObject, 'set', 'valueB', undefined);
+  run(fakeContextObject, 'set', 'valueB', undefined);
   assert.equal(this.$().text(), '[false] [false]', 'value should be "[false] [false]"');
 
-  Ember.run(fakeContextObject, 'set', 'valueA', 'yellow');
-  Ember.run(fakeContextObject, 'set', 'valueB', 'yellow');
+  run(fakeContextObject, 'set', 'valueA', 'yellow');
+  run(fakeContextObject, 'set', 'valueB', 'yellow');
   assert.equal(this.$().text(), '[false] [false]', 'value should be "[false] [false]"');
 
 });

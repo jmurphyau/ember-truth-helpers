@@ -8,6 +8,10 @@ module.exports = {
   env: {
     browser: true
   },
+  plugins: [
+    'ember'
+  ],
   rules: {
+    'ember/new-module-imports': 'error'
   }
 };

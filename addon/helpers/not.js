@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import { helper } from '@ember/component/helper';
 import truthConvert from '../utils/truth-convert';
 
 export function not(params) {
@@ -10,4 +10,4 @@ export function not(params) {
   return true;
 }
 
-export default Ember.Helper.helper(not);
+export default helper(not);

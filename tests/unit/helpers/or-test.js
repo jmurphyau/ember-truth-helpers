@@ -1,4 +1,5 @@
-import Ember from 'ember';
+import { run } from '@ember/runloop';
+import EmberObject from '@ember/object';
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
@@ -32,7 +33,7 @@ test('simple test 3', function(assert) {
 });
 
 test('simple test 4', function(assert) {
-  var fakeContextObject = Ember.Object.create({
+  var fakeContextObject = EmberObject.create({
     valueA: null,
     valueB: null
   });
@@ -45,16 +46,16 @@ test('simple test 4', function(assert) {
 
   assert.equal(this.$().text(), '[] [] [] []', 'value should be "[] [] [] []"');
 
-  Ember.run(fakeContextObject, 'set', 'valueA', undefined);
+  run(fakeContextObject, 'set', 'valueA', undefined);
   assert.equal(this.$().text(), '[] [] [] []', 'value should be "[] [] [] []"');
 
-  Ember.run(fakeContextObject, 'set', 'valueA', '');
+  run(fakeContextObject, 'set', 'valueA', '');
   assert.equal(this.$().text(), '[] [] [] []', 'value should be "[] [] [] []"');
 
-  Ember.run(fakeContextObject, 'set', 'valueA', ' ');
+  run(fakeContextObject, 'set', 'valueA', ' ');
   assert.equal(this.$().text(), '[ ] [] [ ] [ ]', 'value should be "[ ] [] [ ] [ ]"');
 
-  Ember.run(fakeContextObject, 'set', 'valueB', 'yellow');
+  run(fakeContextObject, 'set', 'valueB', 'yellow');
   assert.equal(this.$().text(), '[ ] [yellow] [yellow] [ ]', 'value should be "[ ] [yellow] [yellow] [ ]"');
 
 });
