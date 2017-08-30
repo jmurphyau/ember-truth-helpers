@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import { helper } from '@ember/component/helper';
 import truthConvert from '../utils/truth-convert';
 
 export function or(params) {
@@ -10,4 +10,4 @@ export function or(params) {
   return params[params.length-1];
 }
 
-export default Ember.Helper.helper(or);
+export default helper(or);

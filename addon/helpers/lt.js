@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import { helper } from '@ember/component/helper';
 
 export function lt(params, hash) {
   let left = params[0];
@@ -10,4 +10,4 @@ export function lt(params, hash) {
   return left < right;
 }
 
-export default Ember.Helper.helper(lt);
+export default helper(lt);

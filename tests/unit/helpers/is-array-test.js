@@ -1,4 +1,5 @@
-import Ember from 'ember';
+import { run } from '@ember/runloop';
+import EmberObject from '@ember/object';
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
@@ -7,7 +8,7 @@ moduleForComponent('is-array', 'helper:is-array', {
 });
 
 test('simple test 1', function(assert) {
-  var fakeContextObject = Ember.Object.create({
+  var fakeContextObject = EmberObject.create({
     valueA: null,
     valueB: null
   });
@@ -19,9 +20,9 @@ test('simple test 1', function(assert) {
 
   assert.equal(this.$().text(), '[false] [false] [false]', 'value should be "[false] [false] [false]"');
 
-  Ember.run(fakeContextObject, 'set', 'valueA', []);
+  run(fakeContextObject, 'set', 'valueA', []);
   assert.equal(this.$().text(), '[true] [false] [false]', 'value should be "[true] [false] [false]"');
 
-  Ember.run(fakeContextObject, 'set', 'valueB', []);
+  run(fakeContextObject, 'set', 'valueB', []);
   assert.equal(this.$().text(), '[true] [true] [true]', 'value should be "[true] [true] [true]"');
 });

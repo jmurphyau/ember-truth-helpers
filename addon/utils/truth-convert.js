@@ -1,11 +1,12 @@
-import Ember from 'ember';
+import { isArray } from '@ember/array';
+import { get } from '@ember/object';
 
 export default function truthConvert(result) {
-  var truthy = result && Ember.get(result, 'isTruthy');
+  var truthy = result && get(result, 'isTruthy');
   if (typeof truthy === 'boolean') { return truthy; }
 
-  if (Ember.isArray(result)) {
-    return Ember.get(result, 'length') !== 0;
+  if (isArray(result)) {
+    return get(result, 'length') !== 0;
   } else {
     return !!result;
   }
