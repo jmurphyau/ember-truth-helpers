@@ -1,4 +1,5 @@
 import Ember from 'ember';
+
 const { isEqual: emberIsEqual } = Ember;
 
 export function isEqual([a, b]) {
