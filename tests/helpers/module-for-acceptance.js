@@ -1,5 +1,5 @@
-import { resolve } from 'rsvp';
 import { module } from 'qunit';
+import { resolve } from 'rsvp';
 import startApp from '../helpers/start-app';
 import destroyApp from '../helpers/destroy-app';
 
