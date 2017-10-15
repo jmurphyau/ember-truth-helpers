@@ -8,7 +8,7 @@ moduleForComponent('is-array', 'helper:is-array', {
 });
 
 test('simple test 1', function(assert) {
-  var fakeContextObject = EmberObject.create({
+  const fakeContextObject = EmberObject.create({
     valueA: null,
     valueB: null
   });

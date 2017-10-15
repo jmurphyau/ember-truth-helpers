@@ -33,7 +33,7 @@ test('simple test 3', function(assert) {
 });
 
 test('simple test 4', function(assert) {
-  var fakeContextObject = EmberObject.create({
+  const fakeContextObject = EmberObject.create({
     valueA: null,
     valueB: null
   });
