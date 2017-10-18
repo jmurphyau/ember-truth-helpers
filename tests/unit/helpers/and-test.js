@@ -30,7 +30,7 @@ test('string values', function(assert) {
 });
 
 
-test('undefined list length and boolean', function(assert) {
+test('undefined list length and truthy', function(assert) {
   this.render(
     hbs('[{{and array.length 1}}]')
   );
@@ -38,7 +38,7 @@ test('undefined list length and boolean', function(assert) {
   assert.equal(this.$().text(), '[]', 'value should be "[]"');
 });
 
-test('null list length and boolean', function(assert) {
+test('null list length and truthy', function(assert) {
   this.set('array', null);
 
   this.render(
@@ -48,7 +48,7 @@ test('null list length and boolean', function(assert) {
   assert.equal(this.$().text(), '[]', 'value should be "[]"');
 });
 
-test('empty list length and boolean', function(assert) {
+test('empty list length and truthy', function(assert) {
   this.set('array', []);
 
   this.render(
@@ -58,11 +58,49 @@ test('empty list length and boolean', function(assert) {
   assert.equal(this.$().text(), '[0]', 'value should be "[0]"');
 });
 
-test('non-empty list length and boolean', function(assert) {
+test('non-empty list length and truthy', function(assert) {
   this.set('array', ['a']);
 
   this.render(
     hbs('[{{and array.length 2}}]')
+  );
+
+  assert.equal(this.$().text(), '[2]', 'value should be "[2]"');
+});
+
+test('undefined list and truthy', function(assert) {
+  this.render(
+    Ember.HTMLBars.compile('[{{and array 1}}]')
+  );
+
+  assert.equal(this.$().text(), '[]', 'value should be "[]"');
+});
+
+test('null list and truthy', function(assert) {
+  this.set('array', null);
+
+  this.render(
+    Ember.HTMLBars.compile('[{{and array 1}}]')
+  );
+
+  assert.equal(this.$().text(), '[]', 'value should be "[]"');
+});
+
+test('empty list and truthy', function(assert) {
+  this.set('array', []);
+
+  this.render(
+    Ember.HTMLBars.compile('[{{and array 1}}]')
+  );
+
+  assert.equal(this.$().text(), '[]', 'value should be "[]"');
+});
+
+test('non-empty list and truthy', function(assert) {
+  this.set('array', ['a']);
+
+  this.render(
+    Ember.HTMLBars.compile('[{{and array 2}}]')
   );
 
   assert.equal(this.$().text(), '[2]', 'value should be "[2]"');
