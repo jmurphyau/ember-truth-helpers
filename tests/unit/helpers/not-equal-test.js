@@ -16,7 +16,7 @@ test('simple test 1', function(assert) {
 });
 
 test('simple test 2', function(assert) {
-  var fakeContextObject = EmberObject.create({
+  const fakeContextObject = EmberObject.create({
     valueA: null,
     valueB: null
   });
