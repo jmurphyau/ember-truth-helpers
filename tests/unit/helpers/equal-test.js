@@ -40,3 +40,49 @@ test('simple test 2', function(assert) {
   assert.equal(this.$().text(), '[true] [true]', 'value should be "[true] [true]"');
 
 });
+
+test('variable argument count', function(assert) {
+  const fakeContextObject = EmberObject.create({
+    valueA: null,
+    valueB: null,
+    valueC: null
+  });
+
+  this.set('contextChild', fakeContextObject);
+
+  this.render(
+    hbs(
+      '[{{eq contextChild.valueA contextChild.valueB contextChild.valueC}}] [{{eq contextChild.valueA contextChild.valueC contextChild.valueB}}] [{{eq contextChild.valueC contextChild.valueB contextChild.valueA}}]'
+    )
+  );
+
+  assert.equal(
+    this.$().text(),
+    '[true] [true] [true]',
+    'value should be "[true] [true] [true]"'
+  );
+
+  run(fakeContextObject, 'set', 'valueA', undefined);
+  assert.equal(
+    this.$().text(),
+    '[false] [false] [false]',
+    'value should be "[false] [false] [false]"'
+  );
+
+  run(fakeContextObject, 'set', 'valueB', undefined);
+  run(fakeContextObject, 'set', 'valueC', undefined);
+  assert.equal(
+    this.$().text(),
+    '[true] [true] [true]',
+    'value should be "[true] [true] [true]"'
+  );
+
+  run(fakeContextObject, 'set', 'valueA', 'yellow');
+  run(fakeContextObject, 'set', 'valueB', 'yellow');
+  run(fakeContextObject, 'set', 'valueC', 'yellow');
+  assert.equal(
+    this.$().text(),
+    '[true] [true] [true]',
+    'value should be "[true] [true] [true]"'
+  );
+});
