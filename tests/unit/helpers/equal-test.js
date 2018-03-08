@@ -1,42 +1,42 @@
 import { run } from '@ember/runloop';
 import EmberObject from '@ember/object';
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('eq', 'helper:eq', {
-  integration: true
-});
+module('helper:eq', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('simple test 1', function(assert) {
-  this.render(
-    hbs("[{{eq true true}}] [{{eq true false}}] [{{eq false true}}] [{{eq false false}}]")
-  );
+  test('simple test 1', async function(assert) {
+    await render(hbs("[{{eq true true}}] [{{eq true false}}] [{{eq false true}}] [{{eq false false}}]"));
 
-  assert.equal(this.$().text(), '[true] [false] [false] [true]', 'value should be "[true] [false] [false] [true]"');
-});
-
-test('simple test 2', function(assert) {
-  const fakeContextObject = EmberObject.create({
-    valueA: null,
-    valueB: null
+    assert.equal(this.$().text(), '[true] [false] [false] [true]', 'value should be "[true] [false] [false] [true]"');
   });
 
-  this.set('contextChild', fakeContextObject);
+  test('simple test 2', async function(assert) {
+    const fakeContextObject = EmberObject.create({
+      valueA: null,
+      valueB: null
+    });
 
-  this.render(
-    hbs("[{{eq contextChild.valueA contextChild.valueB}}] [{{eq contextChild.valueB contextChild.valueA}}]")
-  );
+    this.set('contextChild', fakeContextObject);
 
-  assert.equal(this.$().text(), '[true] [true]', 'value should be "[true] [true]"');
+    await render(
+      hbs("[{{eq contextChild.valueA contextChild.valueB}}] [{{eq contextChild.valueB contextChild.valueA}}]")
+    );
 
-  run(fakeContextObject, 'set', 'valueA', undefined);
-  assert.equal(this.$().text(), '[false] [false]', 'value should be "[false] [false]"');
+    assert.equal(this.$().text(), '[true] [true]', 'value should be "[true] [true]"');
 
-  run(fakeContextObject, 'set', 'valueB', undefined);
-  assert.equal(this.$().text(), '[true] [true]', 'value should be "[true] [true]"');
+    run(fakeContextObject, 'set', 'valueA', undefined);
+    assert.equal(this.$().text(), '[false] [false]', 'value should be "[false] [false]"');
 
-  run(fakeContextObject, 'set', 'valueA', 'yellow');
-  run(fakeContextObject, 'set', 'valueB', 'yellow');
-  assert.equal(this.$().text(), '[true] [true]', 'value should be "[true] [true]"');
+    run(fakeContextObject, 'set', 'valueB', undefined);
+    assert.equal(this.$().text(), '[true] [true]', 'value should be "[true] [true]"');
 
+    run(fakeContextObject, 'set', 'valueA', 'yellow');
+    run(fakeContextObject, 'set', 'valueB', 'yellow');
+    assert.equal(this.$().text(), '[true] [true]', 'value should be "[true] [true]"');
+
+  });
 });
