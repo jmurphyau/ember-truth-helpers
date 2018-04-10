@@ -17,6 +17,7 @@ gte      | `if (a >= b)`                                 | `{{if (gte a b)}}`   
 lt       | `if (a < b)`                                  | `{{if (lt a b)}}`       | No                              |
 lte      | `if (a <= b)`                                 | `{{if (lte a b)}}`      | No                              |
 is-array | `if (Ember.isArray(a))`                       | `{{if (is-array a)}}`   | Yes                             |
+is-empty | `if (Ember.isEmpty(a))`                       | `{{if (is-empty a)}}`   | No                             |
 is-equal | `if (Ember.isEqual(a, b))`                    | `{{if (is-equal a b)}}` | No                              |
 
 ### API
