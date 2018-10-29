@@ -1,8 +1,17 @@
-# Ember Truth Helpers [![Build Status](https://travis-ci.org/jmurphyau/ember-truth-helpers.svg?branch=master)](https://travis-ci.org/jmurphyau/ember-truth-helpers)
+Ember Truth Helpers [![Build Status](https://travis-ci.org/jmurphyau/ember-truth-helpers.svg?branch=master)](https://travis-ci.org/jmurphyau/ember-truth-helpers)
+==============================================================================
 
 HTMLBars template helpers for additional truth logic in `if` and `unless` statements.
 
-## Usage
+Installation
+------------------------------------------------------------------------------
+
+```
+ember install ember-truth-helpers
+```
+
+Usage
+------------------------------------------------------------------------------
 
 Helper   | JavaScript                                    | HTMLBars                | Variable argument count allowed |
 ---------|-----------------------------------------------|-------------------------|---------------------------------|
@@ -20,39 +29,48 @@ is-array | `if (Ember.isArray(a))`                       | `{{if (is-array a)}}`
 is-empty | `if (Ember.isEmpty(a))`                       | `{{if (is-empty a)}}`   | No                             |
 is-equal | `if (Ember.isEqual(a, b))`                    | `{{if (is-equal a b)}}` | No                              |
 
-### API
+## API
 
-## is-equal
+### is-equal
 
 `is-equal` uses [`Ember.isEqual`](https://emberjs.com/api/#method_isEqual) helper to evaluate equality of two values.
  `eq` should be sufficient for most applications. `is-equal` is necessary when trying to compare a complex object to
  a primitive value.
-
-## Install
-
-* `ember install ember-truth-helpers`
 
 ## Other Helpers
 
 * [ember-get-helper](https://github.com/jmurphyau/ember-get-helper)
 * [ember-composable-helpers](https://github.com/DockYard/ember-composable-helpers)
 
-## Development
+Contributing
+------------------------------------------------------------------------------
+
+### Installation
 
 * `git clone https://github.com/jmurphyau/ember-truth-helpers.git`
 * `cd ember-truth-helpers`
-* `yarn install`
-* `ember server`
-* Visit your app at http://localhost:4200.
+* `yarn`
 
-## Running Tests
+### Linting
 
-* `yarn test` (Runs `ember try:testall` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
+* `yarn lint:hbs`
+* `yarn lint:js`
+* `yarn lint:js -- --fix`
 
-## Building
+### Running tests
 
-* `ember build`
+* `ember test` – Runs the test suite on the current Ember version
+* `ember test --server` – Runs the test suite in "watch mode"
+* `ember try:each` – Runs the test suite against multiple Ember versions
 
-For more information on using ember-cli, visit [https://www.ember-cli.com/](https://www.ember-cli.com/).
+### Running the dummy application
+
+* `ember serve`
+* Visit the dummy application at [http://localhost:4200](http://localhost:4200).
+
+For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
+
+License
+------------------------------------------------------------------------------
+
+This project is licensed under the [MIT License](LICENSE.md).
