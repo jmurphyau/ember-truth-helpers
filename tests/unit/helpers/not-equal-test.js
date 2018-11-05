@@ -10,7 +10,7 @@ module('helper:not-equal', function(hooks) {
 
   test('simple test 1', async function(assert) {
     await render(
-      hbs("[{{not-eq true true}}] [{{not-eq true false}}] [{{not-eq false true}}] [{{not-eq false false}}]")
+      hbs`[{{not-eq true true}}] [{{not-eq true false}}] [{{not-eq false true}}] [{{not-eq false false}}]`
     );
 
     assert.equal(find('*').textContent, '[false] [true] [true] [false]', 'value should be "[false] [true] [true] [false]"');
@@ -25,7 +25,7 @@ module('helper:not-equal', function(hooks) {
     this.set('contextChild', fakeContextObject);
 
     await render(
-      hbs("[{{not-eq contextChild.valueA contextChild.valueB}}] [{{not-eq contextChild.valueB contextChild.valueA}}]")
+      hbs`[{{not-eq contextChild.valueA contextChild.valueB}}] [{{not-eq contextChild.valueB contextChild.valueA}}]`
     );
 
     assert.equal(find('*').textContent, '[false] [false]', 'value should be "[false] [false]"');

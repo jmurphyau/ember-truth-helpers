@@ -9,13 +9,13 @@ module('helper:or', function(hooks) {
   setupRenderingTest(hooks);
 
   test('simple test 1', async function(assert) {
-    await render(hbs("[{{or true 1 ' ' null undefined}}]"));
+    await render(hbs`[{{or true 1 ' ' null undefined}}]`);
 
     assert.equal(find('*').textContent, '[true]', 'value should be "[true]"');
   });
 
   test('simple test 2', async function(assert) {
-    await render(hbs("[{{or null undefined true 1 ' '}}]"));
+    await render(hbs`[{{or null undefined true 1 ' '}}]`);
 
     assert.equal(find('*').textContent, '[true]', 'value should be "[true]"');
   });
@@ -23,7 +23,7 @@ module('helper:or', function(hooks) {
 
   test('simple test 3', async function(assert) {
     await render(
-      hbs("[{{or false}}] [{{or true}}] [{{or 1}}] [{{or ''}}] [{{or false ''}}] [{{or true ''}}] [{{or '' true}}]")
+      hbs`[{{or false}}] [{{or true}}] [{{or 1}}] [{{or ''}}] [{{or false ''}}] [{{or true ''}}] [{{or '' true}}]`
     );
 
     assert.equal(find('*').textContent, '[false] [true] [1] [] [] [true] [true]', 'value should be "[false] [true] [1] [] [] [true] [true]"');
@@ -38,7 +38,7 @@ module('helper:or', function(hooks) {
     this.set('contextChild', fakeContextObject);
 
     await render(
-      hbs("[{{or contextChild.valueA}}] [{{or contextChild.valueB}}] [{{or contextChild.valueB contextChild.valueA}}] [{{or contextChild.valueA contextChild.valueB}}]")
+      hbs`[{{or contextChild.valueA}}] [{{or contextChild.valueB}}] [{{or contextChild.valueB contextChild.valueA}}] [{{or contextChild.valueA contextChild.valueB}}]`
     );
 
     assert.equal(find('*').textContent, '[] [] [] []', 'value should be "[] [] [] []"');
