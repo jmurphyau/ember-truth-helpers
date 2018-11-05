@@ -10,13 +10,13 @@ module('helper:is-empty', function(hooks) {
     this.set('thisIsUndefined', undefined)
     this.set('thisIsNull', null)
     this.set('thisIsNotNull', new Date())
-    await render(hbs("[{{is-empty thisIsUndefined}}] [{{is-empty thisIsNull}}] [{{is-empty thisIsNotNull}}]"));
+    await render(hbs`[{{is-empty thisIsUndefined}}] [{{is-empty thisIsNull}}] [{{is-empty thisIsNotNull}}]`);
 
     assert.equal(find('*').textContent, '[true] [true] [false]', 'value should be "[true] [true] [false]"');
   });
 
   test('boolean values', async function(assert) {
-    await render(hbs("[{{is-empty true}}] [{{is-empty false}}]"));
+    await render(hbs`[{{is-empty true}}] [{{is-empty false}}]`);
 
     assert.equal(find('*').textContent, '[false] [false]', 'value should be "[false] [false]"');
   });
@@ -24,7 +24,7 @@ module('helper:is-empty', function(hooks) {
   test('objects', async function(assert) {
     this.set('emptyObject', {})
     this.set('notEmptyObject', { some: 'object' })
-    await render(hbs("[{{is-empty emptyObject}}] [{{is-empty notEmptyObject}}]"));
+    await render(hbs`[{{is-empty emptyObject}}] [{{is-empty notEmptyObject}}]`);
 
     assert.equal(find('*').textContent, '[false] [false]', 'value should be "[false] [false]"');
   });
@@ -32,7 +32,7 @@ module('helper:is-empty', function(hooks) {
   test('arrays', async function(assert) {
     this.set('emptyArray', [])
     this.set('notEmptyArray', [ 'a', 8, {} ])
-    await render(hbs("[{{is-empty emptyArray}}] [{{is-empty notEmptyArray}}]"));
+    await render(hbs`[{{is-empty emptyArray}}] [{{is-empty notEmptyArray}}]`);
 
     assert.equal(find('*').textContent, '[true] [false]', 'value should be "[true] [false]"');
   });
@@ -41,7 +41,7 @@ module('helper:is-empty', function(hooks) {
     this.set('emptyString', '')
     this.set('whitespaceString', '   ')
     this.set('notEmptyString', 'full of text')
-    await render(hbs("[{{is-empty emptyString}}] [{{is-empty whitespaceString}}] [{{is-empty notEmptyString}}]"));
+    await render(hbs`[{{is-empty emptyString}}] [{{is-empty whitespaceString}}] [{{is-empty notEmptyString}}]`);
 
     assert.equal(find('*').textContent, '[true] [false] [false]', 'value should be "[true] [false] [false]"');
   });

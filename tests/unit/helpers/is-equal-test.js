@@ -14,7 +14,7 @@ module('helper:is-equal', function(hooks) {
     });
 
     await render(
-      hbs("[{{is-equal complex 12}}] [{{is-equal complex 13}}] [{{is-equal 13 complex}}] [{{is-equal 12 complex}}]")
+      hbs`[{{is-equal complex 12}}] [{{is-equal complex 13}}] [{{is-equal 13 complex}}] [{{is-equal 12 complex}}]`
     );
 
     assert.equal(find('*').textContent, '[true] [false] [false] [false]', 'value should be "[true] [false] [false] [false]"');
