@@ -2,7 +2,7 @@ import { run } from '@ember/runloop';
 import EmberObject from '@ember/object';
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render, find } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 module('helper:not-equal', function(hooks) {
@@ -13,7 +13,7 @@ module('helper:not-equal', function(hooks) {
       hbs("[{{not-eq true true}}] [{{not-eq true false}}] [{{not-eq false true}}] [{{not-eq false false}}]")
     );
 
-    assert.equal(this.$().text(), '[false] [true] [true] [false]', 'value should be "[false] [true] [true] [false]"');
+    assert.equal(find('*').textContent, '[false] [true] [true] [false]', 'value should be "[false] [true] [true] [false]"');
   });
 
   test('simple test 2', async function(assert) {
@@ -28,17 +28,17 @@ module('helper:not-equal', function(hooks) {
       hbs("[{{not-eq contextChild.valueA contextChild.valueB}}] [{{not-eq contextChild.valueB contextChild.valueA}}]")
     );
 
-    assert.equal(this.$().text(), '[false] [false]', 'value should be "[false] [false]"');
+    assert.equal(find('*').textContent, '[false] [false]', 'value should be "[false] [false]"');
 
     run(fakeContextObject, 'set', 'valueA', undefined);
-    assert.equal(this.$().text(), '[true] [true]', 'value should be "[true] [true]"');
+    assert.equal(find('*').textContent, '[true] [true]', 'value should be "[true] [true]"');
 
     run(fakeContextObject, 'set', 'valueB', undefined);
-    assert.equal(this.$().text(), '[false] [false]', 'value should be "[false] [false]"');
+    assert.equal(find('*').textContent, '[false] [false]', 'value should be "[false] [false]"');
 
     run(fakeContextObject, 'set', 'valueA', 'yellow');
     run(fakeContextObject, 'set', 'valueB', 'yellow');
-    assert.equal(this.$().text(), '[false] [false]', 'value should be "[false] [false]"');
+    assert.equal(find('*').textContent, '[false] [false]', 'value should be "[false] [false]"');
 
   });
 });
