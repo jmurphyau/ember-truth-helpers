@@ -13,21 +13,27 @@ ember install ember-truth-helpers
 Usage
 ------------------------------------------------------------------------------
 
-Helper   | JavaScript                                    | HTMLBars                | Variable argument count allowed |
----------|-----------------------------------------------|-------------------------|---------------------------------|
-eq       | `if (a === b)`                                | `{{if (eq a b)}}`       | No                              |
-not-eq   | `if (a !== b)`                                | `{{if (not-eq a b)}}`   | No                              |
-not      | `if (!a)`                                     | `{{if (not a)}}`        | Yes                             |
-and      | `if (a && b)`                                 | `{{if (and a b)}}`      | Yes                             |
-or       | <code>if (a &#124;&#124; b)</code>            | `{{if (or a b)}}`       | Yes                             |
-xor      | <code>if (a && !b &#124;&#124; !a && b)</code>| `{{if (xor a b)}}`      | No                              |
-gt       | `if (a > b)`                                  | `{{if (gt a b)}}`       | No                              |
-gte      | `if (a >= b)`                                 | `{{if (gte a b)}}`      | No                              |
-lt       | `if (a < b)`                                  | `{{if (lt a b)}}`       | No                              |
-lte      | `if (a <= b)`                                 | `{{if (lte a b)}}`      | No                              |
-is-array | `if (Ember.isArray(a))`                       | `{{if (is-array a)}}`   | Yes                             |
-is-empty | `if (Ember.isEmpty(a))`                       | `{{if (is-empty a)}}`   | No                             |
-is-equal | `if (Ember.isEqual(a, b))`                    | `{{if (is-equal a b)}}` | No                              |
+Helper   | JavaScript                                      | HTMLBars                | Variable argument count allowed |
+---------|-------------------------------------------------|-------------------------|---------------------------------|
+eq       | `if (a === b)`                                  | `{{if (eq a b)}}`       | No                              |
+not-eq   | `if (a !== b)`                                  | `{{if (not-eq a b)}}`   | No                              |
+not      | `if (!a)`                                       | `{{if (not a)}}`        | Yes                             |
+and      | `if (a && b)`*                                  | `{{if (and a b)}}`      | Yes                             |
+or       | <code>if (a &#124;&#124; b)</code> *            | `{{if (or a b)}}`       | Yes                             |
+xor      | <code>if (a && !b &#124;&#124; !a && b)</code>* | `{{if (xor a b)}}`      | No                              |
+gt       | `if (a > b)`                                    | `{{if (gt a b)}}`       | No                              |
+gte      | `if (a >= b)`                                   | `{{if (gte a b)}}`      | No                              |
+lt       | `if (a < b)`                                    | `{{if (lt a b)}}`       | No                              |
+lte      | `if (a <= b)`                                   | `{{if (lte a b)}}`      | No                              |
+is-array | `if (Ember.isArray(a))`                         | `{{if (is-array a)}}`   | Yes                             |
+is-empty | `if (Ember.isEmpty(a))`                         | `{{if (is-empty a)}}`   | No                              |
+is-equal | `if (Ember.isEqual(a, b))`                      | `{{if (is-equal a b)}}` | No                              |
+
+<sup>
+  * Unlike their JavaScript counterparts, these expressions do <em>not</em> short circuit.
+  For example, with <code>(or a b)</code>, even if <code>a</code> is truthy, <code>b</code> will still be evaluated.
+  See <a href="https://github.com/jmurphyau/ember-truth-helpers/issues/58#issuecomment-319798732">this explanation</a>.
+</sup>
 
 ## API
 
