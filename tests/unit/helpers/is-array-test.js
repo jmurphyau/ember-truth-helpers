@@ -9,6 +9,7 @@ module('helper:is-array', function(hooks) {
   setupRenderingTest(hooks);
 
   test('simple test 1', async function(assert) {
+    assert.expect(3);
     const fakeContextObject = EmberObject.create({
       valueA: null,
       valueB: null
