@@ -39,7 +39,7 @@ is-equal | `if (Ember.isEqual(a, b))`                      | `{{if (is-equal a b
 
 ### is-equal
 
-`is-equal` uses [`Ember.isEqual`](https://emberjs.com/api/#method_isEqual) helper to evaluate equality of two values.
+`is-equal` uses [`Ember.isEqual`](https://api.emberjs.com/ember/3.14/functions/@ember%2Futils/isEqual) helper to evaluate equality of two values.
  `eq` should be sufficient for most applications. `is-equal` is necessary when trying to compare a complex object to
  a primitive value.
 
