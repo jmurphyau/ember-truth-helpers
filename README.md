@@ -28,6 +28,7 @@ lte      | `if (a <= b)`                                   | `{{if (lte a b)}}` 
 is-array | `if (Ember.isArray(a))`                         | `{{if (is-array a)}}`   | Yes                             |
 is-empty | `if (Ember.isEmpty(a))`                         | `{{if (is-empty a)}}`   | No                              |
 is-equal | `if (Ember.isEqual(a, b))`                      | `{{if (is-equal a b)}}` | No                              |
+includes | `if (a.includes(b))`                            | `{{if (includes a b)}}` | No                              |
 
 <sup>
   * Unlike their JavaScript counterparts, these expressions do <em>not</em> short circuit.
