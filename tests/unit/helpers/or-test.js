@@ -9,12 +9,14 @@ module('helper:or', function(hooks) {
   setupRenderingTest(hooks);
 
   test('simple test 1', async function(assert) {
+    assert.expect(1);
     await render(hbs`[{{or true 1 ' ' null undefined}}]`);
 
     assert.equal(find('*').textContent, '[true]', 'value should be "[true]"');
   });
 
   test('simple test 2', async function(assert) {
+    assert.expect(1);
     await render(hbs`[{{or null undefined true 1 ' '}}]`);
 
     assert.equal(find('*').textContent, '[true]', 'value should be "[true]"');
@@ -22,6 +24,7 @@ module('helper:or', function(hooks) {
 
 
   test('simple test 3', async function(assert) {
+    assert.expect(1);
     await render(
       hbs`[{{or false}}] [{{or true}}] [{{or 1}}] [{{or ''}}] [{{or false ''}}] [{{or true ''}}] [{{or '' true}}]`
     );
@@ -30,6 +33,7 @@ module('helper:or', function(hooks) {
   });
 
   test('simple test 4', async function(assert) {
+    assert.expect(5);
     const fakeContextObject = EmberObject.create({
       valueA: null,
       valueB: null
@@ -54,6 +58,5 @@ module('helper:or', function(hooks) {
 
     run(fakeContextObject, 'set', 'valueB', 'yellow');
     assert.equal(find('*').textContent, '[ ] [yellow] [yellow] [ ]', 'value should be "[ ] [yellow] [yellow] [ ]"');
-
   });
 });

@@ -9,6 +9,7 @@ module('helper:not-equal', function(hooks) {
   setupRenderingTest(hooks);
 
   test('simple test 1', async function(assert) {
+    assert.expect(1);
     await render(
       hbs`[{{not-eq true true}}] [{{not-eq true false}}] [{{not-eq false true}}] [{{not-eq false false}}]`
     );
@@ -17,6 +18,7 @@ module('helper:not-equal', function(hooks) {
   });
 
   test('simple test 2', async function(assert) {
+    assert.expect(4);
     const fakeContextObject = EmberObject.create({
       valueA: null,
       valueB: null

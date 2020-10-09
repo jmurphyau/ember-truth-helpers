@@ -7,6 +7,7 @@ module('helper:is-equal', function(hooks) {
   setupRenderingTest(hooks);
 
   test('uses isEqual', async function(assert) {
+    assert.expect(1);
     this.set('complex', {
       isEqual(value) {
         return 12 === value;

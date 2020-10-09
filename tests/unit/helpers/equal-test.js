@@ -9,12 +9,14 @@ module('helper:eq', function(hooks) {
   setupRenderingTest(hooks);
 
   test('simple test 1', async function(assert) {
+    assert.expect(1);
     await render(hbs`[{{eq true true}}] [{{eq true false}}] [{{eq false true}}] [{{eq false false}}]`);
 
     assert.equal(find('*').textContent, '[true] [false] [false] [true]', 'value should be "[true] [false] [false] [true]"');
   });
 
   test('simple test 2', async function(assert) {
+    assert.expect(4);
     const fakeContextObject = EmberObject.create({
       valueA: null,
       valueB: null

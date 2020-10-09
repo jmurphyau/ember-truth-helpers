@@ -7,6 +7,7 @@ module('helper:is-empty', function(hooks) {
   setupRenderingTest(hooks);
 
   test('undefined/null values', async function(assert) {
+    assert.expect(1);
     this.set('thisIsUndefined', undefined)
     this.set('thisIsNull', null)
     this.set('thisIsNotNull', new Date())
@@ -16,12 +17,14 @@ module('helper:is-empty', function(hooks) {
   });
 
   test('boolean values', async function(assert) {
+    assert.expect(1);
     await render(hbs`[{{is-empty true}}] [{{is-empty false}}]`);
 
     assert.equal(find('*').textContent, '[false] [false]', 'value should be "[false] [false]"');
   });
 
   test('objects', async function(assert) {
+    assert.expect(1);
     this.set('emptyObject', {})
     this.set('notEmptyObject', { some: 'object' })
     await render(hbs`[{{is-empty emptyObject}}] [{{is-empty notEmptyObject}}]`);
@@ -30,6 +33,7 @@ module('helper:is-empty', function(hooks) {
   });
 
   test('arrays', async function(assert) {
+    assert.expect(1);
     this.set('emptyArray', [])
     this.set('notEmptyArray', [ 'a', 8, {} ])
     await render(hbs`[{{is-empty emptyArray}}] [{{is-empty notEmptyArray}}]`);
@@ -38,6 +42,7 @@ module('helper:is-empty', function(hooks) {
   });
 
   test('strings', async function(assert) {
+    assert.expect(1);
     this.set('emptyString', '')
     this.set('whitespaceString', '   ')
     this.set('notEmptyString', 'full of text')

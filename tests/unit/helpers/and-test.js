@@ -7,18 +7,21 @@ module('helper:and', function(hooks) {
   setupRenderingTest(hooks);
 
   test('boolean values', async function(assert) {
+    assert.expect(1);
     await render(hbs`[{{and true true}}] [{{and true false}}] [{{and false true}}] [{{and false false}}]`);
 
     assert.equal(find('*').textContent, '[true] [false] [false] [false]', 'value should be "[true] [false] [false] [false]"');
   });
 
   test('integer values', async function(assert) {
+    assert.expect(1);
     await render(hbs`[{{and 1 1}}] [{{and 1 0}}] [{{and 0 1}}] [{{and 0 0}}]`);
 
     assert.equal(find('*').textContent, '[1] [0] [0] [0]', 'value should be "[1] [0] [0] [0]"');
   });
 
   test('string values', async function(assert) {
+    assert.expect(1);
     await render(hbs`[{{and " " " "}}] [{{and " " ""}}] [{{and "" " "}}] [{{and "" ""}}]`);
 
     assert.equal(find('*').textContent, '[ ] [] [] []', 'value should be "[ ] [] [] []"');
@@ -26,12 +29,14 @@ module('helper:and', function(hooks) {
 
 
   test('undefined list length and boolean', async function(assert) {
+    assert.expect(1);
     await render(hbs`[{{and array.length 1}}]`);
 
     assert.equal(find('*').textContent, '[]', 'value should be "[]"');
   });
 
   test('null list length and boolean', async function(assert) {
+    assert.expect(1);
     this.set('array', null);
 
     await render(hbs`[{{and array.length 1}}]`);
@@ -40,6 +45,7 @@ module('helper:and', function(hooks) {
   });
 
   test('empty list length and boolean', async function(assert) {
+    assert.expect(1);
     this.set('array', []);
 
     await render(hbs`[{{and array.length 1}}]`);
@@ -48,6 +54,7 @@ module('helper:and', function(hooks) {
   });
 
   test('non-empty list length and boolean', async function(assert) {
+    assert.expect(1);
     this.set('array', ['a']);
 
     await render(hbs`[{{and array.length 2}}]`);
