@@ -1,5 +1,3 @@
-# ember-truth-helpers Changelog
-
 ### v2.1.0 (2018-08-20)
 - Add `is-empty` helper
 
