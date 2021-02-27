@@ -19,6 +19,28 @@ Installation
 ember install ember-truth-helpers
 ```
 
+Configuration
+------------------------------------------------------------------------------
+
+Like [ember-composable-helpers](https://github.com/DockYard/ember-composable-helpers) and [ember-math-helpers](https://github.com/shipshapecode/ember-math-helpers) you can choose which helper do you want or not:
+
+```js
+module.exports = function(defaults) {
+  var app = new EmberApp(defaults, {
+    'ember-truth-helpers': {
+      only: ['eq', 'not-eq'],
+      except: ['xor', 'lte']
+    }
+  });
+```
+
+Both `only` and `except` can be safely used together (the addon computes the diff), although it's best if you only use one for your own sanity.
+
+```js
+except: ['eq'] // imports all helpers except `eq`
+only: ['eq'] // imports only `eq`
+```
+
 Usage
 ------------------------------------------------------------------------------
 
