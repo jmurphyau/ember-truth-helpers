@@ -1,5 +1,4 @@
 import { isArray } from '@ember/array';
-import { get } from '@ember/object';
 
 export default function truthConvert(result) {
   const truthy = result && result.isTruthy;
