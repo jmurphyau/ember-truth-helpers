@@ -29,7 +29,7 @@ module('helper:eq', function (hooks) {
     this.set('contextChild', fakeContextObject);
 
     await render(
-      hbs`[{{eq contextChild.valueA contextChild.valueB}}] [{{eq contextChild.valueB contextChild.valueA}}]`
+      hbs`[{{eq this.contextChild.valueA this.contextChild.valueB}}] [{{eq this.contextChild.valueB this.contextChild.valueA}}]`
     );
 
     assert.equal(

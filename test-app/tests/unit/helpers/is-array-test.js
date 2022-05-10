@@ -16,7 +16,7 @@ module('helper:is-array', function (hooks) {
     this.set('contextChild', fakeContextObject);
 
     await render(
-      hbs`[{{is-array contextChild.valueA}}] [{{is-array contextChild.valueB}}] [{{is-array contextChild.valueA contextChild.valueB}}]`
+      hbs`[{{is-array this.contextChild.valueA}}] [{{is-array this.contextChild.valueB}}] [{{is-array this.contextChild.valueA this.contextChild.valueB}}]`
     );
 
     assert.equal(

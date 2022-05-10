@@ -29,7 +29,7 @@ module('helper:not-equal', function (hooks) {
     this.set('contextChild', fakeContextObject);
 
     await render(
-      hbs`[{{not-eq contextChild.valueA contextChild.valueB}}] [{{not-eq contextChild.valueB contextChild.valueA}}]`
+      hbs`[{{not-eq this.contextChild.valueA this.contextChild.valueB}}] [{{not-eq this.contextChild.valueB this.contextChild.valueA}}]`
     );
 
     assert.equal(

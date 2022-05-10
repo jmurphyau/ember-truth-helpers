@@ -11,7 +11,7 @@ module('helper:is-empty', function (hooks) {
     this.set('thisIsNull', null);
     this.set('thisIsNotNull', new Date());
     await render(
-      hbs`[{{is-empty thisIsUndefined}}] [{{is-empty thisIsNull}}] [{{is-empty thisIsNotNull}}]`
+      hbs`[{{is-empty this.thisIsUndefined}}] [{{is-empty this.thisIsNull}}] [{{is-empty this.thisIsNotNull}}]`
     );
 
     assert.equal(
@@ -34,7 +34,9 @@ module('helper:is-empty', function (hooks) {
   test('objects', async function (assert) {
     this.set('emptyObject', {});
     this.set('notEmptyObject', { some: 'object' });
-    await render(hbs`[{{is-empty emptyObject}}] [{{is-empty notEmptyObject}}]`);
+    await render(
+      hbs`[{{is-empty this.emptyObject}}] [{{is-empty this.notEmptyObject}}]`
+    );
 
     assert.equal(
       this.element.textContent,
@@ -46,7 +48,9 @@ module('helper:is-empty', function (hooks) {
   test('arrays', async function (assert) {
     this.set('emptyArray', []);
     this.set('notEmptyArray', ['a', 8, {}]);
-    await render(hbs`[{{is-empty emptyArray}}] [{{is-empty notEmptyArray}}]`);
+    await render(
+      hbs`[{{is-empty this.emptyArray}}] [{{is-empty this.notEmptyArray}}]`
+    );
 
     assert.equal(
       this.element.textContent,
@@ -60,7 +64,7 @@ module('helper:is-empty', function (hooks) {
     this.set('whitespaceString', '   ');
     this.set('notEmptyString', 'full of text');
     await render(
-      hbs`[{{is-empty emptyString}}] [{{is-empty whitespaceString}}] [{{is-empty notEmptyString}}]`
+      hbs`[{{is-empty this.emptyString}}] [{{is-empty this.whitespaceString}}] [{{is-empty this.notEmptyString}}]`
     );
 
     assert.equal(

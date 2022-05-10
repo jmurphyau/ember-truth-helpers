@@ -41,7 +41,7 @@ module('helper:and', function (hooks) {
   });
 
   test('undefined list length and boolean', async function (assert) {
-    await render(hbs`[{{and array.length 1}}]`);
+    await render(hbs`[{{and this.array.length 1}}]`);
 
     assert.equal(this.element.textContent, '[]', 'value should be "[]"');
   });
@@ -49,7 +49,7 @@ module('helper:and', function (hooks) {
   test('null list length and boolean', async function (assert) {
     this.set('array', null);
 
-    await render(hbs`[{{and array.length 1}}]`);
+    await render(hbs`[{{and this.array.length 1}}]`);
 
     assert.equal(this.element.textContent, '[]', 'value should be "[]"');
   });
@@ -57,7 +57,7 @@ module('helper:and', function (hooks) {
   test('empty list length and boolean', async function (assert) {
     this.set('array', []);
 
-    await render(hbs`[{{and array.length 1}}]`);
+    await render(hbs`[{{and this.array.length 1}}]`);
 
     assert.equal(this.element.textContent, '[0]', 'value should be "[0]"');
   });
@@ -65,7 +65,7 @@ module('helper:and', function (hooks) {
   test('non-empty list length and boolean', async function (assert) {
     this.set('array', ['a']);
 
-    await render(hbs`[{{and array.length 2}}]`);
+    await render(hbs`[{{and this.array.length 2}}]`);
 
     assert.equal(this.element.textContent, '[2]', 'value should be "[2]"');
   });

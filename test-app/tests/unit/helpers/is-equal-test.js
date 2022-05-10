@@ -14,7 +14,7 @@ module('helper:is-equal', function (hooks) {
     });
 
     await render(
-      hbs`[{{is-equal complex 12}}] [{{is-equal complex 13}}] [{{is-equal 13 complex}}] [{{is-equal 12 complex}}]`
+      hbs`[{{is-equal this.complex 12}}] [{{is-equal this.complex 13}}] [{{is-equal 13 this.complex}}] [{{is-equal 12 this.complex}}]`
     );
 
     assert.equal(

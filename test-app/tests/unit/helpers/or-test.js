@@ -49,7 +49,7 @@ module('helper:or', function (hooks) {
     this.set('contextChild', fakeContextObject);
 
     await render(
-      hbs`[{{or contextChild.valueA}}] [{{or contextChild.valueB}}] [{{or contextChild.valueB contextChild.valueA}}] [{{or contextChild.valueA contextChild.valueB}}]`
+      hbs`[{{or this.contextChild.valueA}}] [{{or this.contextChild.valueB}}] [{{or this.contextChild.valueB this.contextChild.valueA}}] [{{or this.contextChild.valueA this.contextChild.valueB}}]`
     );
 
     assert.equal(
