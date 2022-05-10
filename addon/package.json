@@ -54,7 +54,7 @@
     "version": 2,
     "app-js": {
       "./helpers/and.js": "./dist/_app_/helpers/and.js",
-      "./helpers/equal.js": "./dist/_app_/helpers/equal.js",
+      "./helpers/eq.js": "./dist/_app_/helpers/eq.js",
       "./helpers/gt.js": "./dist/_app_/helpers/gt.js",
       "./helpers/gte.js": "./dist/_app_/helpers/gte.js",
       "./helpers/is-array.js": "./dist/_app_/helpers/is-array.js",
@@ -62,7 +62,7 @@
       "./helpers/is-equal.js": "./dist/_app_/helpers/is-equal.js",
       "./helpers/lt.js": "./dist/_app_/helpers/lt.js",
       "./helpers/lte.js": "./dist/_app_/helpers/lte.js",
-      "./helpers/not-equal.js": "./dist/_app_/helpers/not-equal.js",
+      "./helpers/not-eq.js": "./dist/_app_/helpers/not-eq.js",
       "./helpers/not.js": "./dist/_app_/helpers/not.js",
       "./helpers/or.js": "./dist/_app_/helpers/or.js",
       "./helpers/xor.js": "./dist/_app_/helpers/xor.js",
