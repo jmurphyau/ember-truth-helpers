@@ -5,34 +5,45 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-module('helper:or', function(hooks) {
+module('helper:or', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('simple test 1', async function(assert) {
+  test('simple test 1', async function (assert) {
     await render(hbs`[{{or true 1 ' ' null undefined}}]`);
 
-    assert.equal(this.element.textContent, '[true]', 'value should be "[true]"');
+    assert.equal(
+      this.element.textContent,
+      '[true]',
+      'value should be "[true]"'
+    );
   });
 
-  test('simple test 2', async function(assert) {
+  test('simple test 2', async function (assert) {
     await render(hbs`[{{or null undefined true 1 ' '}}]`);
 
-    assert.equal(this.element.textContent, '[true]', 'value should be "[true]"');
+    assert.equal(
+      this.element.textContent,
+      '[true]',
+      'value should be "[true]"'
+    );
   });
 
-
-  test('simple test 3', async function(assert) {
+  test('simple test 3', async function (assert) {
     await render(
       hbs`[{{or false}}] [{{or true}}] [{{or 1}}] [{{or ''}}] [{{or false ''}}] [{{or true ''}}] [{{or '' true}}]`
     );
 
-    assert.equal(this.element.textContent, '[false] [true] [1] [] [] [true] [true]', 'value should be "[false] [true] [1] [] [] [true] [true]"');
+    assert.equal(
+      this.element.textContent,
+      '[false] [true] [1] [] [] [true] [true]',
+      'value should be "[false] [true] [1] [] [] [true] [true]"'
+    );
   });
 
-  test('simple test 4', async function(assert) {
+  test('simple test 4', async function (assert) {
     const fakeContextObject = EmberObject.create({
       valueA: null,
-      valueB: null
+      valueB: null,
     });
 
     this.set('contextChild', fakeContextObject);
@@ -41,19 +52,38 @@ module('helper:or', function(hooks) {
       hbs`[{{or contextChild.valueA}}] [{{or contextChild.valueB}}] [{{or contextChild.valueB contextChild.valueA}}] [{{or contextChild.valueA contextChild.valueB}}]`
     );
 
-    assert.equal(this.element.textContent, '[] [] [] []', 'value should be "[] [] [] []"');
+    assert.equal(
+      this.element.textContent,
+      '[] [] [] []',
+      'value should be "[] [] [] []"'
+    );
 
     run(fakeContextObject, 'set', 'valueA', undefined);
-    assert.equal(this.element.textContent, '[] [] [] []', 'value should be "[] [] [] []"');
+    assert.equal(
+      this.element.textContent,
+      '[] [] [] []',
+      'value should be "[] [] [] []"'
+    );
 
     run(fakeContextObject, 'set', 'valueA', '');
-    assert.equal(this.element.textContent, '[] [] [] []', 'value should be "[] [] [] []"');
+    assert.equal(
+      this.element.textContent,
+      '[] [] [] []',
+      'value should be "[] [] [] []"'
+    );
 
     run(fakeContextObject, 'set', 'valueA', ' ');
-    assert.equal(this.element.textContent, '[ ] [] [ ] [ ]', 'value should be "[ ] [] [ ] [ ]"');
+    assert.equal(
+      this.element.textContent,
+      '[ ] [] [ ] [ ]',
+      'value should be "[ ] [] [ ] [ ]"'
+    );
 
     run(fakeContextObject, 'set', 'valueB', 'yellow');
-    assert.equal(this.element.textContent, '[ ] [yellow] [yellow] [ ]', 'value should be "[ ] [yellow] [yellow] [ ]"');
-
+    assert.equal(
+      this.element.textContent,
+      '[ ] [yellow] [yellow] [ ]',
+      'value should be "[ ] [yellow] [yellow] [ ]"'
+    );
   });
 });

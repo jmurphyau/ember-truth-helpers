@@ -2,7 +2,7 @@ import { helper } from '@ember/component/helper';
 import truthConvert from '../utils/truth-convert';
 
 export function not(params) {
-  for (let i=0, len=params.length; i<len; i++) {
+  for (let i = 0, len = params.length; i < len; i++) {
     if (truthConvert(params[i]) === true) {
       return false;
     }
