@@ -1,6 +1,7 @@
 {
   "name": "test-app",
   "version": "3.1.1",
+  "private": true,
   "description": "Ember Truth Helpers",
   "keywords": [],
   "repository": "https://github.com/jmurphyau/ember-truth-helpers",
@@ -19,9 +20,10 @@
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
     "start": "ember serve",
-    "test": "npm-run-all lint test:*",
+    "test": "npm-run-all lint \"test:!(watch)\"",
     "test:ember": "ember test",
-    "test:ember-compatibility": "ember try:each"
+    "test:ember-compatibility": "ember try:each",
+    "test:watch": "ember test --server"
   },
   "devDependencies": {
     "@ember/optional-features": "^2.0.0",
@@ -50,7 +52,7 @@
     "ember-source-channel-url": "^3.0.0",
     "ember-template-lint": "^3.15.0",
     "ember-truth-helpers": "3.1.1",
-    "ember-try": "^1.4.0",
+    "ember-try": "^2.0.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-ember": "^10.5.8",
@@ -71,6 +73,6 @@
     "edition": "octane"
   },
   "volta": {
-    "extends": "../package.json"
+    "extends": "../../package.json"
   }
 }

@@ -2,7 +2,9 @@
   "name": "ember-truth-helpers",
   "version": "3.1.1",
   "description": "Ember Truth Helpers",
-  "keywords": ["ember-addon"],
+  "keywords": [
+    "ember-addon"
+  ],
   "repository": "https://github.com/jmurphyau/ember-truth-helpers",
   "license": "MIT",
   "author": "James Murphy",
@@ -12,15 +14,20 @@
     "./test-support": "./dist/test-support/index.js",
     "./addon-main.js": "./addon-main.js"
   },
-  "files": ["addon-main.js", "dist"],
+  "files": [
+    "addon-main.js",
+    "dist"
+  ],
   "scripts": {
     "build": "rollup --config",
+    "copyDoc": "cp ../../*.md .",
     "lint": "npm-run-all --aggregate-output --continue-on-error --parallel \"lint:!(fix)\"",
     "lint:fix": "npm-run-all --aggregate-output --continue-on-error --parallel lint:*:fix",
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
     "start": "rollup --config --watch",
-    "prepublishOnly": "rollup --config"
+    "test": "echo 'A v2 addon does not have tests, run tests in test-app'",
+    "prepare": "npm-run-all --aggregate-output --continue-on-error --parallel copyDoc build"
   },
   "dependencies": {
     "@embroider/addon-shim": "^1.6.0",
@@ -70,6 +77,6 @@
     }
   },
   "volta": {
-    "extends": "../package.json"
+    "extends": "../../package.json"
   }
 }

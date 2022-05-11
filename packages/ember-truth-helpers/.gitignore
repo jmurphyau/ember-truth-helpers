@@ -27,3 +27,10 @@
 
 # editors
 /.idea/
+
+# .md copies from release
+/CHANGELOG.md
+/CONTRIBUTING.md
+/LICENSE.md
+/README.md
+/RELEASE.md

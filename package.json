@@ -1,20 +1,31 @@
 {
   "private": true,
-  "workspaces": [
-    "addon",
-    "test-app"
-  ],
+  "workspaces": ["packages/*"],
   "scripts": {
-    "prepare": "cd addon && yarn build",
-    "release": "release-it",
-    "test": "cd test-app && yarn test:ember"
+    "prepare": "yarn workspace ember-truth-helpers run prepare",
+    "start": "npm-run-all --parallel start:*",
+    "start:addon": "yarn workspace ember-truth-helpers run start",
+    "start:test-app": "yarn workspace test-app run start",
+    "lint": "npm-run-all --aggregate-output --continue-on-error --parallel \"lint:!(fix)\"",
+    "lint:addon": "yarn workspace ember-truth-helpers run lint",
+    "lint:test-app": "yarn workspace test-app run lint",
+    "lint:fix": "npm-run-all --aggregate-output --continue-on-error --parallel lint:fix:*",
+    "lint:fix:addon": "yarn workspace ember-truth-helpers run lint:fix",
+    "lint:fix:test-app": "yarn workspace test-app run lint:fix",
+    "test": "npm-run-all --aggregate-output --continue-on-error --parallel \"test:!(watch)\"",
+    "test:watch": "npm-run-all --aggregate-output --continue-on-error --parallel test:watch:*",
+    "test:test-app": "yarn workspace test-app run test",
+    "test:watch:test-app": "yarn workspace test-app run test:watch",
+    "test:watch:addon": "yarn workspace ember-truth-helpers run start",
+    "release": "release-it"
   },
   "volta": {
     "node": "16.14.2",
     "yarn": "1.22.17"
   },
   "devDependencies": {
-    "release-it": "^15.0.0",
+    "npm-run-all": "^4.1.5",
+    "release-it": "^14.0.0",
     "release-it-lerna-changelog": "^4.0.1",
     "release-it-yarn-workspaces": "^2.0.1"
   },
@@ -25,11 +36,10 @@
         "launchEditor": true
       },
       "release-it-yarn-workspaces": {
-        "publish": false,
-        "workspaces": ["addon"],
+        "workspaces": ["packages/ember-truth-helpers"],
         "additionalManifests": {
-          "dependencyUpdates": ["test-app/package.json"],
-          "versionUpdates": ["test-app/package.json"]
+          "dependencyUpdates": ["packages/test-app/package.json"],
+          "versionUpdates": ["packages/test-app/package.json"]
         }
       }
     },
