@@ -30,8 +30,7 @@
     "prepare": "npm-run-all --aggregate-output --continue-on-error --parallel copyDoc build"
   },
   "dependencies": {
-    "@embroider/addon-shim": "^1.6.0",
-    "ember-modifier": "^3.0.0"
+    "@embroider/addon-shim": "^1.6.0"
   },
   "devDependencies": {
     "@babel/core": "^7.17.10",
