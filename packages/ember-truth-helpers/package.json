@@ -71,8 +71,7 @@
       "./helpers/not-eq.js": "./dist/_app_/helpers/not-eq.js",
       "./helpers/not.js": "./dist/_app_/helpers/not.js",
       "./helpers/or.js": "./dist/_app_/helpers/or.js",
-      "./helpers/xor.js": "./dist/_app_/helpers/xor.js",
-      "./utils/truth-convert.js": "./dist/_app_/utils/truth-convert.js"
+      "./helpers/xor.js": "./dist/_app_/helpers/xor.js"
     }
   },
   "volta": {
