@@ -1,3 +1,12 @@
+## v3.1.0 (2022-07-14)
+
+#### :rocket: Enhancement
+* [#134](https://github.com/jmurphyau/ember-truth-helpers/pull/134) Export eq and not-eq directly from /addon ([@nlfurniss](https://github.com/nlfurniss))
+
+#### Committers: 1
+- Nathaniel Furniss ([@nlfurniss](https://github.com/nlfurniss))
+
+
 ## v3.0.0 (2020-10-09)
 
 #### :boom: Breaking Change
