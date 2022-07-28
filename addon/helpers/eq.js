@@ -1,1 +1,1 @@
-export { default } from 'ember-truth-helpers/helpers/equal';
+export { default, equal } from 'ember-truth-helpers/helpers/equal';
