@@ -1,0 +1,80 @@
+{
+  "name": "ember-truth-helpers",
+  "version": "3.1.1",
+  "description": "Ember Truth Helpers",
+  "keywords": [
+    "ember-addon"
+  ],
+  "repository": "https://github.com/jmurphyau/ember-truth-helpers",
+  "license": "MIT",
+  "author": "James Murphy",
+  "exports": {
+    ".": "./dist/index.js",
+    "./*": "./dist/*",
+    "./test-support": "./dist/test-support/index.js",
+    "./addon-main.js": "./addon-main.js"
+  },
+  "files": [
+    "addon-main.js",
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup --config",
+    "copyDoc": "cp ../../*.md .",
+    "lint": "npm-run-all --aggregate-output --continue-on-error --parallel \"lint:!(fix)\"",
+    "lint:fix": "npm-run-all --aggregate-output --continue-on-error --parallel lint:*:fix",
+    "lint:js": "eslint . --cache",
+    "lint:js:fix": "eslint . --fix",
+    "start": "rollup --config --watch",
+    "test": "echo 'A v2 addon does not have tests, run tests in test-app'",
+    "prepare": "npm-run-all --aggregate-output --continue-on-error --parallel copyDoc build"
+  },
+  "dependencies": {
+    "@embroider/addon-shim": "^1.6.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.10",
+    "@babel/plugin-proposal-class-properties": "^7.16.7",
+    "@babel/plugin-proposal-decorators": "^7.17.9",
+    "@embroider/addon-dev": "^1.6.0",
+    "@rollup/plugin-babel": "^5.3.1",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-ember": "^10.6.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.6.2",
+    "rollup": "^2.71.1"
+  },
+  "engines": {
+    "node": "12.* || 14.* || >= 16"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "ember-addon": {
+    "main": "addon-main.js",
+    "type": "addon",
+    "version": 2,
+    "app-js": {
+      "./helpers/and.js": "./dist/_app_/helpers/and.js",
+      "./helpers/eq.js": "./dist/_app_/helpers/eq.js",
+      "./helpers/gt.js": "./dist/_app_/helpers/gt.js",
+      "./helpers/gte.js": "./dist/_app_/helpers/gte.js",
+      "./helpers/is-array.js": "./dist/_app_/helpers/is-array.js",
+      "./helpers/is-empty.js": "./dist/_app_/helpers/is-empty.js",
+      "./helpers/is-equal.js": "./dist/_app_/helpers/is-equal.js",
+      "./helpers/lt.js": "./dist/_app_/helpers/lt.js",
+      "./helpers/lte.js": "./dist/_app_/helpers/lte.js",
+      "./helpers/not-eq.js": "./dist/_app_/helpers/not-eq.js",
+      "./helpers/not.js": "./dist/_app_/helpers/not.js",
+      "./helpers/or.js": "./dist/_app_/helpers/or.js",
+      "./helpers/xor.js": "./dist/_app_/helpers/xor.js"
+    }
+  },
+  "volta": {
+    "extends": "../../package.json"
+  }
+}

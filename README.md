@@ -7,9 +7,10 @@ HTMLBars template helpers for additional truth logic in `if` and `unless` statem
 Compatibility
 ------------------------------------------------------------------------------
 
-* Ember.js v3.16 or above
-* Ember CLI v2.13 or above
-* Node.js v10 or above
+* Ember.js v3.24 or above
+* Ember CLI v3.24 or above
+* ember-auto-import >= 2
+* Node.js v12 or above
 
 
 Installation
