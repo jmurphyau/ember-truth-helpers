@@ -1,3 +1,12 @@
+## v3.1.1 (2022-07-14)
+
+#### :bug: Bug Fix
+* [#155](https://github.com/jmurphyau/ember-truth-helpers/pull/155) fix for issues that occured during v3.1.0 ([@jmurphyau](https://github.com/jmurphyau))
+
+#### Committers: 1
+- James Murphy ([@jmurphyau](https://github.com/jmurphyau))
+
+
 ## v3.1.0 (2022-07-14)
 
 #### :rocket: Enhancement
