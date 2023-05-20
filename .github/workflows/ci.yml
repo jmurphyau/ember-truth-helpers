@@ -15,7 +15,7 @@ concurrency:
 
 jobs:
   test:
-    name: "Tests"
+    name: 'Tests'
     runs-on: ubuntu-latest
 
     steps:
@@ -30,7 +30,7 @@ jobs:
         run: yarn test
 
   floating:
-    name: "Floating Dependencies"
+    name: 'Floating Dependencies'
     runs-on: ubuntu-latest
 
     steps:
@@ -41,10 +41,30 @@ jobs:
       - name: Run Tests
         run: yarn test
 
+  glint:
+    name: 'Glint Tests'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: volta-cli/action@v1
+      - name: Install Dependencies
+        run: yarn install --no-lockfile
+
+      # There are some problems testing for glint
+      # The main tasks would be "lint:types" and "lint:hbs"
+      # At the time of writing, they have some problems with glint that need to
+      # be solved upstream first
+      # mainly to drop some `// @glint-ignore` (or `// @ts-ignore`) comments
+      # into the test code, because they test broken code on purpose
+      - name: Lint
+        run: yarn lint
+        working-directory: packages/modern-test-app
+
   try-scenarios:
     name: ${{ matrix.try-scenario }}
     runs-on: ubuntu-latest
-    needs: "test"
+    needs: 'test'
 
     strategy:
       fail-fast: false

@@ -17,6 +17,7 @@
     "test": "npm-run-all --aggregate-output --continue-on-error --parallel \"test:!(watch)\"",
     "test:watch": "npm-run-all --aggregate-output --continue-on-error --parallel test:watch:*",
     "test:test-app": "yarn workspace test-app run test",
+    "test:modern-test-app": "yarn workspace modern-test-app run test",
     "test:watch:test-app": "yarn workspace test-app run test:watch",
     "test:watch:addon": "yarn workspace ember-truth-helpers run start",
     "release": "release-it"
@@ -58,5 +59,8 @@
       "release": true,
       "tokenRef": "GITHUB_AUTH"
     }
+  },
+  "dependencies": {
+    "caniuse-lite": "^1.0.30001488"
   }
 }
