@@ -1,4 +1,4 @@
-import babel from '@rollup/plugin-babel';
+import typescript from 'rollup-plugin-ts';
 import { Addon } from '@embroider/addon-dev/rollup';
 
 const addon = new Addon({
@@ -14,7 +14,12 @@ export default {
   plugins: [
     // These are the modules that users should be able to import from your
     // addon. Anything not listed here may get optimized away.
-    addon.publicEntrypoints(['helpers/**/*.js', 'utils/**/*.js']),
+    addon.publicEntrypoints([
+      'index.js',
+      'template-registry.js',
+      'helpers/**/*.js',
+      'utils/**/*.js',
+    ]),
 
     // These are the modules that should get reexported into the traditional
     // "app" tree. Things in here should also be in publicEntrypoints above, but
@@ -27,8 +32,10 @@ export default {
     //
     // By default, this will load the actual babel config from the file
     // babel.config.json.
-    babel({
-      babelHelpers: 'bundled',
+    typescript({
+      transpiler: 'babel',
+      browserslist: false,
+      transpileOnly: false,
     }),
 
     // Follow the V2 Addon rules about dependencies. Your code can import from
@@ -37,11 +44,11 @@ export default {
     addon.dependencies(),
 
     // Ensure that standalone .hbs files are properly integrated as Javascript.
-    addon.hbs(),
+    // addon.hbs(),
 
     // addons are allowed to contain imports of .css files, which we want rollup
     // to leave alone and keep in the published output.
-    addon.keepAssets(['**/*.css']),
+    // addon.keepAssets(['**/*.css']),
 
     // Remove leftover build artifacts when starting a new build.
     addon.clean(),

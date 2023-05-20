@@ -1,6 +1,8 @@
 {
   "private": true,
-  "workspaces": ["packages/*"],
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "prepare": "yarn workspace ember-truth-helpers run prepare",
     "start": "npm-run-all --parallel start:*",
@@ -20,7 +22,7 @@
     "release": "release-it"
   },
   "volta": {
-    "node": "16.14.2",
+    "node": "16.15.1",
     "yarn": "1.22.17"
   },
   "devDependencies": {
@@ -36,10 +38,16 @@
         "launchEditor": true
       },
       "release-it-yarn-workspaces": {
-        "workspaces": ["packages/ember-truth-helpers"],
+        "workspaces": [
+          "packages/ember-truth-helpers"
+        ],
         "additionalManifests": {
-          "dependencyUpdates": ["packages/test-app/package.json"],
-          "versionUpdates": ["packages/test-app/package.json"]
+          "dependencyUpdates": [
+            "packages/test-app/package.json"
+          ],
+          "versionUpdates": [
+            "packages/test-app/package.json"
+          ]
         }
       }
     },
