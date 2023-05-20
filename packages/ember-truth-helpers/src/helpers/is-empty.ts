@@ -3,7 +3,7 @@ import { isEmpty } from '@ember/utils';
 
 export interface IsEmptySignature {
   Args: {
-    Positional: [object];
+    Positional: [unknown];
   };
   Return: boolean;
 }

@@ -2,9 +2,9 @@ import { helper } from '@ember/component/helper';
 
 export interface LteSignature {
   Args: {
-    Positional: [number, number];
+    Positional: [unknown, unknown];
     Named: {
-      forceNumber: boolean;
+      forceNumber?: boolean;
     };
   };
   Return: boolean;
@@ -19,5 +19,5 @@ export default helper<LteSignature>(([left, right], options) => {
       right = Number(right);
     }
   }
-  return left <= right;
+  return (left as number) <= (right as number);
 });
