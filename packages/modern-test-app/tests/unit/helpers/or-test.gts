@@ -35,6 +35,7 @@ module('helper:or', function (hooks) {
 
   test('simple test 4', async function (assert) {
     const fakeContextObject = EmberObject.create({
+      // @ts-ignore
       valueA: null,
       valueB: null,
     });
@@ -42,8 +43,12 @@ module('helper:or', function (hooks) {
     const contextChild = fakeContextObject;
 
     await render(
-      // @ts-ignore
-      <template>[{{or contextChild.valueA}}] [{{or contextChild.valueB}}] [{{or contextChild.valueB contextChild.valueA}}] [{{or contextChild.valueA contextChild.valueB}}]</template>
+      <template>
+        {{!@glint-expect-error}}
+        [{{or contextChild.valueA}}] [{{or contextChild.valueB}}]
+        {{!@glint-expect-error}}
+        [{{or contextChild.valueB contextChild.valueA}}] [{{or contextChild.valueA contextChild.valueB}}]
+      </template>
     );
 
     assert.dom().hasText('[] [] [] []', 'value should be "[] [] [] []"');

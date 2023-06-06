@@ -40,8 +40,10 @@ module('helper:and', function (hooks) {
   test('null list length and boolean', async function (assert) {
     const array = null;
 
-    // @glint-expect-error
-    await render(<template>[{{and array.length 1}}]</template>);
+    await render(<template>
+      {{!@glint-expect-error}}
+      [{{and array.length 1}}]
+    </template>);
 
     assert.dom().hasText('[]', 'value should be "[]"');
   });

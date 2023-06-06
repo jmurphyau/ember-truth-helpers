@@ -17,7 +17,10 @@ module('helper:isArray', function (hooks) {
     const contextChild = fakeContextObject;
 
     await render(
-      <template>[{{isArray contextChild.valueA}}] [{{isArray contextChild.valueB}}] [{{isArray contextChild.valueA contextChild.valueB}}]</template>
+      <template>
+        {{!@glint-expect-error}}
+        [{{isArray contextChild.valueA}}] [{{isArray contextChild.valueB}}] [{{isArray contextChild.valueA contextChild.valueB}}]
+      </template>
     );
 
     assert.dom().hasText(

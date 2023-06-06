@@ -21,6 +21,7 @@ module('helper:eq', function (hooks) {
 
   test('simple test 2', async function (assert) {
     const fakeContextObject = EmberObject.create({
+      // @ts-ignore
       valueA: null,
       valueB: null,
     });
@@ -28,7 +29,10 @@ module('helper:eq', function (hooks) {
     const contextChild = fakeContextObject;
 
     await render(
-      <template>[{{eq contextChild.valueA contextChild.valueB}}] [{{eq contextChild.valueB contextChild.valueA}}]</template>
+      <template>
+        {{!@glint-expect-error}}
+        [{{eq contextChild.valueA contextChild.valueB}}] [{{eq contextChild.valueB contextChild.valueA}}]
+      </template>
     );
 
     assert.dom().hasText(

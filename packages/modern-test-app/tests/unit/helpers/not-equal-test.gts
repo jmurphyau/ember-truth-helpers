@@ -23,6 +23,7 @@ module('helper:notEqual', function (hooks) {
 
   test('simple test 2', async function (assert) {
     const fakeContextObject = EmberObject.create({
+      // @ts-ignore
       valueA: null,
       valueB: null,
     });
@@ -30,7 +31,10 @@ module('helper:notEqual', function (hooks) {
     const contextChild = fakeContextObject;
 
     await render(
-      <template>[{{notEq contextChild.valueA contextChild.valueB}}] [{{notEq contextChild.valueB contextChild.valueA}}]</template>
+      <template>
+        {{!@glint-expect-error}}
+        [{{notEq contextChild.valueA contextChild.valueB}}] [{{notEq contextChild.valueB contextChild.valueA}}]
+      </template>
     );
 
     assert
