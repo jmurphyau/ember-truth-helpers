@@ -3,7 +3,6 @@ Ember Truth Helpers [![Build Status](https://travis-ci.org/jmurphyau/ember-truth
 
 HTMLBars template helpers for additional truth logic in `if` and `unless` statements.
 
-
 Compatibility
 ------------------------------------------------------------------------------
 
@@ -11,7 +10,6 @@ Compatibility
 * Ember CLI v3.24 or above
 * ember-auto-import >= 2
 * Node.js v12 or above
-
 
 Installation
 ------------------------------------------------------------------------------
@@ -58,11 +56,50 @@ is-equal | `if (Ember.isEqual(a, b))`                      | `{{if (is-equal a b
 * [ember-get-helper](https://github.com/jmurphyau/ember-get-helper)
 * [ember-composable-helpers](https://github.com/DockYard/ember-composable-helpers)
 
+## Usage with Glint
+
+`ember-truth-helpers` is a glint enabled addon. Add this to your
+`types/global.d.ts` file:
+
+```ts
+import '@glint/environment-ember-loose';
+
+import type EmberTruthRegistry from 'ember-truth-helpers/template-registry';
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry extends EmberTruthRegistry, /* other addon registries */ {
+    // local entries
+  }
+}
+```
+
+For the entire guide, please refer to [Using
+Addons](https://typed-ember.gitbook.io/glint/environments/ember/using-addons#using-glint-enabled-addons)
+section on the glint handbook.
+
+Types are made available through package.json `exports` field. In order for TS
+to recognize this (beginning from TS 4.7), you must set
+[`moduleResolution`](https://www.typescriptlang.org/tsconfig#moduleResolution)
+to `node16` or `nodenext`.
+
+## Usage in Single File Components
+
+For usage in `gts` or `gjs` files, all helpers are exported from the index:
+
+```gts
+import { or } from 'ember-truth-helpers';
+
+<template>
+  {{#if (or @admin @user)}}
+    Admin Controls are going here
+  {{/if}}
+</template>
+```
+
 Contributing
 ------------------------------------------------------------------------------
 
 See the [Contributing](CONTRIBUTING.md) guide for details.
-
 
 License
 ------------------------------------------------------------------------------
