@@ -21,10 +21,7 @@
     "lint:types": "glint",
     "start": "ember serve",
     "test": "concurrently \"npm:lint\" \"npm:test:*\" --names \"lint,test:\"",
-    "test:ember": "ember test -p 0"
-  },
-  "dependencies": {
-    "ember-truth-helpers": "*"
+    "test:ember": "ember test --test-port=0"
   },
   "devDependencies": {
     "@ember/optional-features": "^2.0.0",
@@ -65,6 +62,7 @@
     "ember-source-channel-url": "^3.0.0",
     "ember-template-imports": "^3.4.2",
     "ember-template-lint": "^5.7.2",
+    "ember-truth-helpers": "3.1.1",
     "ember-try": "^2.0.0",
     "eslint": "^8.37.0",
     "eslint-config-prettier": "^8.8.0",

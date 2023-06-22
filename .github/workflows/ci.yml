@@ -19,37 +19,51 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Install Node
-        uses: volta-cli/action@v1
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - uses: actions/setup-node@v3
+        with:
+          cache: 'pnpm'
       - name: Install Dependencies
-        run: yarn install --frozen-lockfile
+        run: pnpm install
       - name: Lint
-        run: yarn lint
+        run: pnpm run lint
       - name: Run Tests
-        run: yarn test
+        run: pnpm run test
 
   floating:
     name: 'Floating Dependencies'
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: volta-cli/action@v1
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - uses: actions/setup-node@v3
+        with:
+          cache: 'pnpm'
       - name: Install Dependencies
-        run: yarn install --no-lockfile
+        run: pnpm install --no-lockfile
       - name: Run Tests
-        run: yarn test
+        run: pnpm run test
 
   glint:
     name: 'Glint Tests'
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: volta-cli/action@v1
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - uses: actions/setup-node@v3
+        with:
+          cache: 'pnpm'
       - name: Install Dependencies
-        run: yarn install --no-lockfile
+        run: pnpm install
 
       # There are some problems testing for glint
       # The main tasks would be "lint:types" and "lint:hbs"
@@ -58,7 +72,7 @@ jobs:
       # mainly to drop some `// @glint-ignore` (or `// @ts-ignore`) comments
       # into the test code, because they test broken code on purpose
       - name: Lint
-        run: yarn lint
+        run: pnpm run lint
         working-directory: packages/modern-test-app
 
   try-scenarios:
@@ -80,11 +94,15 @@ jobs:
           - embroider-optimized
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Install Node
-        uses: volta-cli/action@v1
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - uses: actions/setup-node@v3
+        with:
+          cache: 'pnpm'
       - name: Install Dependencies
-        run: yarn install --frozen-lockfile
+        run: pnpm install
       - name: Run Tests
         run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }}
         working-directory: packages/test-app
