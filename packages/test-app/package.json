@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "@ember/optional-features": "^2.0.0",
+    "@ember/string": "^3.0.1",
     "@ember/test-helpers": "^2.9.3",
     "@embroider/test-setup": "^1.0.0",
     "@glimmer/component": "^1.0.4",
@@ -47,8 +48,8 @@
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-page-title": "^6.2.2",
     "ember-qunit": "^5.1.5",
-    "ember-resolver": "^10.1.0",
-    "ember-source": "~3.28.8",
+    "ember-resolver": "^8.1.0",
+    "ember-source": "~3.24.3",
     "ember-source-channel-url": "^3.0.0",
     "ember-template-lint": "^3.15.0",
     "ember-truth-helpers": "3.1.1",

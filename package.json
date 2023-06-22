@@ -4,30 +4,31 @@
     "packages/*"
   ],
   "scripts": {
-    "prepare": "yarn workspace ember-truth-helpers run prepare",
-    "start": "npm-run-all --parallel start:*",
-    "start:addon": "yarn workspace ember-truth-helpers run start",
-    "start:test-app": "yarn workspace test-app run start",
-    "lint": "npm-run-all --aggregate-output --continue-on-error --parallel \"lint:!(fix)\"",
-    "lint:addon": "yarn workspace ember-truth-helpers run lint",
-    "lint:test-app": "yarn workspace test-app run lint",
-    "lint:fix": "npm-run-all --aggregate-output --continue-on-error --parallel lint:fix:*",
-    "lint:fix:addon": "yarn workspace ember-truth-helpers run lint:fix",
-    "lint:fix:test-app": "yarn workspace test-app run lint:fix",
-    "test": "npm-run-all --aggregate-output --continue-on-error --parallel \"test:!(watch)\"",
-    "test:watch": "npm-run-all --aggregate-output --continue-on-error --parallel test:watch:*",
-    "test:test-app": "yarn workspace test-app run test",
-    "test:modern-test-app": "yarn workspace modern-test-app run test",
-    "test:watch:test-app": "yarn workspace test-app run test:watch",
-    "test:watch:addon": "yarn workspace ember-truth-helpers run start",
-    "release": "release-it"
+    "start": "concurrently \"npm:start:*\" --names \"start:\"",
+    "start:addon": "pnpm --filter=ember-truth-helpers run start",
+    "start:test-app": "pnpm --filter=test-app run start",
+    "lint": "concurrently \"npm:lint:*(!fix)\" --names \"lint:\"",
+    "lint:addon": "pnpm --filter ember-truth-helpers run lint",
+    "lint:modern-test-app": "pnpm --filter=modern-test-app run lint",
+    "lint:test-app": "pnpm --filter=test-app run lint",
+    "lint:fix": "concurrently \"npm:lint:fix:*\" --names \"fix:\"",
+    "lint:fix:addon": "pnpm --filter=ember-truth-helpers run lint:fix",
+    "lint:fix:modern-test-app": "pnpm --filter=modern-test-app run lint:fix",
+    "lint:fix:test-app": "pnpm --filter=test-app run lint:fix",
+    "preinstall": "npx only-allow pnpm",
+    "release": "release-it",
+    "test": "concurrently \"npm:test:*(!watch)\" --names \"test:\"",
+    "test:watch": "concurrently \"npm:watch:*\" --names \"watch:\"",
+    "test:modern-test-app": "pnpm --filter=modern-test-app run test:ember",
+    "test:test-app": "pnpm --filter=test-app run test:ember",
+    "test:watch:test-app": "pnpm --filter=test-app run test:watch",
+    "test:watch:addon": "pnpm --filter=ember-truth-helpers run start"
   },
   "volta": {
-    "node": "16.15.1",
-    "yarn": "1.22.17"
+    "node": "16.20.0"
   },
   "devDependencies": {
-    "npm-run-all": "^4.1.5",
+    "concurrently": "^8.2.0",
     "release-it": "^14.0.0",
     "release-it-lerna-changelog": "^4.0.1",
     "release-it-yarn-workspaces": "^2.0.1"
@@ -59,8 +60,5 @@
       "release": true,
       "tokenRef": "GITHUB_AUTH"
     }
-  },
-  "dependencies": {
-    "caniuse-lite": "^1.0.30001488"
   }
 }
