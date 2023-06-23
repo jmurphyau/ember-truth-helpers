@@ -62,9 +62,6 @@
     "rollup-plugin-ts": "^3.2.0",
     "typescript": "^5.0.4"
   },
-  "engines": {
-    "node": "12.* || 14.* || >= 16"
-  },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },
