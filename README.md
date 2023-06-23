@@ -1,4 +1,4 @@
-Ember Truth Helpers [![Build Status](https://travis-ci.org/jmurphyau/ember-truth-helpers.svg?branch=master)](https://travis-ci.org/jmurphyau/ember-truth-helpers)
+Ember Truth Helpers [![CI](https://github.com/jmurphyau/ember-truth-helpers/actions/workflows/ci.yml/badge.svg)](https://github.com/jmurphyau/ember-truth-helpers/actions/workflows/ci.yml)
 ==============================================================================
 
 HTMLBars template helpers for additional truth logic in `if` and `unless` statements.
@@ -9,7 +9,6 @@ Compatibility
 * Ember.js v3.24 or above
 * Ember CLI v3.24 or above
 * ember-auto-import >= 2
-* Node.js v12 or above
 
 Installation
 ------------------------------------------------------------------------------
