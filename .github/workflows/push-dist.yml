@@ -1,0 +1,29 @@
+# .github/workflows/push-dist.yml
+
+name: Push dist
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  push-dist:
+    name: Push dist
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - uses: actions/setup-node@v3
+        with:
+          cache: 'pnpm'
+      - name: Install Dependencies
+        run: pnpm install
+      - uses: kategengler/put-built-npm-package-contents-on-branch@v1.0.0
+        with:
+          branch: ${{ github.head_ref || github.ref_name }}-dist
+          working-directory: packages/ember-truth-helpers
+          token: ${{ secrets.GITHUB_TOKEN }}
