@@ -1,24 +1,20 @@
-Ember Truth Helpers [![CI](https://github.com/jmurphyau/ember-truth-helpers/actions/workflows/ci.yml/badge.svg)](https://github.com/jmurphyau/ember-truth-helpers/actions/workflows/ci.yml)
-==============================================================================
+# Ember Truth Helpers [![CI](https://github.com/jmurphyau/ember-truth-helpers/actions/workflows/ci.yml/badge.svg)](https://github.com/jmurphyau/ember-truth-helpers/actions/workflows/ci.yml)
 
 HTMLBars template helpers for additional truth logic in `if` and `unless` statements.
 
-Compatibility
-------------------------------------------------------------------------------
+## Compatibility
 
-* Ember.js v3.24 or above
-* Ember CLI v3.24 or above
-* ember-auto-import >= 2
+- Ember.js v3.28 or above
+- Ember CLI v3.24 or above
+- Embroider or ember-auto-import >= 2
 
-Installation
-------------------------------------------------------------------------------
+## Installation
 
 ```
 ember install ember-truth-helpers
 ```
 
-Usage
-------------------------------------------------------------------------------
+## Usage
 
 Helper   | JavaScript                                      | HTMLBars                | Variable argument count allowed |
 ---------|-------------------------------------------------|-------------------------|---------------------------------|
@@ -95,12 +91,10 @@ import { or } from 'ember-truth-helpers';
 </template>
 ```
 
-Contributing
-------------------------------------------------------------------------------
+## Contributing
 
 See the [Contributing](CONTRIBUTING.md) guide for details.
 
-License
-------------------------------------------------------------------------------
+## License
 
 This project is licensed under the [MIT License](LICENSE.md).

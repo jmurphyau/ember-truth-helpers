@@ -1,6 +1,18 @@
-# you definitely want this:
-node_modules
+# See https://help.github.com/ignore-files/ for more about ignoring files.
 
-# and you can put in anything else that tends to accumulate in your environment:
-yarn-error.log
+# compiled output
+dist/
+declarations/
+
+# npm/pnpm/yarn pack output
+*.tgz
+
+# dependencies
+node_modules/
+
+# misc
+/.env*
+/.pnp*
+/.pnpm-debug.log
 .DS_Store
+.eslintcache

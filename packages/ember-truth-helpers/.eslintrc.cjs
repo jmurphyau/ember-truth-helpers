@@ -30,7 +30,12 @@ module.exports = {
     },
     // node files
     {
-      files: ['./.eslintrc.js', './.prettierrc.js', './addon-main.js'],
+      files: [
+        './.eslintrc.cjs',
+        './.prettierrc.js',
+        './.template-lintrc.cjs',
+        './addon-main.cjs',
+      ],
       parserOptions: {
         sourceType: 'script',
       },
@@ -38,8 +43,8 @@ module.exports = {
         browser: false,
         node: true,
       },
-      plugins: ['node'],
-      extends: ['plugin:node/recommended'],
+      plugins: ['n'],
+      extends: ['plugin:n/recommended'],
     },
   ],
 };
