@@ -339,6 +339,9 @@ importers:
       ember-load-initializers:
         specifier: ^2.1.2
         version: 2.1.2(@babel/core@7.22.9)
+      ember-page-title:
+        specifier: ^7.0.0
+        version: 7.0.0
       ember-qunit:
         specifier: ^6.2.0
         version: 6.2.0(@ember/test-helpers@2.9.4)(@glint/template@1.0.2)(ember-source@4.12.0)(qunit@2.19.4)(webpack@5.88.1)
@@ -6970,6 +6973,15 @@ packages:
       ember-cli-typescript: 2.0.2(@babel/core@7.22.9)
     transitivePeerDependencies:
       - '@babel/core'
+      - supports-color
+    dev: true
+
+  /ember-page-title@7.0.0:
+    resolution: {integrity: sha512-oq6+HYbeVD/BnxIO5AkP4gWlsatdgW2HFO10F8+XQiJZrwa7cC7Wm54JNGqQkavkDQTgNSiy1Fe2NILJ14MmAg==}
+    engines: {node: 12.* || 14.* || >= 16}
+    dependencies:
+      ember-cli-babel: 7.26.11
+    transitivePeerDependencies:
       - supports-color
     dev: true
 

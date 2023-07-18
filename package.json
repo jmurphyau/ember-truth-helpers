@@ -13,7 +13,7 @@
     "start": "concurrently 'npm:start:*' --restart-after 5000 --prefix-colors cyan,white,yellow",
     "start:addon": "pnpm --filter ember-truth-helpers start --no-watch.clearScreen",
     "start:test-app": "pnpm --filter test-app start",
-    "test": "pnpm --filter '*' test"
+    "test": "pnpm --filter '*' test:ember"
   },
   "volta": {
     "node": "16.20.0",
