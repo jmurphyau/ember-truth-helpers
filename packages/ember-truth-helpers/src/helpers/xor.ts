@@ -1,5 +1,5 @@
 import { helper } from '@ember/component/helper';
-import truthConvert from '../utils/truth-convert';
+import truthConvert from '../utils/truth-convert.ts';
 
 export interface XorSignature {
   Args: {

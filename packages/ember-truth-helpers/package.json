@@ -45,7 +45,6 @@
     "@glint/environment-ember-loose": "^1.0.2",
     "@glint/template": "^1.0.2",
     "@rollup/plugin-babel": "^6.0.3",
-    "@rollup/plugin-node-resolve": "^15.1.0",
     "@tsconfig/ember": "^2.0.0",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
@@ -61,6 +60,9 @@
     "rollup": "^3.26.2",
     "typescript": "^5.0.4",
     "webpack": "^5.88.1"
+  },
+  "peerDependencies": {
+    "ember-source": ">=4.8.4"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
