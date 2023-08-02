@@ -1,13 +1,15 @@
 {
   "extends": "@tsconfig/ember/tsconfig.json",
-  "compilerOptions": {
-    "verbatimModuleSyntax": true
-  },
   "include": [
     "src/**/*",
     "unpublished-development-types/**/*"
   ],
   "glint": {
     "environment": "ember-loose"
+  },
+  "compilerOptions": {
+    "allowJs": true,
+    "allowImportingTsExtensions": true,
+    "declarationDir": "declarations"
   }
 }

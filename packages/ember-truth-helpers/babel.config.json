@@ -1,14 +1,9 @@
 {
-  "presets": [
-    "@babel/preset-typescript"
-  ],
+  "presets": [["@babel/preset-typescript"]],
   "plugins": [
-    [
-      "@babel/plugin-proposal-decorators",
-      {
-        "legacy": true
-      }
-    ],
+    "@embroider/addon-dev/template-colocation-plugin",
+    ["@babel/plugin-transform-typescript", { "allowDeclareFields": true }],
+    ["@babel/plugin-proposal-decorators", { "version": "legacy" }],
     "@babel/plugin-proposal-class-properties"
   ]
 }

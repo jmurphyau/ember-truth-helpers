@@ -1,15 +1,12 @@
 # unconventional js
 /blueprints/*/files/
-/vendor/
 
 # compiled output
 /dist/
-/tmp/
+/declarations/
 
 # dependencies
 /node_modules/
 
 # misc
 /coverage/
-!.*
-.eslintcache
