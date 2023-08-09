@@ -1,3 +1,34 @@
+
+## v4.0.0-beta.0 (2023-08-09)
+
+#### :boom: Breaking Change
+* `ember-truth-helpers`, `test-app`
+  * [#147](https://github.com/jmurphyau/ember-truth-helpers/pull/147) Convert to v2 addon ([@ctjhoa](https://github.com/ctjhoa))
+
+#### :rocket: Enhancement
+* `ember-truth-helpers`, `modern-test-app`, `test-app`
+  * [#176](https://github.com/jmurphyau/ember-truth-helpers/pull/176) Glint Support ([@gossi](https://github.com/gossi))
+
+#### :memo: Documentation
+* [#184](https://github.com/jmurphyau/ember-truth-helpers/pull/184) Remove "short-circuit" disclaimer from readme ([@Techn1x](https://github.com/Techn1x))
+* [#179](https://github.com/jmurphyau/ember-truth-helpers/pull/179) Update readme ([@SergeAstapov](https://github.com/SergeAstapov))
+
+#### :house: Internal
+* `ember-truth-helpers`, `modern-test-app`, `test-app`
+  * [#182](https://github.com/jmurphyau/ember-truth-helpers/pull/182) Sync with embroider-addon blueprint ([@SergeAstapov](https://github.com/SergeAstapov))
+  * [#177](https://github.com/jmurphyau/ember-truth-helpers/pull/177) switch from yarn to pnpm ([@SergeAstapov](https://github.com/SergeAstapov))
+* Other
+  * [#180](https://github.com/jmurphyau/ember-truth-helpers/pull/180) Add new workflow to provide release branches ([@SergeAstapov](https://github.com/SergeAstapov))
+* `test-app`
+  * [#178](https://github.com/jmurphyau/ember-truth-helpers/pull/178) ember-cli-update v3.28.5...v4.12.1 ([@SergeAstapov](https://github.com/SergeAstapov))
+
+#### Committers: 4
+- Brad Overton ([@Techn1x](https://github.com/Techn1x))
+- Camille TJHOA ([@ctjhoa](https://github.com/ctjhoa))
+- Sergey Astapov ([@SergeAstapov](https://github.com/SergeAstapov))
+- Thomas Gossmann ([@gossi](https://github.com/gossi))
+
+
 ## v3.1.1 (2022-07-14)
 
 #### :bug: Bug Fix

@@ -226,7 +226,7 @@ importers:
         specifier: ^5.11.0
         version: 5.11.0
       ember-truth-helpers:
-        specifier: 3.1.1
+        specifier: 4.0.0-beta.0
         version: link:../ember-truth-helpers
       ember-try:
         specifier: ^2.0.0
@@ -355,7 +355,7 @@ importers:
         specifier: ^5.11.0
         version: 5.11.0
       ember-truth-helpers:
-        specifier: 3.1.1
+        specifier: 4.0.0-beta.0
         version: link:../ember-truth-helpers
       ember-try:
         specifier: ^2.0.0
