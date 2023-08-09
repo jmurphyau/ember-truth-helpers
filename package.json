@@ -1,13 +1,14 @@
 {
   "private": true,
+  "repository": "https://github.com/jmurphyau/ember-truth-helpers",
   "workspaces": [
     "packages/*"
   ],
   "scripts": {
     "build": "pnpm --filter ember-truth-helpers build",
+    "preinstall": "npx only-allow pnpm",
     "lint": "pnpm --filter '*' lint",
     "lint:fix": "pnpm --filter '*' lint:fix",
-    "preinstall": "npx only-allow pnpm",
     "prepare": "pnpm build",
     "release": "release-it",
     "start": "concurrently 'npm:start:*' --restart-after 5000 --prefix-colors cyan,white,yellow",
@@ -15,15 +16,15 @@
     "start:test-app": "pnpm --filter test-app start",
     "test": "pnpm --filter '*' test:ember"
   },
-  "volta": {
-    "node": "16.20.0",
-    "pnpm": "8.6.7"
-  },
   "devDependencies": {
     "@release-it-plugins/lerna-changelog": "^5.0.0",
     "@release-it-plugins/workspaces": "^4.0.0",
     "concurrently": "^8.2.0",
     "release-it": "^15.5.0"
+  },
+  "volta": {
+    "node": "16.20.0",
+    "pnpm": "8.6.7"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
