@@ -31,7 +31,8 @@
     "prepack": "rollup --config"
   },
   "dependencies": {
-    "@embroider/addon-shim": "^1.8.6"
+    "@embroider/addon-shim": "^1.8.6",
+    "ember-functions-as-helper-polyfill": "^2.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.22.9",
