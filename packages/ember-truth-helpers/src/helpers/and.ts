@@ -1,13 +1,6 @@
 import truthConvert from '../utils/truth-convert.ts';
 import type { MaybeTruth } from '../utils/truth-convert.ts';
 
-export interface AndSignature {
-  Args: {
-    Positional: MaybeTruth[];
-  };
-  Return: boolean;
-}
-
 export default function and<T extends MaybeTruth[]>(...params: [...T]) {
   for (let i = 0, len = params.length; i < len; i++) {
     if (truthConvert(params[i]) === false) {
