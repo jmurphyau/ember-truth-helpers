@@ -7,6 +7,7 @@ on:
     branches:
       - main
       - master
+      - helpers-as-plain-functions
 
 jobs:
   push-dist:
