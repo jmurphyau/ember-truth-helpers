@@ -1,29 +1,22 @@
 import truthConvert from '../utils/truth-convert.ts';
-import type { MaybeTruth } from '../utils/truth-convert.ts';
+import Helper from '@ember/component/helper';
 
-export default function or<T extends MaybeTruth[]>(...params: [...T]) {
-  for (let i = 0, len = params.length; i < len; i++) {
-    if (truthConvert(params[i]) === true) {
-      return params[i] as FirstNonFalsy<T>;
-    }
-  }
-  return params[params.length - 1] as Last<T>;
+interface OrSignature<T extends unknown[]> {
+  Args: {
+    Positional: T;
+  };
+  Return: T[number];
 }
 
-type FirstNonFalsy<T extends any[]> = T extends [infer K]
-  ? K
-  : T extends [infer A, ...infer R]
-  ? Truthy<A> extends true
-    ? A
-    : FirstNonFalsy<R>
-  : never;
-
-type Last<T extends any[]> = T extends [infer K]
-  ? K
-  : T extends [...infer Q, infer L]
-  ? L
-  : never;
-
-type Truthy<T> = T extends Falsy ? false : true;
-
-type Falsy = false | 0 | '' | null | undefined | { isTruthy: false } | [];
+export default class OrHelper<T extends unknown[]> extends Helper<
+  OrSignature<T>
+> {
+  public compute(params: T): T[number] {
+    for (let i = 0, len = params.length; i < len; i++) {
+      if (truthConvert(params[i]) === true) {
+        return params[i];
+      }
+    }
+    return params[params.length - 1];
+  }
+}
