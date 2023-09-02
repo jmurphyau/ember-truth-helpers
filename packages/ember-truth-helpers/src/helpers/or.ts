@@ -5,7 +5,7 @@ interface OrSignature<T extends unknown[]> {
   Args: {
     Positional: T;
   };
-  Return: T[number];
+  Return: NonNullable<T[number]>;
 }
 
 // We use class-based helper to ensure arguments are lazy-evaluated
@@ -13,12 +13,12 @@ interface OrSignature<T extends unknown[]> {
 export default class OrHelper<T extends unknown[]> extends Helper<
   OrSignature<T>
 > {
-  public compute(params: T): T[number] {
+  public compute(params: T): NonNullable<T[number]> {
     for (let i = 0, len = params.length; i < len; i++) {
       if (truthConvert(params[i]) === true) {
-        return params[i];
+        return params[i] as NonNullable<T[number]>;
       }
     }
-    return params[params.length - 1];
+    return params[params.length - 1] as NonNullable<T[number]>;
   }
 }

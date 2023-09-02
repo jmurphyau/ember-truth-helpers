@@ -12,6 +12,6 @@
 {{xor true false}}
 
 <AndOrTypeChecking
-  @andArg={{or (hash) (array)}}
-  @orArg={{and (hash) (array)}}
+  @andArg={{or this.objectOrUndefined this.arrayOrUndefined}}
+  @orArg={{and this.objectOrUndefined this.arrayOrUndefined}}
 />
