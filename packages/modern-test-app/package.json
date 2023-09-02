@@ -1,6 +1,6 @@
 {
   "name": "modern-test-app",
-  "version": "4.0.0-beta.0",
+  "version": "4.0.0",
   "private": true,
   "description": "Test app for embroider-addon addon",
   "repository": "",
@@ -63,7 +63,7 @@
     "ember-source-channel-url": "^3.0.0",
     "ember-template-imports": "^3.4.2",
     "ember-template-lint": "^5.11.0",
-    "ember-truth-helpers": "4.0.0-beta.0",
+    "ember-truth-helpers": "4.0.0",
     "ember-try": "^2.0.0",
     "eslint": "^8.45.0",
     "eslint-config-prettier": "^8.8.0",

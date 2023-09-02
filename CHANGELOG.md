@@ -1,4 +1,18 @@
 
+
+## v4.0.0 (2023-09-02)
+
+#### :bug: Bug Fix
+* `ember-truth-helpers`, `modern-test-app`, `test-app`
+  * [#188](https://github.com/jmurphyau/ember-truth-helpers/pull/188) Fix Glint types by converting helpers to plain functions ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+
+#### :memo: Documentation
+* [#192](https://github.com/jmurphyau/ember-truth-helpers/pull/192) Update Ember.js compatibiity in README.md ([@SergeAstapov](https://github.com/SergeAstapov))
+
+#### Committers: 2
+- Sergey Astapov ([@SergeAstapov](https://github.com/SergeAstapov))
+- [@NullVoxPopuli](https://github.com/NullVoxPopuli)
+
 ## v4.0.0-beta.0 (2023-08-09)
 
 #### :boom: Breaking Change
