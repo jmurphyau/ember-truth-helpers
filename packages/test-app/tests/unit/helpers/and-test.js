@@ -69,4 +69,22 @@ module('helper:and', function (hooks) {
 
     assert.equal(this.element.textContent, '[2]', 'value should be "[2]"');
   });
+
+  test('it does short-circuit with falsey argument', async function (assert) {
+    this.foo = {
+      get bar() {
+        assert.step('get bar');
+        return false;
+      },
+      get baz() {
+        assert.step('get baz');
+        return true;
+      },
+    };
+
+    await render(hbs`[{{and this.foo.bar this.foo.baz}}]`);
+
+    assert.verifySteps(['get bar']);
+    assert.dom().hasText('[false]');
+  });
 });

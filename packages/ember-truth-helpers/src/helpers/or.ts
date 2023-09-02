@@ -8,6 +8,8 @@ interface OrSignature<T extends unknown[]> {
   Return: T[number];
 }
 
+// We use class-based helper to ensure arguments are lazy-evaluated
+// and helper short-circuits like native JavaScript `||` (logical OR).
 export default class OrHelper<T extends unknown[]> extends Helper<
   OrSignature<T>
 > {

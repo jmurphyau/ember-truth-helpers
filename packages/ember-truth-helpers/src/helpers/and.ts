@@ -8,6 +8,8 @@ interface AndSignature<T extends unknown[]> {
   Return: T[number];
 }
 
+// We use class-based helper to ensure arguments are lazy-evaluated
+// and helper short-circuits like native JavaScript `&&` (logical AND).
 export default class AndHelper<T extends unknown[]> extends Helper<
   AndSignature<T>
 > {
