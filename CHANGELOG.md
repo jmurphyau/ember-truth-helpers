@@ -2,15 +2,37 @@
 
 ## v4.0.0 (2023-09-02)
 
+#### :boom: Breaking Change
+* `ember-truth-helpers`, `test-app`
+  * [#147](https://github.com/jmurphyau/ember-truth-helpers/pull/147) Convert to v2 addon ([@ctjhoa](https://github.com/ctjhoa))
+
+#### :rocket: Enhancement
+* `ember-truth-helpers`, `modern-test-app`, `test-app`
+  * [#176](https://github.com/jmurphyau/ember-truth-helpers/pull/176) Glint Support ([@gossi](https://github.com/gossi))
+
 #### :bug: Bug Fix
 * `ember-truth-helpers`, `modern-test-app`, `test-app`
   * [#188](https://github.com/jmurphyau/ember-truth-helpers/pull/188) Fix Glint types by converting helpers to plain functions ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
 
 #### :memo: Documentation
 * [#192](https://github.com/jmurphyau/ember-truth-helpers/pull/192) Update Ember.js compatibiity in README.md ([@SergeAstapov](https://github.com/SergeAstapov))
+* [#184](https://github.com/jmurphyau/ember-truth-helpers/pull/184) Remove "short-circuit" disclaimer from readme ([@Techn1x](https://github.com/Techn1x))
+* [#179](https://github.com/jmurphyau/ember-truth-helpers/pull/179) pdate build status badge in readme ([@SergeAstapov](https://github.com/SergeAstapov))
 
-#### Committers: 2
+#### :house: Internal
+* `ember-truth-helpers`, `modern-test-app`, `test-app`
+  * [#182](https://github.com/jmurphyau/ember-truth-helpers/pull/182) Sync with embroider-addon blueprint ([@SergeAstapov](https://github.com/SergeAstapov))
+  * [#177](https://github.com/jmurphyau/ember-truth-helpers/pull/177) switch from yarn to pnpm ([@SergeAstapov](https://github.com/SergeAstapov))
+* Other
+  * [#180](https://github.com/jmurphyau/ember-truth-helpers/pull/180) Add new workflow to provide release branches ([@SergeAstapov](https://github.com/SergeAstapov))
+* `test-app`
+  * [#178](https://github.com/jmurphyau/ember-truth-helpers/pull/178) ember-cli-update v3.28.5...v4.12.1 ([@SergeAstapov](https://github.com/SergeAstapov))
+
+#### Committers: 5
+- Brad Overton ([@Techn1x](https://github.com/Techn1x))
+- Camille TJHOA ([@ctjhoa](https://github.com/ctjhoa))
 - Sergey Astapov ([@SergeAstapov](https://github.com/SergeAstapov))
+- Thomas Gossmann ([@gossi](https://github.com/gossi))
 - [@NullVoxPopuli](https://github.com/NullVoxPopuli)
 
 ## v4.0.0-beta.0 (2023-08-09)
@@ -25,7 +47,7 @@
 
 #### :memo: Documentation
 * [#184](https://github.com/jmurphyau/ember-truth-helpers/pull/184) Remove "short-circuit" disclaimer from readme ([@Techn1x](https://github.com/Techn1x))
-* [#179](https://github.com/jmurphyau/ember-truth-helpers/pull/179) Update readme ([@SergeAstapov](https://github.com/SergeAstapov))
+* [#179](https://github.com/jmurphyau/ember-truth-helpers/pull/179) pdate build status badge in readme ([@SergeAstapov](https://github.com/SergeAstapov))
 
 #### :house: Internal
 * `ember-truth-helpers`, `modern-test-app`, `test-app`
