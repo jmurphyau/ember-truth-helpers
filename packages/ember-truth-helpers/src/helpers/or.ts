@@ -1,19 +1,24 @@
-import { helper } from '@ember/component/helper';
 import truthConvert from '../utils/truth-convert.ts';
-import type { MaybeTruth } from '../utils/truth-convert.ts';
+import Helper from '@ember/component/helper';
 
-export interface OrSignature {
+interface OrSignature<T extends unknown[]> {
   Args: {
-    Positional: MaybeTruth[];
+    Positional: T;
   };
-  Return: boolean;
+  Return: T[number];
 }
 
-export default helper<OrSignature>((params) => {
-  for (let i = 0, len = params.length; i < len; i++) {
-    if (truthConvert(params[i]) === true) {
-      return params[i] as boolean;
+// We use class-based helper to ensure arguments are lazy-evaluated
+// and helper short-circuits like native JavaScript `||` (logical OR).
+export default class OrHelper<T extends unknown[]> extends Helper<
+  OrSignature<T>
+> {
+  public compute(params: T): T[number] {
+    for (let i = 0, len = params.length; i < len; i++) {
+      if (truthConvert(params[i]) === true) {
+        return params[i];
+      }
     }
+    return params[params.length - 1];
   }
-  return params[params.length - 1] as boolean;
-});
+}

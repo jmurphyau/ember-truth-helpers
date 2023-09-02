@@ -86,4 +86,22 @@ module('helper:or', function (hooks) {
       'value should be "[ ] [yellow] [yellow] [ ]"'
     );
   });
+
+  test('it does short-circuit with truthy argument', async function (assert) {
+    this.foo = {
+      get bar() {
+        assert.step('get bar');
+        return true;
+      },
+      get baz() {
+        assert.step('get baz');
+        return false;
+      },
+    };
+
+    await render(hbs`[{{or this.foo.bar this.foo.baz}}]`);
+
+    assert.verifySteps(['get bar']);
+    assert.dom().hasText('[true]');
+  });
 });

@@ -1,17 +1,9 @@
-import { helper } from '@ember/component/helper';
-
-export interface GteSignature {
-  Args: {
-    Positional: [unknown, unknown];
-    Named: {
-      forceNumber?: boolean;
-    };
-  };
-  Return: boolean;
-}
-
-export default helper<GteSignature>(([left, right], options) => {
-  if (options.forceNumber) {
+export default function gte(
+  left: unknown,
+  right: unknown,
+  options?: { forceNumber?: boolean }
+) {
+  if (options?.forceNumber) {
     if (typeof left !== 'number') {
       left = Number(left);
     }
@@ -20,4 +12,4 @@ export default helper<GteSignature>(([left, right], options) => {
     }
   }
   return (left as number) >= (right as number);
-});
+}
