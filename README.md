@@ -4,9 +4,8 @@ HTMLBars template helpers for additional truth logic in `if` and `unless` statem
 
 ## Compatibility
 
-- Ember.js v4.8 or above
-- Ember CLI v3.24 or above
-- Embroider or ember-auto-import >= 2
+- Ember.js v3.28 or above
+- Embroider or ember-auto-import >= 2 (this is [v2 addon](https://emberjs.github.io/rfcs/0507-embroider-v2-package-format.html)
 
 ## Installation
 
