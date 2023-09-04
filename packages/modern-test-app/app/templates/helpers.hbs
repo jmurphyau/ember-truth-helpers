@@ -14,6 +14,8 @@
 <AndOrTypeChecking
   @andArg={{and (hash) (array)}}
   @orArg={{or (hash) (array)}}
+  {{!-- and returns the last truthy item --}}
   @andFallbackArg={{and true "string"}}
-  @orFallbackArg={{or false "string"}}
+  {{!-- or returns the first truthy item --}}
+  @orFallbackArg={{or undefined "string"}}
 />
