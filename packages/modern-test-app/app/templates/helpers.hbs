@@ -12,6 +12,8 @@
 {{xor true false}}
 
 <AndOrTypeChecking
-  @andArg={{or (hash) (array)}}
-  @orArg={{and (hash) (array)}}
+  @andArg={{and (hash) (array)}}
+  @orArg={{or (hash) (array)}}
+  @andFallbackArg={{and true "string"}}
+  @orFallbackArg={{or false "string"}}
 />

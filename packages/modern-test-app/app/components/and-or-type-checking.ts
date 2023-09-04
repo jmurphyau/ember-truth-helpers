@@ -5,6 +5,8 @@ interface Signature {
   Args: {
     andArg: object | boolean;
     orArg: object | boolean;
+    andFallbackArg: string;
+    orFallbackArg: string;
   };
 }
 
