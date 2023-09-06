@@ -1,5 +1,16 @@
 
 
+
+## v4.0.1 (2023-09-06)
+
+#### :bug: Bug Fix
+* `ember-truth-helpers`
+  * [#195](https://github.com/jmurphyau/ember-truth-helpers/pull/195) Fix peerDependencies to depend on ember-source@>=3.28.0 ([@SergeAstapov](https://github.com/SergeAstapov))
+
+#### Committers: 1
+- Sergey Astapov ([@SergeAstapov](https://github.com/SergeAstapov))
+
+
 ## v4.0.0 (2023-09-02)
 
 #### :boom: Breaking Change
