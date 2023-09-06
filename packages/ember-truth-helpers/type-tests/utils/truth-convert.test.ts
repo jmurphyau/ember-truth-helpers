@@ -11,12 +11,10 @@ expectTypeOf<TruthConvert<false>>().toEqualTypeOf<false>();
 expectTypeOf<TruthConvert<0>>().toEqualTypeOf<false>();
 expectTypeOf<TruthConvert<-0>>().toEqualTypeOf<false>();
 expectTypeOf<TruthConvert<0n>>().toEqualTypeOf<false>();
-// We can't enumerate every number
-expectTypeOf<TruthConvert<1>>().toEqualTypeOf<boolean>();
+expectTypeOf<TruthConvert<1>>().toEqualTypeOf<true>();
 
 expectTypeOf<TruthConvert<''>>().toEqualTypeOf<false>();
-// We can't enumerate every string
-expectTypeOf<TruthConvert<'A String'>>().toEqualTypeOf<boolean>();
+expectTypeOf<TruthConvert<'A String'>>().toEqualTypeOf<true>();
 
 expectTypeOf<TruthConvert<{ foo: 1; isTruthy: true }>>().toEqualTypeOf<true>();
 expectTypeOf<
@@ -42,11 +40,11 @@ expectTypeOf(truthConvert(0)).toEqualTypeOf<false>();
 expectTypeOf(truthConvert(-0)).toEqualTypeOf<false>();
 expectTypeOf(truthConvert(0n)).toEqualTypeOf<false>();
 // We can't enumerate every number
-expectTypeOf(truthConvert(1)).toEqualTypeOf<boolean>();
+expectTypeOf(truthConvert(1)).toEqualTypeOf<true>();
 
 expectTypeOf(truthConvert('' as const)).toEqualTypeOf<false>();
 // We can't enumerate every string
-expectTypeOf(truthConvert('A String')).toEqualTypeOf<boolean>();
+expectTypeOf(truthConvert('A String')).toEqualTypeOf<true>();
 
 expectTypeOf(truthConvert({ foo: 1, isTruthy: true })).toEqualTypeOf<true>();
 expectTypeOf(truthConvert({ foo: 1, isTruthy: false })).toEqualTypeOf<false>();

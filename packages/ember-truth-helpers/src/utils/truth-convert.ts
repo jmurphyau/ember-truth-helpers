@@ -15,7 +15,11 @@ type _TruthConvert<T> = T extends { isTruthy: true }
   : T extends boolean
   ? T
   : T extends number
-  ? T extends 0 | -0 | 0n
+  ? T extends 0 | -0
+    ? false
+    : true
+  : T extends bigint
+  ? T extends 0n
     ? false
     : true
   : T extends string
@@ -37,6 +41,7 @@ export type MaybeTruthy =
   | null
   | boolean
   | number
+  | bigint
   | string
   | unknown[]
   | object;
@@ -54,7 +59,10 @@ export default function truthConvert<T extends undefined | null | false>(
 ): false;
 export default function truthConvert<T extends number>(
   result: T
-): T extends 0 | -0 | 0n ? false : true;
+): T extends 0 | -0 ? false : true;
+export default function truthConvert<T extends bigint>(
+  result: T
+): T extends 0n ? false : true;
 export default function truthConvert<T extends string>(
   result: T
 ): T extends '' ? false : true;
