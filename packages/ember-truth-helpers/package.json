@@ -63,7 +63,7 @@
     "webpack": "^5.88.1"
   },
   "peerDependencies": {
-    "ember-source": ">=4.8.4"
+    "ember-source": ">=3.28.0"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
