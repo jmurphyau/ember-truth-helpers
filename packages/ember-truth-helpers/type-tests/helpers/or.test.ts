@@ -26,3 +26,6 @@ expectTypeOf(computeOr({ isTruthy: false }, 1)).toEqualTypeOf<1>();
 
 const foo: { isTruthy: true } = { isTruthy: true };
 expectTypeOf(computeOr(foo, 1)).toEqualTypeOf(foo);
+
+let maybeString: string | undefined;
+expectTypeOf(computeOr(maybeString, 'foo')).toEqualTypeOf<string>();

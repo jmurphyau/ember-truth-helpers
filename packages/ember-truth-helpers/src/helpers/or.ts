@@ -11,7 +11,7 @@ type FirstTruthy<T> = T extends [infer Item]
     ? Head
     : TruthConvert<Head> extends false
     ? FirstTruthy<Tail>
-    : Head | FirstTruthy<Tail>
+    : NonNullable<Head> | FirstTruthy<Tail>
   : undefined;
 
 interface OrSignature<T extends MaybeTruthy[]> {
