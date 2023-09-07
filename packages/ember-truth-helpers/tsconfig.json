@@ -2,7 +2,6 @@
   "extends": "@tsconfig/ember/tsconfig.json",
   "include": [
     "src/**/*",
-    "type-tests/**/*",
     "unpublished-development-types/**/*"
   ],
   "glint": {
