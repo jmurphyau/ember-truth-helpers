@@ -12,6 +12,9 @@
 {{xor true false}}
 
 <AndOrTypeChecking
-  @andArg={{or (hash) (array)}}
-  @orArg={{and (hash) (array)}}
+  @andArg1={{and (hash) (array)}}
+  @andArg2={{and true false}}
+  @andArg3={{and true true}}
+  @andArg4={{and 1 (hash isTruthy=true)}}
+  @orArg={{or (hash) (array)}}
 />

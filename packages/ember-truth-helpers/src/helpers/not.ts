@@ -1,6 +1,5 @@
-import truthConvert from '../utils/truth-convert.ts';
-import type { MaybeTruth } from '../utils/truth-convert.ts';
+import truthConvert, { MaybeTruthy } from '../utils/truth-convert.ts';
 
-export default function not(...params: MaybeTruth[]) {
+export default function not(...params: MaybeTruthy[]) {
   return params.every((param) => !truthConvert(param));
 }

@@ -3,8 +3,11 @@ import templateOnly from '@ember/component/template-only';
 interface Signature {
   Element: HTMLDivElement;
   Args: {
-    andArg: object | boolean;
-    orArg: object | boolean;
+    andArg1: unknown[];
+    andArg2: false;
+    andArg3: true;
+    andArg4: { isTruthy: true };
+    orArg: object;
   };
 }
 

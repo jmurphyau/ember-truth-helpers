@@ -96,6 +96,9 @@ importers:
       eslint-plugin-prettier:
         specifier: ^4.0.0
         version: 4.2.1(eslint-config-prettier@8.8.0)(eslint@8.45.0)(prettier@2.8.8)
+      expect-type:
+        specifier: ^0.16.0
+        version: 0.16.0
       prettier:
         specifier: ^2.8.8
         version: 2.8.8
@@ -7108,6 +7111,11 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       homedir-polyfill: 1.0.3
+    dev: true
+
+  /expect-type@0.16.0:
+    resolution: {integrity: sha512-wCpFeVBiAPGiYkQZzaqvGuuBnNCHbtnowMOBpBGY8a27XbG8VAit3lklWph1r8VmgsH61mOZqI3NuGm8bZnUlw==}
+    engines: {node: '>=12.0.0'}
     dev: true
 
   /express@4.18.2:
