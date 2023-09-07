@@ -8,6 +8,7 @@ interface Signature {
     andArg3: true;
     andArg4: { isTruthy: true };
     orArg: object;
+    stringArg: string;
   };
 }
 
