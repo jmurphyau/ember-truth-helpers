@@ -42,17 +42,7 @@
       "@release-it-plugins/workspaces": {
         "workspaces": [
           "packages/ember-truth-helpers"
-        ],
-        "additionalManifests": {
-          "dependencyUpdates": [
-            "packages/modern-test-app/package.json",
-            "packages/test-app/package.json"
-          ],
-          "versionUpdates": [
-            "packages/modern-test-app/package.json",
-            "packages/test-app/package.json"
-          ]
-        }
+        ]
       }
     },
     "git": {
