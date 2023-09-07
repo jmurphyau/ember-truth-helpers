@@ -52,7 +52,7 @@
     "ember-source": "~4.12.0",
     "ember-source-channel-url": "^3.0.0",
     "ember-template-lint": "^5.11.0",
-    "ember-truth-helpers": "4.0.1",
+    "ember-truth-helpers": "workspace:*",
     "ember-try": "^2.0.0",
     "eslint": "^8.45.0",
     "eslint-config-prettier": "^8.8.0",
