@@ -29,3 +29,5 @@ expectTypeOf(computeAnd({ isTruthy: false }, 1)).toEqualTypeOf<{
 
 const foo: { isTruthy: true } = { isTruthy: true };
 expectTypeOf(computeAnd(foo, 1)).toEqualTypeOf<1>();
+
+expectTypeOf(computeAnd({}, [])).toEqualTypeOf<never[]>();

@@ -3,7 +3,7 @@
   "include": [
     "src/**/*",
     "type-tests/**/*",
-    "unpublished-development-types/**/*",
+    "unpublished-development-types/**/*"
   ],
   "glint": {
     "environment": "ember-loose"
