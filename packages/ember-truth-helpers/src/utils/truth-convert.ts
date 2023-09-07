@@ -68,13 +68,13 @@ export default function truthConvert<T extends string>(
 ): T extends '' ? false : true;
 export default function truthConvert<T>(result: T): TruthConvert<T>;
 export default function truthConvert(result: unknown): boolean {
-  const truthy =
-    result && typeof result === 'object' && 'isTruthy' in result
-      ? result.isTruthy
-      : undefined;
-
-  if (typeof truthy === 'boolean') {
-    return truthy;
+  if (
+    typeof result === 'object' &&
+    result &&
+    'isTruthy' in result &&
+    typeof result.isTruthy === 'boolean'
+  ) {
+    return result.isTruthy;
   }
 
   if (isArray(result)) {
