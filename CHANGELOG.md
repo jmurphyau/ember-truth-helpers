@@ -1,6 +1,23 @@
 
 
 
+
+## v4.0.2 (2023-09-08)
+
+#### :bug: Bug Fix
+* `ember-truth-helpers`, `modern-test-app`
+  * [#199](https://github.com/jmurphyau/ember-truth-helpers/pull/199) Fix types for `or` helper with fallback argument ([@wagenet](https://github.com/wagenet))
+  * [#196](https://github.com/jmurphyau/ember-truth-helpers/pull/196) Improve types for `and` and `or` ([@wagenet](https://github.com/wagenet))
+
+#### :house: Internal
+* `modern-test-app`, `test-app`
+  * [#197](https://github.com/jmurphyau/ember-truth-helpers/pull/197) Use the workspace protocol to be super extra sure that we're using the ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+
+#### Committers: 2
+- Peter Wagenet ([@wagenet](https://github.com/wagenet))
+- [@NullVoxPopuli](https://github.com/NullVoxPopuli)
+
+
 ## v4.0.1 (2023-09-06)
 
 #### :bug: Bug Fix
