@@ -29,3 +29,11 @@ expectTypeOf(computeOr(foo, 1)).toEqualTypeOf(foo);
 
 let maybeString: string | undefined;
 expectTypeOf(computeOr(maybeString, 'foo')).toEqualTypeOf<string>();
+
+const numberOrFalse = 1 as number | false;
+expectTypeOf(computeOr(numberOrFalse, 'foo')).toEqualTypeOf<number | 'foo'>();
+
+const numberOrNotTruthy = 1 as number | { isTruthy: false };
+expectTypeOf(computeOr(numberOrNotTruthy, 'foo')).toEqualTypeOf<
+  number | 'foo'
+>();

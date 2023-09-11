@@ -1,9 +1,22 @@
 import { isArray } from '@ember/array';
 
+export type Falsy =
+  | { isTruthy: false }
+  | undefined
+  | null
+  | false
+  | 0
+  | -0
+  | 0n
+  | ''
+  | never[];
+
 type ConvertTruthyObject<T> = T extends { isTruthy: infer U } ? U : T;
 
 // We check here in the order of the following function to maintain parity
 // Note that this will not handle EmberArray correctly.
+// We don't use Falsy since we want to be able to more definitively determine
+// truthy results.
 type _TruthConvert<T> = T extends { isTruthy: true }
   ? true
   : T extends { isTruthy: false }

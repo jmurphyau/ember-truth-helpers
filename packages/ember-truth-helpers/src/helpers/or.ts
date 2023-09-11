@@ -1,4 +1,5 @@
 import truthConvert, {
+  Falsy,
   MaybeTruthy,
   TruthConvert,
 } from '../utils/truth-convert.ts';
@@ -11,7 +12,7 @@ type FirstTruthy<T> = T extends [infer Item]
     ? Head
     : TruthConvert<Head> extends false
     ? FirstTruthy<Tail>
-    : NonNullable<Head> | FirstTruthy<Tail>
+    : Exclude<Head, Falsy> | FirstTruthy<Tail>
   : undefined;
 
 interface OrSignature<T extends MaybeTruthy[]> {
