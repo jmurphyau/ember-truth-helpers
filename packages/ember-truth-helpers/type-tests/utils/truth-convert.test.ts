@@ -7,14 +7,19 @@ expectTypeOf<TruthConvert<undefined>>().toEqualTypeOf<false>();
 
 expectTypeOf<TruthConvert<true>>().toEqualTypeOf<true>();
 expectTypeOf<TruthConvert<false>>().toEqualTypeOf<false>();
+expectTypeOf<TruthConvert<boolean>>().toEqualTypeOf<boolean>();
 
 expectTypeOf<TruthConvert<0>>().toEqualTypeOf<false>();
 expectTypeOf<TruthConvert<-0>>().toEqualTypeOf<false>();
-expectTypeOf<TruthConvert<0n>>().toEqualTypeOf<false>();
 expectTypeOf<TruthConvert<1>>().toEqualTypeOf<true>();
+expectTypeOf<TruthConvert<number>>().toEqualTypeOf<boolean>();
+expectTypeOf<TruthConvert<0n>>().toEqualTypeOf<false>();
+expectTypeOf<TruthConvert<1n>>().toEqualTypeOf<true>();
+expectTypeOf<TruthConvert<bigint>>().toEqualTypeOf<boolean>();
 
 expectTypeOf<TruthConvert<''>>().toEqualTypeOf<false>();
 expectTypeOf<TruthConvert<'A String'>>().toEqualTypeOf<true>();
+expectTypeOf<TruthConvert<string>>().toEqualTypeOf<boolean>();
 
 expectTypeOf<TruthConvert<{ foo: 1; isTruthy: true }>>().toEqualTypeOf<true>();
 expectTypeOf<
@@ -22,6 +27,7 @@ expectTypeOf<
 >().toEqualTypeOf<false>();
 // isTruthy isn't a boolean but we still have a real object so it's truthy
 expectTypeOf<TruthConvert<{ foo: 1; isTruthy: 1 }>>().toEqualTypeOf<true>();
+expectTypeOf<TruthConvert<{ isTruthy: boolean }>>().toEqualTypeOf<boolean>();
 
 expectTypeOf<TruthConvert<never[]>>().toEqualTypeOf<false>();
 expectTypeOf<TruthConvert<string[]>>().toEqualTypeOf<boolean>();
@@ -29,6 +35,9 @@ expectTypeOf<TruthConvert<string[]>>().toEqualTypeOf<boolean>();
 expectTypeOf<
   TruthConvert<never[] & { isTruthy: true }>
 >().toEqualTypeOf<true>();
+
+expectTypeOf<TruthConvert<1 | false>>().toEqualTypeOf<boolean>();
+expectTypeOf<TruthConvert<0 | false>>().toEqualTypeOf<false>();
 
 expectTypeOf(truthConvert(null)).toEqualTypeOf<false>();
 expectTypeOf(truthConvert(undefined)).toEqualTypeOf<false>();

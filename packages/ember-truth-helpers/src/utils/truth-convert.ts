@@ -11,13 +11,11 @@ export type Falsy =
   | ''
   | never[];
 
-type ConvertTruthyObject<T> = T extends { isTruthy: infer U } ? U : T;
-
 // We check here in the order of the following function to maintain parity
 // Note that this will not handle EmberArray correctly.
 // We don't use Falsy since we want to be able to more definitively determine
 // truthy results.
-type _TruthConvert<T> = T extends { isTruthy: true }
+export type TruthConvert<T> = T extends { isTruthy: true }
   ? true
   : T extends { isTruthy: false }
   ? false
@@ -30,14 +28,20 @@ type _TruthConvert<T> = T extends { isTruthy: true }
   : T extends number
   ? T extends 0 | -0
     ? false
+    : number extends T
+    ? boolean
     : true
   : T extends bigint
   ? T extends 0n
     ? false
+    : bigint extends T
+    ? boolean
     : true
   : T extends string
   ? T extends ''
     ? false
+    : string extends T
+    ? boolean
     : true
   : T extends never[]
   ? false
@@ -46,7 +50,6 @@ type _TruthConvert<T> = T extends { isTruthy: true }
   : T extends object
   ? true
   : boolean;
-export type TruthConvert<T> = _TruthConvert<ConvertTruthyObject<T>>;
 
 export type MaybeTruthy =
   | { isTruthy: boolean }
