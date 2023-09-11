@@ -2,6 +2,21 @@
 
 
 
+
+## v4.0.3 (2023-09-11)
+
+#### :bug: Bug Fix
+* `ember-truth-helpers`
+  * [#200](https://github.com/jmurphyau/ember-truth-helpers/pull/200) Further type improvements for `or` helper ([@wagenet](https://github.com/wagenet))
+
+#### :house: Internal
+* [#201](https://github.com/jmurphyau/ember-truth-helpers/pull/201) Use put-built-npm-package-contents-on-branch@v2.0.0 ([@SergeAstapov](https://github.com/SergeAstapov))
+
+#### Committers: 2
+- Peter Wagenet ([@wagenet](https://github.com/wagenet))
+- Sergey Astapov ([@SergeAstapov](https://github.com/SergeAstapov))
+
+
 ## v4.0.2 (2023-09-08)
 
 #### :bug: Bug Fix
