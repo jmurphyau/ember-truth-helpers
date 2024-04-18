@@ -15,21 +15,21 @@ ember install ember-truth-helpers
 
 ## Usage
 
-Helper   | JavaScript                                      | HTMLBars                | Variable argument count allowed |
----------|-------------------------------------------------|-------------------------|---------------------------------|
-eq       | `if (a === b)`                                  | `{{if (eq a b)}}`       | No                              |
-not-eq   | `if (a !== b)`                                  | `{{if (not-eq a b)}}`   | No                              |
-not      | `if (!a)`                                       | `{{if (not a)}}`        | Yes                             |
-and      | `if (a && b)`                                   | `{{if (and a b)}}`      | Yes                             |
-or       | <code>if (a &#124;&#124; b)</code>              | `{{if (or a b)}}`       | Yes                             |
-xor      | <code>if (a !== b)</code>                       | `{{if (xor a b)}}`      | No                              |
-gt       | `if (a > b)`                                    | `{{if (gt a b)}}`       | No                              |
-gte      | `if (a >= b)`                                   | `{{if (gte a b)}}`      | No                              |
-lt       | `if (a < b)`                                    | `{{if (lt a b)}}`       | No                              |
-lte      | `if (a <= b)`                                   | `{{if (lte a b)}}`      | No                              |
-is-array | `if (Ember.isArray(a))`                         | `{{if (is-array a)}}`   | Yes                             |
-is-empty | `if (Ember.isEmpty(a))`                         | `{{if (is-empty a)}}`   | No                              |
-is-equal | `if (Ember.isEqual(a, b))`                      | `{{if (is-equal a b)}}` | No                              |
+Helper   | JavaScript                                      | HTMLBars                | Import                                            | Variable argument count allowed|
+---------|-------------------------------------------------|-------------------------|-------------------------------------------------- |--------------------------------|
+eq       | `if (a === b)`                                  | `{{if (eq a b)}}`       | import { eq } from 'ember-truth-helpers';         |No                              |
+not-eq   | `if (a !== b)`                                  | `{{if (not-eq a b)}}`   | import { notEq } from 'ember-truth-helpers';      |No                              |
+not      | `if (!a)`                                       | `{{if (not a)}}`        | import { not } from 'ember-truth-helpers';        |Yes                             |
+and      | `if (a && b)`                                   | `{{if (and a b)}}`      | import { and } from 'ember-truth-helpers';        |Yes                             |
+or       | <code>if (a &#124;&#124; b)</code>              | `{{if (or a b)}}`       | import { or } from 'ember-truth-helpers';         |Yes                             |
+xor      | <code>if (a !== b)</code>                       | `{{if (xor a b)}}`      | import { xor } from 'ember-truth-helpers';        |No                              |
+gt       | `if (a > b)`                                    | `{{if (gt a b)}}`       | import { gt } from 'ember-truth-helpers';         |No                              |
+gte      | `if (a >= b)`                                   | `{{if (gte a b)}}`      | import { gte } from 'ember-truth-helpers';        |No                              |
+lt       | `if (a < b)`                                    | `{{if (lt a b)}}`       | import { lt } from 'ember-truth-helpers';         |No                              |
+lte      | `if (a <= b)`                                   | `{{if (lte a b)}}`      | import { eq } from 'ember-truth-helpers';         |No                              |
+is-array | `if (Ember.isArray(a))`                         | `{{if (is-array a)}}`   | import { isArray } from 'ember-truth-helpers';    |Yes                             |
+is-empty | `if (Ember.isEmpty(a))`                         | `{{if (is-empty a)}}`   | import { isEmpty } from 'ember-truth-helpers';    |No                              |
+is-equal | `if (Ember.isEqual(a, b))`                      | `{{if (is-equal a b)}}` | import { isEqual } from 'ember-truth-helpers';    |No                              |
 
 ## API
 
