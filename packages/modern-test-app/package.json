@@ -77,7 +77,7 @@
     "qunit-dom": "^2.0.0",
     "tracked-built-ins": "^3.1.1",
     "typescript": "^5.0.4",
-    "webpack": "^5.88.1"
+    "webpack": "^5.94.0"
   },
   "engines": {
     "node": "16.* || >= 18"

@@ -62,7 +62,7 @@
     "prettier": "^2.8.8",
     "rollup": "^3.26.2",
     "typescript": "^5.0.4",
-    "webpack": "^5.88.1"
+    "webpack": "^5.94.0"
   },
   "peerDependencies": {
     "ember-source": ">=3.28.0"
