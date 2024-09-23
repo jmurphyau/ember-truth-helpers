@@ -60,7 +60,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "expect-type": "^0.16.0",
     "prettier": "^2.8.8",
-    "rollup": "^3.26.2",
+    "rollup": "^3.29.5",
     "typescript": "^5.0.4",
     "webpack": "^5.88.1"
   },
