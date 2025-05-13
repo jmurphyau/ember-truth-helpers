@@ -1,7 +1,7 @@
 import truthConvert, {
-  Falsy,
-  MaybeTruthy,
-  TruthConvert,
+  type Falsy,
+  type MaybeTruthy,
+  type TruthConvert,
 } from '../utils/truth-convert.ts';
 import Helper from '@ember/component/helper';
 

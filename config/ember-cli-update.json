@@ -1,19 +1,19 @@
 {
   "schemaVersion": "1.0.0",
+  "projectName": "ember-truth-helpers",
   "packages": [
     {
       "name": "@embroider/addon-blueprint",
-      "version": "1.7.0",
+      "version": "4.1.2",
       "blueprints": [
         {
           "name": "@embroider/addon-blueprint",
           "isBaseBlueprint": true,
           "options": [
-            "--pnpm",
-            "--ci-provider=github",
             "--addon-location=packages/ember-truth-helpers",
+            "--ci-provider=github",
+            "--pnpm",
             "--test-app-location=packages/test-app",
-            "--release-it",
             "--typescript"
           ]
         }
