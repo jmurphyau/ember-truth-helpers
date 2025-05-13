@@ -64,9 +64,6 @@
     "typescript": "^5.0.4",
     "webpack": "^5.88.1"
   },
-  "peerDependencies": {
-    "ember-source": ">=3.28.0"
-  },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },
