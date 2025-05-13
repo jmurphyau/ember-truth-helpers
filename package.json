@@ -1,0 +1,113 @@
+{
+  "name": "ember-truth-helpers",
+  "version": "4.0.3",
+  "description": "Ember Truth Helpers",
+  "keywords": [
+    "ember-addon"
+  ],
+  "repository": "https://github.com/jmurphyau/ember-truth-helpers",
+  "license": "MIT",
+  "author": "James Murphy",
+  "files": [
+    "addon-main.cjs",
+    "declarations",
+    "dist"
+  ],
+  "scripts": {
+    "build": "concurrently 'npm:build:*'",
+    "build:js": "rollup --config",
+    "build:types": "glint --declaration",
+    "lint": "concurrently 'npm:lint:*(!fix)' --names 'lint:'",
+    "lint:fix": "concurrently 'npm:lint:*:fix' --names 'fix:'",
+    "lint:hbs": "ember-template-lint . --no-error-on-unmatched-pattern",
+    "lint:js": "eslint . --cache",
+    "lint:hbs:fix": "ember-template-lint . --fix --no-error-on-unmatched-pattern",
+    "lint:js:fix": "eslint . --fix",
+    "lint:types": "glint",
+    "lint:types-tests": "glint --project type-tests",
+    "start": "concurrently 'npm:start:*'",
+    "start:js": "rollup --config --watch --no-watch.clearScreen",
+    "start:types": "glint --declaration --watch",
+    "test": "echo 'A v2 addon does not have tests, run tests in test-app'"
+  },
+  "dependencies": {
+    "@embroider/addon-shim": "^1.8.6",
+    "ember-functions-as-helper-polyfill": "^2.1.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.22.9",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@babel/plugin-proposal-decorators": "^7.22.7",
+    "@babel/preset-typescript": "^7.22.5",
+    "@babel/runtime": "^7.22.6",
+    "@embroider/addon-dev": "^3.1.2",
+    "@glimmer/component": "^1.1.2",
+    "@glint/core": "^1.0.2",
+    "@glint/environment-ember-loose": "^1.0.2",
+    "@glint/template": "^1.0.2",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@tsconfig/ember": "^2.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/parser": "^5.62.0",
+    "concurrently": "^8.2.0",
+    "ember-source": "^4.12.0",
+    "ember-template-lint": "^5.11.0",
+    "eslint": "^8.45.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-ember": "^11.10.0",
+    "eslint-plugin-n": "^16.0.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "expect-type": "^0.16.0",
+    "prettier": "^2.8.8",
+    "rollup": "^3.26.2",
+    "typescript": "^5.0.4",
+    "webpack": "^5.88.1"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "ember": {
+    "edition": "octane"
+  },
+  "ember-addon": {
+    "version": 2,
+    "type": "addon",
+    "main": "addon-main.cjs",
+    "app-js": {
+      "./helpers/and.js": "./dist/_app_/helpers/and.js",
+      "./helpers/eq.js": "./dist/_app_/helpers/eq.js",
+      "./helpers/gt.js": "./dist/_app_/helpers/gt.js",
+      "./helpers/gte.js": "./dist/_app_/helpers/gte.js",
+      "./helpers/is-array.js": "./dist/_app_/helpers/is-array.js",
+      "./helpers/is-empty.js": "./dist/_app_/helpers/is-empty.js",
+      "./helpers/is-equal.js": "./dist/_app_/helpers/is-equal.js",
+      "./helpers/lt.js": "./dist/_app_/helpers/lt.js",
+      "./helpers/lte.js": "./dist/_app_/helpers/lte.js",
+      "./helpers/not-eq.js": "./dist/_app_/helpers/not-eq.js",
+      "./helpers/not.js": "./dist/_app_/helpers/not.js",
+      "./helpers/or.js": "./dist/_app_/helpers/or.js",
+      "./helpers/xor.js": "./dist/_app_/helpers/xor.js"
+    }
+  },
+  "exports": {
+    ".": {
+      "types": "./declarations/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./*": {
+      "types": "./declarations/*.d.ts",
+      "default": "./dist/*.js"
+    },
+    "./addon-main.js": "./addon-main.cjs"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "declarations/*"
+      ]
+    }
+  },
+  "volta": {
+    "extends": "../../package.json"
+  }
+}

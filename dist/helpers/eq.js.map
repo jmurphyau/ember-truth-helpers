@@ -1,0 +1,1 @@
+{"version":3,"file":"eq.js","sources":["../../src/helpers/eq.ts"],"sourcesContent":["export default function eq(left: unknown, right: unknown): boolean {\n  return left === right;\n}\n"],"names":["eq","left","right"],"mappings":"AAAe,SAASA,EAAEA,CAACC,IAAa,EAAEC,KAAc,EAAW;EACjE,OAAOD,IAAI,KAAKC,KAAK,CAAA;AACvB;;;;"}
