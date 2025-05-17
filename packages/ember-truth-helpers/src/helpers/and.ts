@@ -1,7 +1,7 @@
 import Helper from '@ember/component/helper';
 import truthConvert, {
-  MaybeTruthy,
-  TruthConvert,
+  type MaybeTruthy,
+  type TruthConvert,
 } from '../utils/truth-convert.ts';
 
 type FirstFalsy<T> = T extends [infer Item]

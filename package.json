@@ -1,30 +1,33 @@
 {
   "private": true,
   "repository": "https://github.com/jmurphyau/ember-truth-helpers",
-  "workspaces": [
-    "packages/*"
-  ],
+  "license": "MIT",
+  "author": "",
   "scripts": {
     "build": "pnpm --filter ember-truth-helpers build",
-    "preinstall": "npx only-allow pnpm",
     "lint": "pnpm --filter '*' lint",
     "lint:fix": "pnpm --filter '*' lint:fix",
     "prepare": "pnpm build",
     "release": "release-it",
-    "start": "concurrently 'npm:start:*' --restart-after 5000 --prefix-colors cyan,white,yellow",
+    "start": "concurrently 'pnpm:start:*' --restart-after 5000 --prefixColors auto",
     "start:addon": "pnpm --filter ember-truth-helpers start --no-watch.clearScreen",
     "start:test-app": "pnpm --filter test-app start",
-    "test": "pnpm --filter '*' test:ember"
+    "test": "pnpm --filter '*' test",
+    "test:ember": "pnpm --filter '*' test:ember"
   },
   "devDependencies": {
+    "@glint/core": "^1.2.1",
     "@release-it-plugins/lerna-changelog": "^5.0.0",
     "@release-it-plugins/workspaces": "^4.0.0",
-    "concurrently": "^8.2.0",
+    "concurrently": "^9.1.2",
+    "prettier": "^3.0.3",
+    "prettier-plugin-ember-template-tag": "^2.0.2",
     "release-it": "^15.5.0"
   },
+  "packageManager": "pnpm@10.0.0",
   "volta": {
-    "node": "16.20.0",
-    "pnpm": "8.6.7"
+    "node": "20.19.1",
+    "pnpm": "10.10.0"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
@@ -53,6 +56,5 @@
       "tokenRef": "GITHUB_AUTH"
     },
     "npm": false
-  },
-  "version": "4.0.3"
+  }
 }

@@ -3,3 +3,15 @@
 # will also appear in published NPM packages.
 /README.md
 /LICENSE.md
+
+# compiled output
+dist/
+declarations/
+
+# npm/pnpm/yarn pack output
+*.tgz
+
+# deps & caches
+node_modules/
+.eslintcache
+.prettiercache
