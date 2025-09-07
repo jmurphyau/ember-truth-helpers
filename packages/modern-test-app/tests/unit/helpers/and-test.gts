@@ -37,6 +37,14 @@ module('helper:and', function (hooks) {
     );
   });
 
+  test('undefined list length and boolean', async function (assert) {
+    const arr = undefined;
+
+    await render(<template>[{{and arr.length 1}}]</template>);
+
+    assert.dom().hasText('[]', 'value should be "[]"');
+  });
+
   test('null list length and boolean', async function (assert) {
     const array = null;
 
@@ -62,5 +70,23 @@ module('helper:and', function (hooks) {
     await render(<template>[{{and array.length 2}}]</template>);
 
     assert.dom().hasText('[2]', 'value should be "[2]"');
+  });
+
+  test('it does short-circuit with falsey argument', async function (assert) {
+    const foo = {
+      get bar() {
+        assert.step('get bar');
+        return false;
+      },
+      get baz() {
+        assert.step('get baz');
+        return true;
+      },
+    };
+
+    await render(<template>[{{and foo.bar foo.baz}}]</template>);
+
+    assert.verifySteps(['get bar']);
+    assert.dom().hasText('[false]');
   });
 });
