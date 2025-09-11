@@ -1,18 +1,17 @@
-# See https://help.github.com/ignore-files/ for more about ignoring files.
-
 # compiled output
 dist/
+dist-tests/
 declarations/
+
+# from scenarios
+tmp/
+config/optional-features.json
+ember-cli-build.js
 
 # npm/pnpm/yarn pack output
 *.tgz
 
-# dependencies
+# deps & caches
 node_modules/
-
-# misc
-/.env*
-/.pnp*
-/.pnpm-debug.log
-.DS_Store
 .eslintcache
+.prettiercache

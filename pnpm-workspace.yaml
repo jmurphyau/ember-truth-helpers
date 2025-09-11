@@ -1,2 +1,6 @@
-packages:
-  - 'packages/**'
+peerDependencyRules:
+  ignoreMissing:
+    - webpack
+onlyBuiltDependencies:
+  - core-js
+  - esbuild
