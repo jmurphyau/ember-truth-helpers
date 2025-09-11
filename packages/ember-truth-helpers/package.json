@@ -29,11 +29,10 @@
     "start:js": "rollup --config --watch --no-watch.clearScreen",
     "start:types": "glint --declaration --watch",
     "test": "echo 'A v2 addon does not have tests, run tests in test-app'",
-    "prepack": "rollup --config"
+    "prepack": "pnpm build"
   },
   "dependencies": {
-    "@embroider/addon-shim": "^1.8.6",
-    "ember-functions-as-helper-polyfill": "^2.1.2"
+    "@embroider/addon-shim": "^1.8.6"
   },
   "devDependencies": {
     "@babel/core": "^7.22.9",
