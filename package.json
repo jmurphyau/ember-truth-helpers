@@ -1,48 +1,151 @@
 {
-  "private": true,
+  "name": "ember-truth-helpers",
+  "version": "4.0.3",
+  "description": "Ember Truth Helpers",
+  "keywords": [
+    "ember-addon"
+  ],
   "repository": "https://github.com/jmurphyau/ember-truth-helpers",
-  "workspaces": [
-    "packages/*"
+  "license": "MIT",
+  "author": "James Murphy",
+  "imports": {
+    "#src/*": "./src/*"
+  },
+  "exports": {
+    ".": {
+      "types": "./declarations/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./*.css": "./dist/*.css",
+    "./*": {
+      "types": "./declarations/*.d.ts",
+      "default": "./dist/*.js"
+    },
+    "./addon-main.js": "./addon-main.cjs"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "declarations/*"
+      ]
+    }
+  },
+  "files": [
+    "addon-main.cjs",
+    "declarations",
+    "dist"
   ],
   "scripts": {
-    "build": "pnpm --filter ember-truth-helpers build",
-    "preinstall": "npx only-allow pnpm",
-    "lint": "pnpm --filter '*' lint",
-    "lint:fix": "pnpm --filter '*' lint:fix",
-    "prepare": "pnpm build",
+    "build": "rollup --config",
+    "format": "prettier . --cache --write",
+    "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\" --prefixColors auto",
+    "lint:fix": "concurrently \"pnpm:lint:*:fix\" --names \"fix:\" --prefixColors auto && pnpm run format",
+    "lint:format": "prettier . --cache --check",
+    "lint:hbs": "ember-template-lint . --no-error-on-unmatched-pattern",
+    "lint:hbs:fix": "ember-template-lint . --fix --no-error-on-unmatched-pattern",
+    "lint:js": "eslint . --cache",
+    "lint:js:fix": "eslint . --fix",
+    "lint:types": "glint",
+    "lint:types-tests": "glint --project type-tests",
+    "prepack": "rollup --config",
     "release": "release-it",
-    "start": "concurrently 'npm:start:*' --restart-after 5000 --prefix-colors cyan,white,yellow",
-    "start:addon": "pnpm --filter ember-truth-helpers start --no-watch.clearScreen",
-    "start:test-app": "pnpm --filter test-app start",
-    "test": "pnpm --filter '*' test:ember"
+    "start": "vite dev",
+    "test": "vite build --mode=development --out-dir dist-tests && testem --file testem.cjs ci --port 0"
+  },
+  "dependencies": {
+    "@embroider/addon-shim": "^1.8.9"
   },
   "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@babel/eslint-parser": "^7.25.1",
+    "@babel/plugin-transform-typescript": "^7.25.2",
+    "@babel/runtime": "^7.25.6",
+    "@ember/app-tsconfig": "^1.0.0",
+    "@ember/library-tsconfig": "^1.0.0",
+    "@ember/test-helpers": "^5.2.1",
+    "@ember/test-waiters": "^4.1.1",
+    "@embroider/addon-dev": "^8.1.0",
+    "@embroider/compat": "^4.1.0",
+    "@embroider/core": "^4.1.0",
+    "@embroider/macros": "^1.18.0",
+    "@embroider/vite": "^1.1.5",
+    "@eslint/js": "^9.17.0",
+    "@glimmer/component": "^2.0.0",
+    "@glint/core": "^2.0.0-alpha.5",
+    "@glint/environment-ember-loose": "^2.0.0-alpha.3",
+    "@glint/environment-ember-template-imports": "^2.0.0-alpha.3",
+    "@glint/template": "1.6.0-alpha.2",
+    "@glint/tsserver-plugin": "^2.0.0-alpha.5",
     "@release-it-plugins/lerna-changelog": "^5.0.0",
-    "@release-it-plugins/workspaces": "^4.0.0",
-    "concurrently": "^8.2.0",
-    "release-it": "^15.5.0"
+    "@rollup/plugin-babel": "^6.0.4",
+    "@types/qunit": "^2.19.12",
+    "babel-plugin-ember-template-compilation": "^2.2.5",
+    "concurrently": "^9.0.1",
+    "decorator-transforms": "^2.2.2",
+    "ember-qunit": "^9.0.2",
+    "ember-resolver": "^13.1.0",
+    "ember-source": "^6.3.0",
+    "ember-template-lint": "^7.9.0",
+    "eslint": "^9.17.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-ember": "^12.3.3",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-n": "^17.15.1",
+    "expect-type": "^0.16.0",
+    "globals": "^16.1.0",
+    "prettier": "^3.4.2",
+    "prettier-plugin-ember-template-tag": "^2.0.4",
+    "qunit": "^2.24.1",
+    "qunit-dom": "^3.4.0",
+    "release-it": "^15.5.0",
+    "rollup": "^4.22.5",
+    "testem": "^3.15.1",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.19.1",
+    "vite": "^6.2.4"
   },
+  "packageManager": "pnpm@10.15.1",
   "volta": {
-    "node": "16.20.0",
-    "pnpm": "8.6.7"
+    "node": "22.19.0",
+    "pnpm": "10.15.1"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },
+  "ember": {
+    "edition": "octane"
+  },
+  "ember-addon": {
+    "version": 2,
+    "type": "addon",
+    "main": "addon-main.cjs",
+    "versionCompatibility": {
+      "ember": ">=4.8"
+    },
+    "app-js": {
+      "./helpers/and.js": "./dist/_app_/helpers/and.js",
+      "./helpers/eq.js": "./dist/_app_/helpers/eq.js",
+      "./helpers/gt.js": "./dist/_app_/helpers/gt.js",
+      "./helpers/gte.js": "./dist/_app_/helpers/gte.js",
+      "./helpers/is-array.js": "./dist/_app_/helpers/is-array.js",
+      "./helpers/is-empty.js": "./dist/_app_/helpers/is-empty.js",
+      "./helpers/is-equal.js": "./dist/_app_/helpers/is-equal.js",
+      "./helpers/lt.js": "./dist/_app_/helpers/lt.js",
+      "./helpers/lte.js": "./dist/_app_/helpers/lte.js",
+      "./helpers/not-eq.js": "./dist/_app_/helpers/not-eq.js",
+      "./helpers/not.js": "./dist/_app_/helpers/not.js",
+      "./helpers/or.js": "./dist/_app_/helpers/or.js",
+      "./helpers/xor.js": "./dist/_app_/helpers/xor.js"
+    }
+  },
   "release-it": {
     "hooks": {
-      "before:init": "cp README.md LICENSE.md packages/ember-truth-helpers/",
       "after:bump": "pnpm install"
     },
     "plugins": {
       "@release-it-plugins/lerna-changelog": {
         "infile": "CHANGELOG.md",
         "launchEditor": true
-      },
-      "@release-it-plugins/workspaces": {
-        "workspaces": [
-          "packages/ember-truth-helpers"
-        ]
       }
     },
     "git": {
@@ -53,6 +156,5 @@
       "tokenRef": "GITHUB_AUTH"
     },
     "npm": false
-  },
-  "version": "4.0.3"
+  }
 }

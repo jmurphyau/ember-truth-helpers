@@ -1,0 +1,21 @@
+/**
+ * This tsconfig is not used for publishing.
+ * It's only for the local editing experience
+ * (and linting)
+ */
+{
+  "extends": "@ember/app-tsconfig",
+  "glint": {
+    "environment": ["ember-loose", "ember-template-imports"]
+  },
+  "include": [
+    "src/**/*",
+    "tests/**/*",
+    "type-tests/**/*",
+    "unpublished-development-types/**/*"
+  ],
+  "compilerOptions": {
+    "rootDir": ".",
+    "types": ["ember-source/types", "vite/client", "@embroider/core/virtual"]
+  }
+}
