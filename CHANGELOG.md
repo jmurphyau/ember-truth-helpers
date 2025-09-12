@@ -3,6 +3,32 @@
 
 
 
+
+## v5.0.0 (2025-09-12)
+
+#### :boom: Breaking Change
+* `ember-truth-helpers`
+  * [#213](https://github.com/jmurphyau/ember-truth-helpers/pull/213) Remove dependency on ember-functions-as-helper-polyfill ([@wagenet](https://github.com/wagenet))
+* `modern-test-app`, `test-app`
+  * [#215](https://github.com/jmurphyau/ember-truth-helpers/pull/215) Drop support for Ember.js versions below 4.8 ([@SergeAstapov](https://github.com/SergeAstapov))
+
+#### :bug: Bug Fix
+* `ember-truth-helpers`
+  * [#211](https://github.com/jmurphyau/ember-truth-helpers/pull/211) Remove unneeded peers ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+
+#### :memo: Documentation
+* [#208](https://github.com/jmurphyau/ember-truth-helpers/pull/208) docs: Explicitly show all imports ([@MichalBryxi](https://github.com/MichalBryxi))
+
+#### :house: Internal
+* `ember-truth-helpers`, `modern-test-app`, `test-app`
+  * [#214](https://github.com/jmurphyau/ember-truth-helpers/pull/214) Sync with vite based addon blueprint ([@SergeAstapov](https://github.com/SergeAstapov))
+
+#### Committers: 4
+- Michal Bryxí ([@MichalBryxi](https://github.com/MichalBryxi))
+- Peter Wagenet ([@wagenet](https://github.com/wagenet))
+- Sergey Astapov ([@SergeAstapov](https://github.com/SergeAstapov))
+- [@NullVoxPopuli](https://github.com/NullVoxPopuli)
+
 ## v4.0.3 (2023-09-11)
 
 #### :bug: Bug Fix
