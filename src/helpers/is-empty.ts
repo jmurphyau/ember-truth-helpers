@@ -1,3 +1,20 @@
-import { isEmpty } from '@ember/utils';
+export default function isEmpty(value: unknown): boolean {
+  if (value === null || value === undefined) {
+    return true;
+  }
 
-export default isEmpty;
+  const { size, length } = Object(value) as {
+    size?: unknown;
+    length?: unknown;
+  };
+
+  if (typeof size === 'number') {
+    return !size;
+  }
+
+  if (typeof length === 'number' && typeof value !== 'function') {
+    return !length;
+  }
+
+  return false;
+}
