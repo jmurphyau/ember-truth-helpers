@@ -1,3 +1,4 @@
+import EmberObject from '@ember/object';
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { getDeprecations, render } from '@ember/test-helpers';
@@ -89,5 +90,18 @@ module('helper:isEmpty', function (hooks) {
     await render(<template>{{isEmpty ""}}</template>);
 
     assert.deepEqual(getDeprecations(), []);
+  });
+
+  test('reads through unknownProperty like get()', async function (assert) {
+    class UnknownLength extends EmberObject {
+      unknownProperty(key: string) {
+        return key === 'length' ? 0 : undefined;
+      }
+    }
+    const emptyThroughUnknownProperty = UnknownLength.create();
+
+    await render(<template>[{{isEmpty emptyThroughUnknownProperty}}]</template>);
+
+    assert.dom().hasText('[true]');
   });
 });
