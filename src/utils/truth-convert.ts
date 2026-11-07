@@ -1,4 +1,4 @@
-import { isArray } from '@ember/array';
+import isArray from './is-array.ts';
 
 export type Falsy =
   | { isTruthy: false }

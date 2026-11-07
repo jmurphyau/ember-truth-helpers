@@ -33,4 +33,30 @@ module('helper:isArray', function (hooks) {
     await settled();
     assert.dom().hasText('[true] [true] [true]', 'value should be "[true] [true] [true]"');
   });
+
+  test('array-like values', async function (assert) {
+    const arrayLike = { length: 2 };
+    const notANumber = { length: NaN };
+    const text = 'abc';
+    const map = new Map([['a', 1]]);
+
+    await render(
+      <template>[{{isArray arrayLike}}] [{{isArray notANumber}}] [{{isArray text}}] [{{isArray map}}]</template>,
+    );
+
+    assert.dom().hasText('[true] [false] [false] [false]');
+  });
+
+  test('window and arguments', async function (assert) {
+    const win = window;
+    const args = (function () {
+      // eslint-disable-next-line prefer-rest-params
+      return arguments;
+    })();
+
+    await render(<template>[{{isArray win}}] [{{isArray args}}]</template>);
+
+    assert.dom().hasText('[false] [true]');
+  });
 });
+

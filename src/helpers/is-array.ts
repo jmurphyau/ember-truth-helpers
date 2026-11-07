@@ -1,5 +1,5 @@
-import { isArray as isEmberArray } from '@ember/array';
+import isArrayLike from '../utils/is-array.ts';
 
 export default function isArray(...params: unknown[]) {
-  return params.every(isEmberArray);
+  return params.every(isArrayLike);
 }
