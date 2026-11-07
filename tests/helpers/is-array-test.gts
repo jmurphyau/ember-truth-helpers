@@ -2,7 +2,7 @@ import EmberObject from '@ember/object';
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, settled } from '@ember/test-helpers';
-import { isArray } from '#src/index.ts';
+import { and, isArray } from '#src/index.ts';
 
 module('helper:isArray', function (hooks) {
   setupRenderingTest(hooks);
@@ -58,5 +58,18 @@ module('helper:isArray', function (hooks) {
 
     assert.dom().hasText('[false] [true]');
   });
-});
 
+  test('does not read a missing length', async function (assert) {
+    // A plain read of a missing key on such an object throws in development, like on a proxy.
+    class UnknownProperty extends EmberObject {
+      unknownProperty() {
+        return 0;
+      }
+    }
+    const unknown = UnknownProperty.create();
+
+    await render(<template>[{{isArray unknown}}] [{{and unknown true}}]</template>);
+
+    assert.dom().hasText('[false] [true]');
+  });
+});
