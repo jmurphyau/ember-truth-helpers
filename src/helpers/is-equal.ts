@@ -2,10 +2,8 @@ function hasIsEqual(
   value: unknown,
 ): value is { isEqual(other: unknown): boolean } {
   return (
-    typeof value === 'object' &&
-    value !== null &&
-    'isEqual' in value &&
-    typeof value.isEqual === 'function'
+    Boolean(value) &&
+    typeof (value as { isEqual?: unknown }).isEqual === 'function'
   );
 }
 
