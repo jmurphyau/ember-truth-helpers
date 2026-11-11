@@ -1,4 +1,4 @@
-import { isArray } from '@ember/array';
+import { arrayLength } from './is-array.ts';
 
 export type Falsy =
   | { isTruthy: false }
@@ -92,9 +92,7 @@ export default function truthConvert(result: unknown): boolean {
     return result.isTruthy;
   }
 
-  if (isArray(result)) {
-    return result.length !== 0;
-  } else {
-    return !!result;
-  }
+  const length = arrayLength(result);
+
+  return length === undefined ? !!result : length !== 0;
 }

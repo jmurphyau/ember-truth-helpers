@@ -2,7 +2,7 @@ import EmberObject from '@ember/object';
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, settled } from '@ember/test-helpers';
-import { isArray } from '#src/index.ts';
+import { and, isArray } from '#src/index.ts';
 
 module('helper:isArray', function (hooks) {
   setupRenderingTest(hooks);
@@ -32,5 +32,44 @@ module('helper:isArray', function (hooks) {
     fakeContextObject.set('valueB', []);
     await settled();
     assert.dom().hasText('[true] [true] [true]', 'value should be "[true] [true] [true]"');
+  });
+
+  test('array-like values', async function (assert) {
+    const arrayLike = { length: 2 };
+    const notANumber = { length: NaN };
+    const text = 'abc';
+    const map = new Map([['a', 1]]);
+
+    await render(
+      <template>[{{isArray arrayLike}}] [{{isArray notANumber}}] [{{isArray text}}] [{{isArray map}}]</template>,
+    );
+
+    assert.dom().hasText('[true] [false] [false] [false]');
+  });
+
+  test('window and arguments', async function (assert) {
+    const win = window;
+    const args = (function () {
+      // eslint-disable-next-line prefer-rest-params
+      return arguments;
+    })();
+
+    await render(<template>[{{isArray win}}] [{{isArray args}}]</template>);
+
+    assert.dom().hasText('[false] [true]');
+  });
+
+  test('does not read a missing length', async function (assert) {
+    // A plain read of a missing key on such an object throws in development, like on a proxy.
+    class UnknownProperty extends EmberObject {
+      unknownProperty() {
+        return 0;
+      }
+    }
+    const unknown = UnknownProperty.create();
+
+    await render(<template>[{{isArray unknown}}] [{{and unknown true}}]</template>);
+
+    assert.dom().hasText('[false] [true]');
   });
 });
