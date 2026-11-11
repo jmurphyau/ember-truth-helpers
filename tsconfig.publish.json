@@ -6,9 +6,6 @@
 {
   "extends": "@ember/library-tsconfig",
   "include": ["./src/**/*", "./unpublished-development-types/**/*"],
-  "glint": {
-    "environment": ["ember-loose", "ember-template-imports"]
-  },
   "compilerOptions": {
     "allowJs": true,
     "declarationDir": "declarations",
@@ -25,6 +22,6 @@
     */
     "rootDir": "./src",
 
-    "types": ["ember-source/types"]
+    "types": ["ember-source/types", "@glint/ember-tsc/types"]
   }
 }
